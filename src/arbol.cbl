@@ -1,0 +1,82 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. CURSO-COBOL-PROGFACIL.
+       AUTHOR nombre.
+       DATE-WRITTEN "2018-10-29".
+       DATE-COMPILED "2019-02-15".
+       DATE-MODIFIED "2019-02-15".
+       INSTALLATION "NOMBRE DE LA EMPRESA".
+       SECURITY "ASPECTOS RELACIONADOS A LA SEGURIDAD".
+       REMARKS "COMENTARIO SOBRE EL PROGRAMA".
+       
+
+       ENVIRONMENT DIVISION.
+             CONFIGURATION SECTION.
+                 SPECIAL-NAMES.
+                     DECIMAL-POINT IS COMMA.
+                     SYMBOLIC CHARACTER ESPACIO IS 33.
+                     SYMBOLIC CHARACTER MEDIO ARE 172
+
+             INPUT-OUTPUT SECTION.
+                 SOURCE-COMPUTER.
+                 OBJECT-COMPUTER.
+                 FILE-CONTROL.
+                 I-O CONTROL
+             FILE CONTROL.
+             SELECT.
+             OPTIONAL.
+             ASSIGN TO.
+             ORGANIZATION IS.
+                 SEQUENTIAL.
+                 RELATIVE.
+                 INDEXED.
+                 ACCESS MODE.
+                 RECORD KEY.
+                 ALTERNATE RECORD KEY IS.
+                 WITH DUPLICATES.
+                 FILE STATUS IS.
+
+
+       DATA DIVISION.
+       FILE SECTION.
+           FD NOMBRE_ARCHIVO.
+       WORKING-STORAGE SECTION.
+           77  NUM1 PIC 9(3) VALUE ZEROES.
+           77  NUM2 PIC 9(3) VALUE ZEROES.
+           77  RESULTADO PIC 9(4) VALUE ZEROES.
+           01 SEMANAS REDEFINES DIAS.
+               05 DIA PIC XXX OCCURS 7 TIMES.
+           01  NUMERO-DIAS PIC 99.
+           01  TABLA.
+               05 DIA PIC XXX OCCURS 7 TIMES.
+               05 MES PIC 99  OCCURS 28 TO 31 DEPENDING NUMERO-DIAS.
+               05 OTRA PIC X(5) OCCURS 5 INDEXED BY IN-OTRA.
+           01 NOMBRE PIC X(10) JUST RIGHT.
+           01 NUM-COMP PIC 9(5)V9(2) COMP VALUE 12345,67.
+           01 NUM-COMP3 PIC S9(5)V9(2) COMP-3 VALUE 12345,67.
+           01 NUM-EDIT  PIC Z.ZZZ.ZZ9,99- VALUE -12345.67.
+           01 NUM-EDIT2 PIC -.---.--9,99  VALUE -12345.67
+           01  IMPUESTO_IVA CONSTANT AS 0.06.
+           ADD NUM1 NU2 5 TO RESULTADO.
+           ADD NUM1 NUM2 5 GIVING RESULTADO.
+       LOCAL-STORAGE SECTION.
+       01  LS-CLASE PIC 9(3).
+       LINKAGE SECTION.
+       01  LS-CARNET PIC 9(3).
+       COMMUNICATION SECTION
+       SCREEN  SECTION
+
+
+
+       PROCEDURE DIVISION.
+       MAIN-PROCEDURE.
+           DISPLAY "HELLO WORD".
+           MOVE ALL "
+           STOP RUN.
+       END PROGRAM CURSO-COBOL-PROGFACIL.
+
+
+
+
+
+
+       

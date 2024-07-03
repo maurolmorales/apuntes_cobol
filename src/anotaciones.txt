@@ -1,0 +1,90 @@
+     <ul>
+        <li>
+          <p>
+            <strong> FD (File Description): </strong>La declaración FD se
+            utiliza para describir la estructura de un archivo y sus campos.
+            Define la organización del archivo, la longitud del registro, los
+            campos dentro del registro y otros detalles relacionados con el
+            archivo.
+          </p>
+          <div className="codigo">
+            FD ArchivoClientes <br />
+            RECORDING MODE IS F. <br />
+            DATA RECORD IS ArchivoRegistro. <br />
+            01 ArchivoRegistro. <br />
+            05 NumeroCliente PIC 9(5). <br />
+            05 NombreCliente PIC X(30).
+          </div>
+        </li>
+
+        <li>
+          <strong>DATA RECORD:</strong> La declaración DATA RECORD se utiliza
+          para asociar una estructura de datos (normalmente definida en la DATA
+          DIVISION) con un archivo específico. Esto indica cómo se deben mapear
+          los campos del archivo con la estructura de datos del programa.
+        </li>
+      </ul>
+            <p>
+        <h4>Organización de Archivos:</h4>La ENVIRONMENT DIVISION también
+        permite especificar la organización de los archivos utilizados. Algunos
+        de los modos de organización comunes son: SEQUENTIAL: Los registros se
+        almacenan en el archivo en un orden secuencial y se pueden acceder de
+        manera secuencial. INDEXED: Los registros se almacenan en el archivo y
+        se puede acceder mediante un índice. DIRECT: Los registros se almacenan
+        en el archivo y se pueden acceder directamente utilizando una clave
+        única.
+      </p>
+      <h4>Declaración de Variables y Estructuras de Datos:</h4>
+      Dentro de la DATA DIVISION, se declaran las variables y estructuras de
+      datos que se utilizarán en el programa. COBOL ofrece varios niveles de
+      jerarquía para organizar los datos, lo que permite representar campos
+      individuales, registros y tablas. Algunos de los elementos clave que se
+      pueden definir en la DATA DIVISION incluyen:
+      <p>
+        <strong>Nombres de variables:</strong> Los nombres de las variables
+        deben ser únicos en el ámbito del programa. En COBOL, los nombres de
+        variables son sensibles a mayúsculas y minúsculas y pueden incluir
+        letras, números y guiones bajos (underscores).
+        <div className="codigo">01 NumeroCliente PIC 9(5).</div>
+      </p>
+      <p>
+        <strong>Niveles de jerarquía:</strong> Las variables y estructuras de
+        datos se definen con un nivel de jerarquía, que indica la relación entre
+        los elementos. El nivel 01 se usa para las variables principales,
+        mientras que los niveles 02, 03, etc., se utilizan para las variables
+        secundarias dentro de una estructura.
+        <div className="codigo">
+          <pre>
+            01 RegistroCliente. <br />
+            02 NumeroCliente PIC 9(5). <br />
+            02 NombreCliente PIC X(30).
+          </pre>
+        </div>
+      </p>
+      <p>
+        <strong>Tipos de datos: </strong>COBOL admite una variedad de tipos de
+        datos, incluidos tipos numéricos (INTEGER, DECIMAL), tipos alfanuméricos
+        (ALPHANUMERIC, DISPLAY), tipos de fecha (DATE), tipos de caracteres
+        (CHARACTER), y otros. Los tipos de datos se utilizan para definir el
+        formato y el rango de valores que puede contener una variable.
+        <div className="codigo">
+          01 PrecioProducto PIC 9(5)V9(2). <br />
+          01 DescripcionProducto PICX(100). <br />
+          01 FechaNacimiento PIC 9(8).
+        </div>
+      </p>
+      <p>
+        <h4>Uso de Datos en el PROGRAM-ID</h4>
+        Una vez que se han declarado las variables en la DATA DIVISION, se
+        pueden utilizar en el PROGRAM-ID de la IDENTIFICATION DIVISION o en
+        otras divisiones, como la PROCEDURE DIVISION, para llevar a cabo
+        cálculos, procesamiento y presentación de datos.
+      </p>
+
+
+      -------------------------------------------------------------------------------------------
+Qa Cobol: JIRA, Acciones correctivas y preventivas, Aseguramiento de la calidad, COBOL, Control de calidad, Gestión de la calidad, Job Control Language, Pruebas manuales, Sistemas centrales, Uso del tiempo compartido.
+
+Programador Cobol Cics: Comunicación, Trabajo en equipo, CICS, COBOL, DB2, Marketing
+
+Analista Programador Cobol: Capacidad de análisis, Inglés, Programación, Trabajo en equipo, CICS, COBOL, DB2, Esquema VSAM, Implantation, Implementaciones de sistemas, 
