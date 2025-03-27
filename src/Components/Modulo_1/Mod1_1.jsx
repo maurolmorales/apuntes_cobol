@@ -1,7 +1,7 @@
-const Historia = () => {
+const Mod1_1 = () => {
   return (
-    <section>
-      <h3>1.1. Historia y Contexto de COBOL</h3>
+    <section id="1.1">
+      <h3>Historia y Contexto de COBOL</h3>
       <p>
         COBOL, que significa "Common Business-Oriented Language" {"("}Lenguaje
         Común Orientado a Negocios{")"}, es un lenguaje de programación de alto
@@ -82,4 +82,4 @@ const Historia = () => {
   );
 };
 
-export { Historia };
+export { Mod1_1 };

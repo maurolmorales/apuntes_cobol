@@ -1,7 +1,7 @@
-const Caracteristicas = () => {
+const Mod1_2 = () => {
   return (
-    <section>
-      <h3>1.2. Características Principales de COBOL</h3>
+    <section id="1.2">
+      <h3>Características Principales de COBOL</h3>
       <p>
         COBOL es un lenguaje de programación orientado a negocios que se ha
         utilizado durante décadas en aplicaciones empresariales críticas. Sus
@@ -79,4 +79,4 @@ const Caracteristicas = () => {
   );
 };
 
-export { Caracteristicas };
+export { Mod1_2 };

@@ -1,8 +1,10 @@
 import { Esp } from "../espacio";
-const DeclaracionVariables = () => {
+import Red from "../Colors/Red";
+import Grey from "../Colors/Grey";
+const Mod3_1 = () => {
   return (
-    <section>
-      <h3>3.1. Declaración de Variables en COBOL</h3>
+    <section id="Mod3_1">
+      <h3>Declaración de Variables en COBOL</h3>
       <p>
         En COBOL, la declaración de variables es una parte fundamental para
         definir la estructura de datos que se utilizará en un programa. Las
@@ -30,9 +32,10 @@ const DeclaracionVariables = () => {
         </li>
       </ul>
       <div className="codigo">
-        01 NumeroCliente PIC 9(5). <br />
-        01 NombreCliente PIC X(30). <br />
-        01 SaldoCuenta PIC S9(7)V99.
+        01 NumeroCliente <Red>PIC</Red>
+        <Grey> 9(5)</Grey>. <br />
+        01 NombreCliente <Red>PIC</Red> <Grey>X(30)</Grey>. <br />
+        01 SaldoCuenta <Red>PIC</Red> <Grey>S9(7)V99</Grey>.
       </div>
       <p>
         En el ejemplo anterior, hemos declarado tres variables: NumeroCliente,
@@ -237,8 +240,76 @@ const DeclaracionVariables = () => {
         diferentes tipos de datos y cómo realizar operaciones con estas
         variables.
       </p>
+
+      <h3> 3.1.1 Variables Simples </h3>
+      <p>
+        Las variables simples en COBOL son elementos básicos de almacenamiento
+        que contienen un solo valor. Se declaran en la sección DATA DIVISION del
+        programa y se utilizan para almacenar información como números,
+        caracteres o fechas. Aquí hay una descripción detallada:
+      </p>
+      <div className="codigo">
+        IDENTIFICATION DIVISION. <br />
+        PROGRAM-ID. VariablesSimplesExample. <br />
+        DATA DIVISION. <br />
+        WORKING-STORAGE SECTION. <br />
+        <Esp /> 01 NUMERO-SIMPLE PIC 9(5). <br />
+        <Esp /> 01 NOMBRE-SIMPLE PIC X(20). <br />
+        <Esp /> 01 FECHA-SIMPLE PIC 9(8). <br />
+        PROCEDURE DIVISION. <br />
+        <Esp /> MOVE 12345 TO NUMERO-SIMPLE. <br />
+        <Esp /> MOVE "Ejemplo" TO NOMBRE-SIMPLE. <br />
+        <Esp /> MOVE 20231031 TO FECHA-SIMPLE. <br />
+        <Esp /> DISPLAY "Número: " NUMERO-SIMPLE. <br />
+        <Esp /> DISPLAY "Nombre: " NOMBRE-SIMPLE. <br />
+        <Esp /> DISPLAY "Fecha: " FECHA-SIMPLE. <br />
+        STOP RUN.
+      </div>
+      <p>Descripción de las Variables:</p>
+      <ul>
+        <li>
+          NUMERO-SIMPLE: Una variable numérica simple que puede almacenar hasta
+          5 dígitos enteros.
+        </li>
+        <li>
+          NOMBRE-SIMPLE: Una variable alfanumérica simple que puede almacenar
+          hasta 20 caracteres.
+        </li>
+        <li>
+          FECHA-SIMPLE: Una variable numérica simple utilizada para representar
+          una fecha en formato AAAAMMDD.
+        </li>
+      </ul>
+      <p>Operaciones Comunes con Variables Simples:</p>
+      <ol>
+        <li>
+          Asignación de Valores:
+          <div className="codigo">MOVE 67890 TO NUMERO-SIMPLE.</div>
+        </li>
+        <li>
+          Visualización de Valores:
+          <div className="codigo">DISPLAY "Número: " NUMERO-SIMPLE.</div>
+        </li>
+        <li>
+          Operaciones Aritméticas:
+          <div className="codigo">ADD 100 TO NUMERO-SIMPLE.</div>
+        </li>
+        <li>
+          Manipulación de Cadenas:
+          <div className="codigo">MOVE "NuevoNombre" TO NOMBRE-SIMPLE.</div>
+        </li>
+      </ol>
+      <h3>3.1.2 Variables Compuestas</h3>
+      <p>
+        Las variables compuestas en COBOL son estructuras de datos que pueden
+        contener múltiples elementos individuales llamados "campos" o
+        "subvariables". Estas estructuras permiten agrupar información
+        relacionada en una única entidad. Hay varias formas de declarar
+        variables compuestas en COBOL, y algunas de las más comunes son los
+        registros y las tablas. Declaración de Variables Compuestas:
+      </p>
     </section>
   );
 };
 
-export { DeclaracionVariables };
+export { Mod3_1 };

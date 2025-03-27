@@ -1,7 +1,7 @@
-const VentajasDesventajas = () => {
+const Mod1_3 = () => {
   return (
-    <section>
-      <h3>1.3. Ventajas y Desventajas de COBOL</h3>
+    <section id="1.3">
+      <h3>Ventajas y Desventajas de COBOL</h3>
       <p>
         COBOL ha sido un lenguaje de programación crucial en aplicaciones
         empresariales durante décadas. Sin embargo, como cualquier lenguaje,
@@ -96,4 +96,4 @@ const VentajasDesventajas = () => {
   );
 };
 
-export { VentajasDesventajas };
+export { Mod1_3 };

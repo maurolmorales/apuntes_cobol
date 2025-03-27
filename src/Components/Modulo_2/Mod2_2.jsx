@@ -1,6 +1,6 @@
-const IdentificationDivision = () => {
+const Mod2_2 = () => {
   return (
-    <section>
+    <section id="2.2">
       <h3>IDENTIFICATION DIVISION</h3>
       <p>
         Es la primera división en un programa COBOL y tiene un propósito
@@ -57,4 +57,4 @@ const IdentificationDivision = () => {
   );
 };
 
-export {IdentificationDivision};
+export {Mod2_2};

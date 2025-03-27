@@ -1,7 +1,9 @@
 import { Esp } from "../espacio";
-const EnvironmentDivision = () => {
+import Red from "../Colors/Red";
+import Grey from "../Colors/Grey";
+const Mod2_3 = () => {
   return (
-    <section>
+    <section id="2.3">
       <h3>ENVIRONMENT DIVISION</h3>
       <p>
         Una de las divisiones principales en un programa COBOL y se utiliza para
@@ -31,8 +33,8 @@ const EnvironmentDivision = () => {
               especifica el nombre del fabricante de la computadora y el modelo
               exacto.
               <div className="codigo">
-                OBJECT-COMPUTER. computer-name. <br />
-                MEMORY-SIZE. size.
+                <Red>OBJECT-COMPUTER</Red>. computer-name. <br />
+                <Red>MEMORY-SIZE</Red>. size.
               </div>
             </li>
             <li>
@@ -46,7 +48,7 @@ const EnvironmentDivision = () => {
               procesador y el sistema operativo. Puede especificar el nombre del
               fabricante de la computadora y el modelo exacto.Define el tipo de
               computadora para la cual se está desarrollando el programa COBOL.
-              <div className="codigo">SOURCE-COMPUTER. computer-name.</div>
+              <div className="codigo"><Red>SOURCE-COMPUTER</Red>. computer-name.</div>
             </li>
             <li>
               <strong>REMARKS:</strong> Se utiliza para incluir comentarios
@@ -54,7 +56,7 @@ const EnvironmentDivision = () => {
               información adicional sobre la configuración del sistema,
               requisitos de compilación, etc.
               <div className="codigo">
-                REMARKS. "COMENTARIO SOBRE EL PROGRAMA"
+                <Red>REMARKS</Red>. <Grey>"COMENTARIO SOBRE EL PROGRAMA"</Grey>
               </div>
             </li>
 
@@ -105,20 +107,20 @@ const EnvironmentDivision = () => {
                 </li>
               </ul>
               <div className="codigo">
-                SPECIAL-NAMES. <br />
+                <Red>SPECIAL-NAMES</Red>. <br />
                 <Esp />
-                DECIMAL-POINT IS COMMA. <br />
+                <Red>DECIMAL-POINT IS COMMA</Red>. <br />
                 <Esp />
-                SYMBOLIC CHARACTER ESPACIO IS 33. <br />
+                <Red>SYMBOLIC CHARACTER ESPACIO IS</Red> 33. <br />
                 <Esp />
-                SYMBOLIC CHARACTER MEDIO ARE 172. <br />
+                <Red>SYMBOLIC CHARACTER MEDIO ARE</Red> 172. <br />
                 <Esp />
-                ALPHABET ALFABETO_ESPANOL IS
-                "AÁBCDEÉFGHIÍJKLMNÑOÓPQRSTUÚÜVWXYZ". <br />
+                <Red>ALPHABET ALFABETO_ESPANOL IS</Red>
+                <Grey> "AÁBCDEÉFGHIÍJKLMNÑOÓPQRSTUÚÜVWXYZ"</Grey>. <br />
                 <Esp />
-                NUMERIC IS NUMEROS_DOLARES IS "0123456789.$". <br />
+                <Red>NUMERIC IS NUMEROS_DOLARES IS </Red> <Grey>"0123456789.$"</Grey>. <br />
                 <Esp />
-                CLASS IS LETRAS IS UPPER-LETTERS LOWER-LETTERS.
+                <Red>CLASS IS LETRAS IS UPPER-LETTERS LOWER-LETTERS</Red>.
               </div>
             </li>
           </ul>
@@ -131,29 +133,29 @@ const EnvironmentDivision = () => {
           otros recursos relacionados con la entrada y salida de datos.Uso
           obligatorio si se utilizan archivos externos.
           <div className="codigo">
-            FILE-CONTROL. <br />
+            <Red>FILE-CONTROL</Red>. <br />
             <Esp />
-            SELECT INPUT-FILE ASSIGN TO "input.dat" <br />
-            <Esp />
-            <Esp />
-            ORGANIZATION IS SEQUENTIAL <br />
+            <Red>SELECT INPUT-FILE ASSIGN TO</Red> <Grey>"input.dat"</Grey> <br />
             <Esp />
             <Esp />
-            ACCESS MODE IS SEQUENTIAL <br />
+            <Red>ORGANIZATION IS SEQUENTIAL</Red> <br />
             <Esp />
             <Esp />
-            FILE STATUS IS FS-INPUT. <br /> <br />
-            <Esp />
-            SELECT OUTPUT-FILE ASSIGN TO "output.dat" <br />
+            <Red>ACCESS MODE IS SEQUENTIAL</Red> <br />
             <Esp />
             <Esp />
-            ORGANIZATION IS SEQUENTIAL <br />
+            <Red>FILE STATUS IS FS-INPUT</Red>. <br /> <br />
+            <Esp />
+            <Red>SELECT OUTPUT-FILE ASSIGN TO</Red> <Grey>"output.dat"</Grey> <br />
             <Esp />
             <Esp />
-            ACCESS MODE IS SEQUENTIAL <br />
+            <Red>ORGANIZATION IS SEQUENTIAL</Red> <br />
             <Esp />
             <Esp />
-            FILE STATUS IS FS-OUTPUT.
+            <Red>ACCESS MODE IS SEQUENTIAL</Red> <br />
+            <Esp />
+            <Esp />
+            <Red>FILE STATUS IS FS-OUTPUT</Red>.
           </div>
           <ul>
             <li>
@@ -415,4 +417,4 @@ const EnvironmentDivision = () => {
   );
 };
 
-export { EnvironmentDivision };
+export { Mod2_3 };

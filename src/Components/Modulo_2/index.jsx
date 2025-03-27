@@ -1,8 +1,9 @@
 import { Esp } from "../espacio";
-import { DataDivision } from "./DataDivision";
-import { EnvironmentDivision } from "./EnvironmentDivision";
-import { IdentificationDivision } from "./IdentificationDivision";
-import { ProcedureDivision } from "./ProcedureDivision";
+import Red from "../Colors/Red";
+import { Mod2_2 } from "./Mod2_2";
+import { Mod2_3 } from "./Mod2_3";
+import { Mod2_4 } from "./Mod2_4";
+import { Mod2_5 } from "./Mod2_5";
 const Modulo2 = () => {
   return (
     <article id="modulo-2">
@@ -32,16 +33,16 @@ const Modulo2 = () => {
         funcionalidad del programa. Las principales divisiones son:
       </p>
       <div className="codigo">
-        IDENTIFICATION DIVISION. <br />
-        ENVIRONMENT DIVISION. <br />
-        DATA DIVISION. <br />
-        PROCEDURE DIVISION.
+        <Red>IDENTIFICATION DIVISION</Red>. <br />
+        <Red>ENVIRONMENT DIVISION</Red>. <br />
+        <Red>DATA DIVISION</Red>. <br />
+        <Red>PROCEDURE DIVISION</Red>.
       </div>
       
-      <IdentificationDivision />
-      <EnvironmentDivision />
-      <DataDivision />
-      <ProcedureDivision />
+      <Mod2_2 />
+      <Mod2_3 />
+      <Mod2_4 />
+      <Mod2_5 />
 
       <h4>Uso de Variables y Datos</h4>
       <p>

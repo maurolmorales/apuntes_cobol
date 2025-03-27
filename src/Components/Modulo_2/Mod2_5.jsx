@@ -1,7 +1,9 @@
 import { Esp } from "../espacio";
-const ProcedureDivision = () => {
+import Grey from "../Colors/Grey";
+import Red from "../Colors/Red"
+const Mod2_5 = () => {
   return (
-    <section>
+    <section id="2.5">
       <h3>PROCEDURE DIVISION</h3>
       <p>
         En esta división, se escribe el código principal del programa. Contiene
@@ -26,21 +28,21 @@ const ProcedureDivision = () => {
         determinan cómo se procesan los datos.
       </p>
       <div className="codigo">
-        PROCEDURE DIVISION. <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        DISPLAY "Ingrese el primer número: ". <br />
+        <Red>DISPLAY</Red> <Grey>"Ingrese el primer número: "</Grey>. <br />
         <Esp />
-        ACCEPT Numero1. <br />
+        <Red>ACCEPT</Red> Numero1. <br />
         <Esp />
-        DISPLAY "Ingrese el segundo número: ". <br />
+        <Red>DISPLAY</Red> <Grey>"Ingrese el segundo número: "</Grey>. <br />
         <Esp />
-        ACCEPT Numero2. <br />
+        <Red>ACCEPT</Red> Numero2. <br />
         <Esp />
-        COMPUTE Resultado = Numero1 + Numero2. <br />
+        <Red>COMPUTE</Red> Resultado = Numero1 + Numero2. <br />
         <Esp />
-        DISPLAY "El resultado es: ",Resultado. <br />
+        <Red>DISPLAY</Red> <Grey>"El resultado es: "</Grey>,Resultado. <br />
         <Esp />
-        STOP RUN.
+        <Red>STOP RUN</Red>.
       </div>
       <p>
         En el ejemplo anterior, las instrucciones DISPLAY muestran mensajes en
@@ -60,25 +62,25 @@ const ProcedureDivision = () => {
           condiciones y ejecutar diferentes bloques de código según el
           resultado.
           <div className="codigo">
-            IF Numero1 {">"} Numero2 <br />
+            <Red>IF</Red> Numero1 {">"} Numero2 <br />
             <Esp />
-            DISPLAY "Número 1 es mayor." <br />
-            ELSE <br />
+            <Red>DISPLAY</Red> <Grey>"Número 1 es mayor."</Grey> <br />
+            <Red>ELSE</Red> <br />
             <Esp />
-            DISPLAY "Número 2 es mayor o igual." <br />
-            END-IF.
+            <Red>DISPLAY</Red> <Grey>"Número 2 es mayor o igual."</Grey> <br />
+            <Red>END-IF</Red>.
           </div>
         </li>
         <li>
           <strong>PERFORM:</strong> Se utiliza para realizar bucles y repetir
           bloques de código hasta que se cumpla una condición.
           <div className="codigo">
-            PERFORM 5 TIMES <br />
+            <Red>PERFORM</Red> 5 <Red>TIMES</Red> <br />
             <Esp />
-            DISPLAY "Este es el ciclo número ", contador. <br />
+            <Red>DISPLAY</Red> <Grey>"Este es el ciclo número "</Grey>, contador. <br />
             <Esp />
-            ADD 1 TO contador <br />
-            END-PERFORM.
+            <Red>ADD</Red> 1 <Red>TO</Red> contador <br />
+            <Red>END-PERFORM</Red>.
           </div>
         </li>
         <li>
@@ -86,16 +88,16 @@ const ProcedureDivision = () => {
           múltiples condiciones y ejecutar código basado en el valor de una
           variable.
           <div className="codigo">
-            EVALUATE Numero1 <br />
-            WHEN 0 <br />
+            <Red>EVALUATE</Red> Numero1 <br />
+            <Red>WHEN</Red> 0 <br />
             <Esp />
-            DISPLAY "El número es cero." <br />
-            WHEN 1 <br />
+            <Red>DISPLAY</Red> <Grey>"El número es cero."</Grey> <br />
+            <Red>WHEN</Red> 1 <br />
             <Esp />
-            DISPLAY "El número es uno." <br />
-            WHEN OTHER <br />
+            <Red>DISPLAY</Red> <Grey>"El número es uno."</Grey> <br />
+            <Red>WHEN OTHER </Red> <br />
             <Esp />
-            DISPLAY "El número no escero ni uno." <br />
+            <Red>DISPLAY</Red> <Grey>"El número no escero ni uno."</Grey> <br />
             END-EVALUATE.
           </div>
         </li>
@@ -104,4 +106,4 @@ const ProcedureDivision = () => {
   );
 };
 
-export { ProcedureDivision };
+export { Mod2_5 };

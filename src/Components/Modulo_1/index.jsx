@@ -1,7 +1,7 @@
-import { Historia } from "./Historia";
-import { Caracteristicas } from "./Caracteristicas";
-import { VentajasDesventajas } from "./VentajasDesventajas";
-import { EntornoDesarrollo } from "./EntornoDesarrollo";
+import { Mod1_1 } from "./Mod1_1";
+import { Mod1_2 } from "./Mod1_2";
+import { Mod1_3 } from "./Mod1_3";
+import { Mod1_4 } from "./Mod1_4";
 const Modulo1 = () => {
   return (
     <article id="modulo-1">
@@ -9,10 +9,10 @@ const Modulo1 = () => {
         <h2> Módulo 1: Introducción a COBOL.</h2>
         <a href="#indice">al Indice</a>
       </div>
-      <Historia />
-      <Caracteristicas />
-      <VentajasDesventajas />
-      <EntornoDesarrollo />
+      <Mod1_1 />
+      <Mod1_2 />
+      <Mod1_3 />
+      <Mod1_4 />
     </article>
   );
 };

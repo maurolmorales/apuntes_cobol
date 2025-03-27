@@ -1,7 +1,8 @@
+import Red from "../Colors/Red";
 import { Esp } from "../espacio";
-const DataDivision = () => {
+const Mod2_4 = () => {
   return (
-    <section>
+    <section id="2.4">
       <h3>DATA DIVISION</h3>
       <p>
         Es una de las divisiones fundamentales en un programa COBOL y desempeña
@@ -12,11 +13,11 @@ const DataDivision = () => {
         proporciona una explicación detallada de la DATA DIVISION
       </p>
       <div className="codigo">
-        DATA DIVISION. <br />
+        <Red>DATA DIVISION</Red>. <br />
         <Esp />
-        FILE SECTION. <br />
+        <Red>FILE SECTION</Red>. <br />
         <Esp />
-        FD file-name <br />
+        <Red>FD</Red> file-name <br />
         <Esp />
         <Esp />
         LABEL RECORDS ARE {"STANDARD | OMITTED"} <br />
@@ -208,4 +209,4 @@ const DataDivision = () => {
   );
 };
 
-export { DataDivision };
+export { Mod2_4 };

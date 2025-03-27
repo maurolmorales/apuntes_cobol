@@ -1,7 +1,7 @@
-const EntornoDesarrollo = () => {
+const Mod1_4 = () => {
   return ( 
-    <section>
-       <h3>1.4. Entorno de Desarrollo para COBOL</h3>
+    <section id="1.4">
+       <h3>Entorno de Desarrollo para COBOL</h3>
       <strong>Los programas se clasifican en:</strong>
 
       <ul>
@@ -90,4 +90,4 @@ const EntornoDesarrollo = () => {
    );
 }
  
-export {EntornoDesarrollo} ;
+export {Mod1_4} ;
