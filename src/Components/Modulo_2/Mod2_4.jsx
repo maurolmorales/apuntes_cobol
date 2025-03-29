@@ -22,33 +22,33 @@ const Mod2_4 = () => {
         <Red>FD</Red> file-name <br />
         <Esp />
         <Esp />
-        LABEL RECORDS ARE {"STANDARD | OMITTED"} <br />
+        <Red>LABEL RECORDS ARE</Red> {"STANDARD | OMITTED"} <br />
         <Esp />
         <Esp />
-        RECORDING MODE IS {"F | V | U"} <br />
+        <Red>RECORDING MODE IS</Red> {"F | V | U"} <br />
         <Esp />
         <Esp />
-        RECORD CONTAINS n RECORDS <br />
+        <Red>RECORD CONTAINS n RECORDS</Red> <br />
         <Esp />
         <Esp />
-        BLOCK CONTAINS n RECORDS <br />
+        <Red>BLOCK CONTAINS</Red> n <Red>RECORDS</Red> <br />
         <Esp />
         <Esp />
-        DATA RECORD IS data-record-name <br />
+        <Red>DATA RECORD IS</Red> data-record-name <br />
         <Esp />
         <Esp />
-        LINAGE IS n <br />
+        <Red>LINAGE IS</Red> n <br />
         <Esp />
         <Esp />
-        OMITTED RECORDS ARE OMITTED <br />
+        <Red>OMITTED RECORDS ARE OMITTED</Red> <br />
         <Esp />
         <Esp />
-        VALUE OF FILE-ID IS literal <br />
+        <Red>VALUE OF</Red> FILE-ID <Red>IS</Red> literal <br />
         <Esp />
         01 level-number. <br />
         <Esp />
         <Esp />
-        DATA ITEM clause.
+        <Red>DATA ITEM</Red> clause.
       </div>
       <ul>
         <li>
@@ -130,7 +130,8 @@ const Mod2_4 = () => {
             <Esp />
             01 WS-COUNTER <Red>PIC</Red> 9(3) <Red>VALUE ZEROES</Red>. <br />
             <Esp />
-            01 WS-NAME <Red>PIC</Red> X(20) <Red>VALUE</Red> <Grey>'John Doe'</Grey>. <br />
+            01 WS-NAME <Red>PIC</Red> X(20) <Red>VALUE</Red>{" "}
+            <Grey>'John Doe'</Grey>. <br />
           </div>
           <ul>
             <li>

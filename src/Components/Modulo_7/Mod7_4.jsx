@@ -127,6 +127,7 @@ const Mod7_4 = () => {
         prepararlos para su procesamiento en aplicaciones empresariales y
         sistemas legados escritos en COBOL.
       </p>
+      <hr />
     </section>
   );
 };

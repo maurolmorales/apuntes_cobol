@@ -86,6 +86,7 @@ const Mod1_4 = () => {
         experiencia en COBOL, podrás personalizar tu entorno de desarrollo para
         satisfacer tus necesidades específicas y mejorar tu productividad.
       </p>
+      <hr />
     </section>
    );
 }

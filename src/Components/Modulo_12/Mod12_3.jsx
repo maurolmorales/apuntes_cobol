@@ -83,6 +83,7 @@ const Mod12_3 = () => {
         pueden liberar recursos y centrarse en proyectos y aplicaciones más
         críticos para sus necesidades actuales.
       </p>
+      <hr />
     </section>
   );
 };

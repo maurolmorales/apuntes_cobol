@@ -85,6 +85,7 @@ const Mod10_3 = () => {
         garantizar la continuidad de los sistemas empresariales en un entorno
         tecnológico en constante cambio.
       </p>
+      <hr />
     </section>
   );
 };

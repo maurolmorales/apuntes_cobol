@@ -105,6 +105,7 @@ const Mod2_5 = () => {
           </div>
         </li>
       </ul>
+      <hr />
     </section>
   );
 };

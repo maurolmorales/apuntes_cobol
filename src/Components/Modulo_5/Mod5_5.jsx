@@ -179,6 +179,7 @@ const Mod5_5 = () => {
         particularmente en aplicaciones empresariales donde se requiere acceso
         directo a registros.
       </p>
+      <hr />
     </section>
   );
 };

@@ -126,6 +126,7 @@ const Mod8_3 = () => {
         esenciales para convertirse en un programador COBOL competente y
         resolver errores con confianza.
       </p>
+      <hr />
     </section>
   );
 };

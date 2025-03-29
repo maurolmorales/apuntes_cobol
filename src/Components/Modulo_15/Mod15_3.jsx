@@ -90,6 +90,7 @@ const Mod15_3 = () => {
         migración de aplicaciones COBOL garantiza que haya un flujo constante de
         proyectos y empleos en esta área.
       </p>
+      <hr />
     </section>
   );
 };

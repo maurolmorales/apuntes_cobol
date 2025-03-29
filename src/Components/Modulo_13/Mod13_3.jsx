@@ -121,6 +121,7 @@ const Mod13_3 = () => {
         entre equipos son clave para garantizar un rendimiento óptimo a lo largo
         del tiempo.
       </p>
+      <hr />
     </section>
   );
 };

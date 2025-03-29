@@ -72,6 +72,7 @@ const Mod6_4 = () => {
         efectiva del código en COBOL, lo que resulta en programas más eficientes
         y fáciles de mantener.
       </p>
+      <hr />
     </section>
   );
 };

@@ -113,6 +113,7 @@ const Mod3_5 = () => {
         contexto de aplicaciones empresariales que requieren una manipulación
         precisa de datos.
       </p>
+      <hr />
     </section>
   );
 };

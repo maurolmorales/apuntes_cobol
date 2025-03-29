@@ -4,7 +4,7 @@ import Grey from "../Colors/Grey";
 const Mod3_1 = () => {
   return (
     <section id="Mod3_1">
-      <h3>Declaración de Variables en COBOL</h3>
+      <h3 id="3.1">Declaración de Variables en COBOL</h3>
       <p>
         En COBOL, la declaración de variables es una parte fundamental para
         definir la estructura de datos que se utilizará en un programa. Las
@@ -39,8 +39,8 @@ const Mod3_1 = () => {
         </div>
         <p>
           En el ejemplo anterior, hemos declarado tres variables: NumeroCliente,
-          NombreCliente y SaldoCuenta. Estos nombres siguen las reglas de nombres
-          de variables en COBOL.
+          NombreCliente y SaldoCuenta. Estos nombres siguen las reglas de
+          nombres de variables en COBOL.
         </p>
       </div>
       <h4>El uso de DISPLAY</h4>
@@ -84,9 +84,9 @@ const Mod3_1 = () => {
         el archivo de salida.
       </p>
       <div className="codigo">
-        WRITE DETAIL-RECORD-1 WITH NOT ADVANCING. <br />
-        WRITE DETAIL-RECORD-2 WITH NOT ADVANCING. <br />
-        WRITE DETAIL-RECORD-3. <br />
+        <Red>WRITE</Red> DETAIL-RECORD-1 <Red>WITH NOT ADVANCING</Red>. <br />
+        <Red>WRITE</Red> DETAIL-RECORD-2 <Red>WITH NOT ADVANCING</Red>. <br />
+        <Red>WRITE</Red> DETAIL-RECORD-3. <br />
       </div>
       <h4>El uso de UPON</h4>
       <p>
@@ -242,8 +242,8 @@ const Mod3_1 = () => {
         </div>
         <p>
           En estos ejemplos, hemos utilizado PICTURE para definir el formato de
-          variables que almacenan fechas, números de seguridad social y precios de
-          productos.
+          variables que almacenan fechas, números de seguridad social y precios
+          de productos.
         </p>
       </div>
 
@@ -288,8 +288,8 @@ const Mod3_1 = () => {
         </div>
         <p>
           En estos ejemplos, hemos utilizado PICTURE para definir el formato de
-          variables que almacenan fechas, números de seguridad social y precios de
-          productos.
+          variables que almacenan fechas, números de seguridad social y precios
+          de productos.
         </p>
       </div>
       <h4>Conclusión</h4>

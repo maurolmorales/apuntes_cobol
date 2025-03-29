@@ -89,6 +89,7 @@ const Mod4_3 = () => {
         cálculos, procesar registros y llevar a cabo otras tareas que requieren
         repeticiones controladas.
       </p>
+      <hr />
     </section>
   );
 };

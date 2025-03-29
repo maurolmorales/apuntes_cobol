@@ -99,6 +99,7 @@ const Mod11_3 = () => {
         eficiente y precisa lo convierte en una herramienta valiosa en una
         variedad de sectores.
       </p>
+      <hr />
     </section>
   );
 };

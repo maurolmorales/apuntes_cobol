@@ -82,6 +82,7 @@ const Mod14_3 = () => {
         conformidad puede resultar en sanciones legales, multas y daños a la
         reputación de la organización.
       </p>
+      <hr />
     </section>
   );
 };

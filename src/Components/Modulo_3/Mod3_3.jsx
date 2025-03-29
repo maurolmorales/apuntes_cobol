@@ -1,6 +1,7 @@
 import { Esp } from "../espacio";
 import Red from "../Colors/Red";
 import Grey from "../Colors/Grey";
+import Cuadro from "../Cuadro";
 const Mod3_3 = () => {
   return (
     <section id="3.3">
@@ -19,14 +20,14 @@ const Mod3_3 = () => {
         cláusula PIC seguida de una especificación de tamaño, que indica la
         cantidad de dígitos que puede contener la variable. Se pueden hacer
         operaciones. Máximo desde 18 posiciones hasta 32 bytes (según cada
-        instalación). La Inclusión de signo operacional (S) indica que el número
+        instalación). La Inclusión de signo operacional (<strong>S</strong>) indica que el número
         es con signo (Signed Number). Esto significa que la variable puede
         representar tanto valores positivos como negativos.
       </p>
       <ul>
-        <li>Si no se usa "S", el número es siempre positivo (00000 a 99999)</li>
+        <li>Si no se usa "<strong>S</strong>", el número es siempre positivo (00000 a 99999)</li>
         <li>
-          Si se usa "S", el número puede ser positivo o negativo (-99999 a
+          Si se usa "<strong>S</strong>", el número puede ser positivo o negativo (-99999 a
           99999).
         </li>
       </ul>
@@ -86,7 +87,7 @@ const Mod3_3 = () => {
         <li>Aseguran la correcta alineación en documentos o pantallas.</li>
       </ul>
       <br />
-      <div className="cuadro">
+      <Cuadro data={{gridTemplateColumns:"1fr 5fr 2fr 1fr"}} key={1}>
         <div className="col tCenter">
           <div>Carácter</div>
           <div>
@@ -125,13 +126,17 @@ const Mod3_3 = () => {
           <div>
             <strong>*</strong>
           </div>
+          <div>
+            <strong>/</strong>
+          </div>
         </div>
         <div className="col">
           <div>Descripción</div>
-          <div>Oculta ceros a la izquierda</div>
+          <div>Oculta ceros a la izquierda. Sirve para reemplazar ceros no
+          significativos por blancos.</div>
           <div>Representa un dígito numérico</div>
-          <div>Indica el punto decimal</div>
-          <div>Separa miles</div>
+          <div>Punto unidad de mil (Sist. EEUU: Indica el punto decimal)</div>
+          <div>Coma decimal (Sist. EEUU:  separa los miles "comma separator") </div>
           <div>Representa un espacio en blanco</div>
           <div>Forza la visualización de ceros</div>
           <div>Muestra signo explícito</div>
@@ -139,7 +144,10 @@ const Mod3_3 = () => {
           <div>Muestra el símbolo de moneda</div>
           <div>Indica valores negativos (Contabilidad)</div>
           <div>Similar a CR pero para débitos</div>
-          <div>Rellena con asteriscos en lugar de espacios</div>
+          <div>Rellena con asteriscos en lugar de espacios. Ej:Protege cantidades escritas
+          en los cheques.</div>
+          <div>Inserción de carácter en las
+          posiciones designadas.</div>
         </div>
         <div className="col">
           <div>Ejemplo de Declaración</div>
@@ -155,6 +163,7 @@ const Mod3_3 = () => {
           <div>PIC 999CR con VALUE -45</div>
           <div>PIC 999DB con VALUE -45</div>
           <div>PIC **9.99 con VALUE 5.2</div>
+          <div>PIC 99/99/9999 </div>
         </div>
         <div className="col tCenter">
           <div>Ejemplo de Salida</div>
@@ -170,8 +179,9 @@ const Mod3_3 = () => {
           <div>45CR</div>
           <div>45DB</div>
           <div> **5.20</div>
+          <div>20/03/2025</div>
         </div>
-      </div>
+      </Cuadro>
 
       <h5>Numérico empaquetado (PIC S9(n) COMP-3):</h5>
       <p>
