@@ -15,6 +15,7 @@ import { Modulo12 } from "./Components/Modulo_12";
 import { Modulo13 } from "./Components/Modulo_13";
 import { Modulo14 } from "./Components/Modulo_14";
 import { Modulo15 } from "./Components/Modulo_15";
+import { Apendice } from "./Components/Apendice";
 import { Glosario } from "./Components/glosario";
 import { Ejercicios } from "./Components/ejercicios";
 import "./css/standard.css";
@@ -22,28 +23,28 @@ import "./css/standard.css";
 function App() {
   return (
     <div>
-      <Header/>
-      <Indice/>
-      <Modulo1/>
-      <Modulo2/>
-      <Modulo3/>
-      <Modulo4/>
-      <Modulo5/>
-      <Modulo6/>
-      <Modulo7/>
-      <Modulo8/>
-      <Modulo9/>
-      <Modulo10/>
-      <Modulo11/>
-      <Modulo12/>
-      <Modulo13/>
-      <Modulo14/>
-      <Modulo15/>
-      <Glosario/>
+      <Header />
+      <Indice />
+      <Modulo1 />
+      <Modulo2 />
+      <Modulo3 />
+      <Modulo4 />
+      <Modulo5 />
+      <Modulo6 />
+      <Modulo7 />
+      <Modulo8 />
+      <Modulo9 />
+      <Modulo10 />
+      <Modulo11 />
+      <Modulo12 />
+      <Modulo13 />
+      <Modulo14 />
+      <Modulo15 />
+      <Apendice />
+      <Glosario />
       <Ejercicios />
-      
     </div>
-  )
+  );
 }
 
 export { App };

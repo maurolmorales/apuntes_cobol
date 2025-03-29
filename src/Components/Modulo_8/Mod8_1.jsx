@@ -44,10 +44,10 @@ const Mod8_1 = () => {
         <li>Ejecutar el programa y observar la salida de depuración.</li>
       </ol>
       <div className="codigo">
-        IF Saldo {"<"} 0 <br />
+        <Red>IF</Red> Saldo {"<"} 0 <br />
         <Esp />
-        DISPLAY '¡Error! Saldo negativo: ' Saldo <br />
-        END-IF.
+        <Red>DISPLAY</Red><Grey> '¡Error! Saldo negativo: ' </Grey>Saldo <br />
+        <Red>END-IF</Red>.
       </div>
       <h4>Uso de Herramientas de Depuración Interactiva</h4>
       <p>

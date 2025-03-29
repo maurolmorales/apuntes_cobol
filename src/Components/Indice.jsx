@@ -131,6 +131,12 @@ const Indice = () => {
         </ul>
       </section>
       <section>
+      <a href="#apendice"> <strong>Apendice</strong></a>
+        <ul>
+          <li><a href="#ape1_1">Almacenamiento de Datos en Mainframe</a></li>
+        </ul>
+      </section>
+      <section>
         <a href="#glosario"> <strong>Glosario</strong></a> Listado de palabras reservadas.
       </section>
       <section>

@@ -5,6 +5,14 @@ import { Mod3_3 } from "./Mod3_3";
 import { Mod3_4 } from "./Mod3_4";
 import { Mod3_5 } from "./Mod3_5";
 
+/*
+3.1 Declaración de variables
+3.2 Niveles de jerarquía en COBOL
+3.3 Tipos de datos numéricos
+3.4 Tipos de datos alfanuméricos
+3.5 Manipulación de datos en COBOL
+*/
+
 import { CodigoPre } from "../CodigoPre";
 const Modulo3 = () => {
   return (

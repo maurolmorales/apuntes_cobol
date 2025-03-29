@@ -18,11 +18,11 @@ const Mod4_2 = () => {
         alternativas.
       </p>
       <div className="codigo">
-        IF SaldoCuenta {"<"} 0 <br />
-        <Esp/>  DISPLAY 'Cuenta en números rojos' <br />
-        ELSE <br />
-        <Esp/>DISPLAY 'Cuenta en buen estado' <br />
-        END-IF.
+        <Red>IF</Red> SaldoCuenta {"<"} 0 <br />
+        <Esp/>  <Red>DISPLAY</Red> <Grey>'Cuenta en números rojos'</Grey> <br />
+        <Red>ELSE</Red> <br />
+        <Esp/><Red>DISPLAY</Red> <Grey>'Cuenta en buen estado' </Grey><br />
+        <Red>END-IF</Red>.
       </div>
       <p>
         En este ejemplo, se muestra un mensaje en función del saldo de la
@@ -35,12 +35,12 @@ const Mod4_2 = () => {
         de esas comparaciones.
       </p>
       <div className="codigo">
-        EVALUATE OpcionMenu <br />
-          <Esp/>WHEN '1' DISPLAY 'Seleccionó la opción 1' <br />
-          <Esp/>WHEN '2' DISPLAY 'Seleccionó la opción 2' <br />
-          <Esp/>WHEN '3' DISPLAY 'Seleccionó la opción 3' <br />
-          <Esp/>WHEN OTHER DISPLAY 'Opción no válida' <br />
-        END-EVALUATE.
+        <Red>EVALUATE</Red> OpcionMenu <br />
+          <Esp/><Red>WHEN</Red> <Grey>'1'</Grey> <Red>DISPLAY</Red> <Grey>'Seleccionó la opción 1'</Grey> <br />
+          <Esp/><Red>WHEN</Red> <Grey>'2'</Grey> <Red>DISPLAY</Red> <Grey>'Seleccionó la opción 2'</Grey> <br />
+          <Esp/><Red>WHEN</Red> <Grey>'3'</Grey> <Red>DISPLAY</Red> <Grey>'Seleccionó la opción 3'</Grey> <br />
+          <Esp/><Red>WHEN OTHER DISPLAY</Red> <Grey>'Opción no válida'</Grey> <br />
+        <Red>END-EVALUATE</Red>.
       </div>
       <p>
         En este ejemplo, se evalúa la opción de menú y se muestra un mensaje en
@@ -52,12 +52,12 @@ const Mod4_2 = () => {
         hasta que se cumple una condición.
       </p>
       <div className="codigo">
-        01 Contador PIC 9 VALUE 1. <br /><br />
+        01 Contador <Red>PIC</Red> 9 <Red>VALUE</Red> 1. <br /><br />
 
-        PERFORM UNTIL Contador {">"} 5 <br />
-           <Esp/>DISPLAY 'Iteración ' Contador <br />
-           <Esp/>ADD 1 TO Contador <br />
-        END-PERFORM.
+        <Red>PERFORM UNTIL</Red> Contador {">"} 5 <br />
+           <Esp/><Red>DISPLAY</Red> <Grey>'Iteración '</Grey> Contador <br />
+           <Esp/><Red>ADD</Red> 1 <Red>TO</Red> Contador <br />
+        <Red>END-PERFORM</Red>.
       </div>
       <p>
         En este ejemplo, se muestra un mensaje en cada iteración hasta que el
@@ -70,13 +70,13 @@ const Mod4_2 = () => {
         condiciones.
       </p>
       <div className="codigo">
-        IF Edad {"<"} 18 <br />
-          <Esp/>DISPLAY 'Menor de edad' <br />
-        ELSE <br />
-        <Esp/>IF Edad {"<"} 65 <br />
-        <Esp/><Esp/>DISPLAY 'Adulto' <br />
-        <Esp/>ELSE <br />
-          <Esp/><Esp/>DISPLAY 'Persona mayor' <br />
+        <Red>IF</Red> Edad {"<"} 18 <br />
+          <Esp/><Red>DISPLAY</Red> <Grey>'Menor de edad'</Grey> <br />
+        <Red>ELSE</Red> <br />
+        <Esp/><Red>IF</Red> Edad {"<"} 65 <br />
+        <Esp/><Esp/><Red>DISPLAY</Red> <Grey>'Adulto'</Grey> <br />
+        <Esp/><Red>ELSE</Red> <br />
+          <Esp/><Esp/><Red>DISPLAY</Red> <Grey>'Persona mayor'</Grey> <br />
           <Esp/>END-IF. <br />
         END-IF.
       </div>

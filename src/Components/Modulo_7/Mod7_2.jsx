@@ -18,22 +18,22 @@ const Mod7_2 = () => {
         DIVISION.
       </p>
       <div className="codigo">
-        DATA DIVISION. <br />
-        WORKING-STORAGE SECTION. <br />
+        <Red>DATA DIVISION</Red>. <br />
+        <Red>WORKING-STORAGE SECTION</Red>. <br />
         01 FechaActual. <br />
         <Esp />
-        05 Anio PIC 9(4). <br />
+        05 Anio<Red> PIC</Red> 9(4). <br />
         <Esp />
-        05 Mes PIC 9(2). <br />
+        05 Mes<Red> PIC</Red> 9(2). <br />
         <Esp />
-        05 Dia PIC 9(2). <br /> <br />
+        05 Dia<Red> PIC</Red> 9(2). <br /> <br />
         01 HoraActual. <br />
         <Esp />
-        05 Hora PIC 9(2). <br />
+        05 Hora<Red> PIC</Red> 9(2). <br />
         <Esp />
-        05 Minuto PIC 9(2). <br />
+        05 Minuto<Red> PIC</Red> 9(2). <br />
         <Esp />
-        05 Segundo PIC 9(2).
+        05 Segundo<Red> PIC</Red> 9(2).
       </div>
       <p>
         En este ejemplo, hemos declarado dos variables: FechaActual y
@@ -49,8 +49,8 @@ const Mod7_2 = () => {
         programa COBOL.
       </p>
       <div className="codigo">
-        MOVE FUNCTION CURRENT-DATE TO FechaActual. <br />
-        MOVE FUNCTION CURRENT-TIME TO HoraActual.
+        <Red>MOVE FUNCTION CURRENT-DATE TO</Red> FechaActual. <br />
+        <Red>MOVE FUNCTION CURRENT-TIME TO</Red> HoraActual.
       </div>
       <p>
         En este ejemplo, utilizamos las funciones CURRENT-DATE y CURRENT-TIME
@@ -59,20 +59,19 @@ const Mod7_2 = () => {
       </p>
       <h4>Formateo de Fechas y Horas</h4>
       <p>
-        {" "}
         Una vez que tienes la fecha y la hora en variables, puedes formatearlas
         según tus necesidades. Puedes usar la sentencia MOVE para construir
-        cadenas de fecha y hora en un formato específico.{" "}
+        cadenas de fecha y hora en un formato específico.
       </p>
       <div className="codigo">
-        MOVE Anio TO AnioFormatted. <br />
-        MOVE '/' TO Separator. <br />
-        MOVE Mes TO MesFormatted. <br />
-        MOVE '/' TO Separator. <br />
-        MOVE Dia TO DiaFormatted. <br />
-        MOVE AnioFormatted + Separator + MesFormatted + Separator + DiaFormatted
-        TO FechaFormateada. <br />
-        DISPLAY 'Fecha Formateada: ' FechaFormateada.
+        <Red>MOVE</Red> Anio<Red> TO </Red>AnioFormatted. <br />
+        <Red>MOVE</Red> <Grey>'/'</Grey><Red> TO </Red>Separator. <br />
+        <Red>MOVE</Red> Mes<Red> TO </Red>MesFormatted. <br />
+        <Red>MOVE</Red> <Grey>'/'</Grey> <Red> TO </Red>Separator. <br />
+        <Red>MOVE</Red> Dia<Red> TO </Red>DiaFormatted. <br />
+        <Red>MOVE</Red> AnioFormatted + Separator + MesFormatted + Separator + DiaFormatted
+        <Red> TO </Red>FechaFormateada. <br />
+        <Red>DISPLAY</Red> <Grey>'Fecha Formateada: ' </Grey>FechaFormateada.
       </div>
       <p>
         En este ejemplo, hemos formateado la fecha con el formato "AAAA/MM/DD".

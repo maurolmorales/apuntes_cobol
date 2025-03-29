@@ -35,17 +35,17 @@ const Mod6_4 = () => {
         múltiples lugares.
       </p>
       <div className="codigo">
-        DATA DIVISION. <br /> <br />
-        COPY RegistroCliente. <br /> <br />
-        PROCEDURE DIVISION. <br />
+        <Red>DATA DIVISION</Red>. <br /> <br />
+        <Red>COPY</Red> RegistroCliente. <br /> <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        MOVE 'Juan Pérez' TO NombreCliente. <br />
+        <Red>MOVE</Red> <Grey>'Juan Pérez'</Grey><Red> TO </Red>NombreCliente. <br />
         <Esp />
-        DISPLAY 'Nombre del Cliente: ' NombreCliente. <br /> <br />
+        <Red>DISPLAY</Red> <Grey>'Nombre del Cliente: '</Grey> NombreCliente. <br /> <br />
         <Esp />
-        MOVE 'María Rodríguez' TO NombreCliente. <br />
+        <Red>MOVE</Red><Grey> 'María Rodríguez'</Grey><Red> TO </Red>NombreCliente. <br />
         <Esp />
-        DISPLAY 'Nombre del Cliente: ' NombreCliente.
+        <Red>DISPLAY</Red> <Grey>'Nombre del Cliente: '</Grey> NombreCliente.
       </div>
       <p>
         En este ejemplo, se ha definido una copia del registro RegistroCliente

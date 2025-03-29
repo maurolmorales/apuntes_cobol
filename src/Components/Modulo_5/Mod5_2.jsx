@@ -21,8 +21,8 @@ const Mod5_2 = () => {
         archivo.
       </p>
       <div className="codigo">
-        SELECT ArchivoSecuencial ASSIGN TO 'datos.dat' <br />
-        ORGANIZATION IS SEQUENTIAL.
+        <Red>SELECT</Red> ArchivoSecuencial <Red>ASSIGN TO</Red> <Grey>'datos.dat'</Grey> <br />
+        <Red>ORGANIZATION IS SEQUENTIAL</Red>.
       </div>
       <h4>FD (File Description)</h4>
       <p>
@@ -33,10 +33,10 @@ const Mod5_2 = () => {
         aleatorio o indexado.
       </p>
       <div className="codigo">
-        FD RegistroCliente. <br />
-        01 NumeroCliente PIC 9(5). <br />
-        01 NombreCliente PIC X(30). <br />
-        01 DireccionCliente PIC X(50).
+        <Red>FD</Red> RegistroCliente. <br />
+        01 NumeroCliente <Red>PIC</Red> 9(5). <br />
+        01 NombreCliente <Red>PIC</Red> X(30). <br />
+        01 DireccionCliente <Red>PIC</Red> X(50).
       </div>
       <h4>01-Level Record</h4>
       <p>
@@ -59,18 +59,18 @@ const Mod5_2 = () => {
         a los registros.
       </p>
       <div className="codigo">
-        FD ArchivoAleatorio. <br />
+        <Red>FD</Red> ArchivoAleatorio. <br />
         01 Registro. <br />
         <Esp />
-        02 NumeroEmpleado PIC 9(5). <br />
+        02 NumeroEmpleado <Red>PIC</Red> 9(5). <br />
         <Esp />
-        02 NombreEmpleado PIC X(30). <br />
+        02 NombreEmpleado <Red>PIC</Red> X(30). <br />
         <Esp />
-        02 Departamento PIC X(10). <br />
+        02 Departamento <Red>PIC</Red> X(10). <br />
         <Esp />
-        02 Salario PIC 9(7)V99. <br />
+        02 Salario <Red>PIC</Red> 9(7)V99. <br />
         <Esp />
-        02 KEY IS NumeroEmpleado.
+        02 <Red>KEY IS</Red> NumeroEmpleado.
       </div>
       <h4>Conclusión</h4>
       <p>

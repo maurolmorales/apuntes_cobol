@@ -1,6 +1,6 @@
 import { Esp } from "../espacio";
 import Grey from "../Colors/Grey";
-import Red from "../Colors/Red"
+import Red from "../Colors/Red";
 const Mod2_5 = () => {
   return (
     <section id="2.5">
@@ -27,28 +27,30 @@ const Mod2_5 = () => {
         Las sentencias COBOL en esta división controlan el flujo del programa y
         determinan cómo se procesan los datos.
       </p>
-      <div className="codigo">
-        <Red>PROCEDURE DIVISION</Red>. <br />
-        <Esp />
-        <Red>DISPLAY</Red> <Grey>"Ingrese el primer número: "</Grey>. <br />
-        <Esp />
-        <Red>ACCEPT</Red> Numero1. <br />
-        <Esp />
-        <Red>DISPLAY</Red> <Grey>"Ingrese el segundo número: "</Grey>. <br />
-        <Esp />
-        <Red>ACCEPT</Red> Numero2. <br />
-        <Esp />
-        <Red>COMPUTE</Red> Resultado = Numero1 + Numero2. <br />
-        <Esp />
-        <Red>DISPLAY</Red> <Grey>"El resultado es: "</Grey>,Resultado. <br />
-        <Esp />
-        <Red>STOP RUN</Red>.
+      <div className="twoColums">
+        <div className="codigo">
+          <Red>PROCEDURE DIVISION</Red>. <br />
+          <Esp />
+          <Red>DISPLAY</Red> <Grey>"Ingrese el primer número: "</Grey>. <br />
+          <Esp />
+          <Red>ACCEPT</Red> Numero1. <br />
+          <Esp />
+          <Red>DISPLAY</Red> <Grey>"Ingrese el segundo número: "</Grey>. <br />
+          <Esp />
+          <Red>ACCEPT</Red> Numero2. <br />
+          <Esp />
+          <Red>COMPUTE</Red> Resultado = Numero1 + Numero2. <br />
+          <Esp />
+          <Red>DISPLAY</Red> <Grey>"El resultado es: "</Grey>,Resultado. <br />
+          <Esp />
+          <Red>STOP RUN</Red>.
+        </div>
+        <p>
+          Las instrucciones DISPLAY muestran mensajes en
+          la pantalla, ACCEPT recopila datos del usuario, COMPUTE realiza una
+          operación de suma y el programa se detiene con STOP RUN al final.
+        </p>
       </div>
-      <p>
-        En el ejemplo anterior, las instrucciones DISPLAY muestran mensajes en
-        la pantalla, ACCEPT recopila datos del usuario, COMPUTE realiza una
-        operación de suma y el programa se detiene con STOP RUN al final.
-      </p>
       <h4>Control de Flujo y Toma de Decisiones</h4>
       <p>
         Dentro de la PROCEDURE DIVISION, se pueden utilizar sentencias de
@@ -77,7 +79,8 @@ const Mod2_5 = () => {
           <div className="codigo">
             <Red>PERFORM</Red> 5 <Red>TIMES</Red> <br />
             <Esp />
-            <Red>DISPLAY</Red> <Grey>"Este es el ciclo número "</Grey>, contador. <br />
+            <Red>DISPLAY</Red> <Grey>"Este es el ciclo número "</Grey>,
+            contador. <br />
             <Esp />
             <Red>ADD</Red> 1 <Red>TO</Red> contador <br />
             <Red>END-PERFORM</Red>.
@@ -98,7 +101,7 @@ const Mod2_5 = () => {
             <Red>WHEN OTHER </Red> <br />
             <Esp />
             <Red>DISPLAY</Red> <Grey>"El número no escero ni uno."</Grey> <br />
-            END-EVALUATE.
+            <Red>END-EVALUATE</Red>.
           </div>
         </li>
       </ul>

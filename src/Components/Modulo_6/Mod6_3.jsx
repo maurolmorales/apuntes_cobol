@@ -20,13 +20,13 @@ const Mod6_3 = () => {
         palabra clave PROCEDURE DIVISION seguida de un nombre de procedimiento.
       </p>
       <div className="codigo">
-        PROCEDURE DIVISION. <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        DISPLAY 'Este es un procedimiento'. <br />
+        <Red>DISPLAY </Red><Grey>'Este es un procedimiento'</Grey>. <br />
         <Esp />
-        COMPUTE Resultado = NumeroA + NumeroB. <br />
+        <Red>COMPUTE</Red> Resultado = NumeroA + NumeroB. <br />
         <Esp />
-        DISPLAY 'Resultado: ' Resultado. <br />
+        <Red>DISPLAY </Red><Grey>'Resultado: '</Grey> Resultado. <br />
       </div>
       <p>
         En este ejemplo, se define un procedimiento que muestra un mensaje en
@@ -39,15 +39,15 @@ const Mod6_3 = () => {
         seguida del nombre del procedimiento.
       </p>
       <div className="codigo">
-        PROCEDURE DIVISION. <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        DISPLAY 'Inicio del programa principal'. <br />
+        <Red>DISPLAY </Red><Grey>'Inicio del programa principal'</Grey>. <br />
         <br />
         <Esp />
-        PERFORM MiProcedimiento. <br />
+        <Red>PERFORM</Red> MiProcedimiento. <br />
         <br />
         <Esp />
-        DISPLAY 'Fin del programa principal'. <br />
+        <Red>DISPLAY </Red><Grey>'Fin del programa principal'</Grey>. <br />
       </div>
       <p>
         En este ejemplo, se llama al procedimiento MiProcedimiento desde el
@@ -63,27 +63,27 @@ const Mod6_3 = () => {
         procedimiento.
       </p>
       <div className="codigo">
-        DATA DIVISION. <br /> <br />
-        WORKING-STORAGE SECTION. <br />
-        01 NumeroA PIC 9(3) VALUE 100. <br />
-        01 NumeroB PIC 9(3) VALUE 50. <br />
-        01 Resultado PIC 9(4). <br /> <br />
-        PROCEDURE DIVISION. <br />
+        <Red>DATA DIVISION</Red>. <br /> <br />
+        <Red>WORKING-STORAGE SECTION</Red>. <br />
+        01 NumeroA<Red> PIC </Red>9(3)<Red> VALUE </Red>100. <br />
+        01 NumeroB<Red> PIC </Red>9(3)<Red> VALUE </Red>50. <br />
+        01 Resultado<Red> PIC </Red>9(4). <br /> <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        DISPLAY 'Inicio del programa principal'. <br /> <br />
+        <Red>DISPLAY </Red><Grey>'Inicio del programa principal'</Grey>. <br /> <br />
         <Esp />
-        PERFORM MiProcedimiento. <br /> <br />
+        <Red>PERFORM</Red> MiProcedimiento. <br /> <br />
         <Esp />
-        DISPLAY 'Resultado: ' Resultado. <br />
+        <Red>DISPLAY </Red><Grey>'Resultado: '</Grey> Resultado. <br />
         <Esp />
-        DISPLAY 'Fin del programa principal'. <br /> <br />
+        <Red>DISPLAY </Red><Grey>'Fin del programa principal'</Grey>. <br /> <br />
         MiProcedimiento. <br />
         <Esp />
-        DISPLAY 'Este es un procedimiento'. <br />
+        <Red>DISPLAY </Red><Grey>'Este es un procedimiento'</Grey>. <br />
         <Esp />
-        COMPUTE Resultado = NumeroA + NumeroB. <br />
+        <Red>COMPUTE</Red> Resultado = NumeroA + NumeroB. <br />
         <Esp />
-        DISPLAY 'Resultado en procedimiento: ' Resultado. <br />
+        <Red>DISPLAY </Red><Grey>'Resultado en procedimiento: '</Grey> Resultado. <br />
       </div>
       <p>
         En este ejemplo, el procedimiento MiProcedimiento accede a las variables

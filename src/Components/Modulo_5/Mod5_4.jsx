@@ -17,62 +17,62 @@ const Mod5_4 = () => {
         opción KEY IS.
       </p>
       <div className="codigo">
-        ORGANIZATION IS INDEXED SELECT ArchivoAleatorio ASSIGN TO 'datos.dat'{" "}
+        <Red>ORGANIZATION IS INDEXED SELECT</Red> ArchivoAleatorio <Red>ASSIGN TO</Red> <Grey>'datos.dat'</Grey>{" "}
         <br />
-        ACCESS MODE IS DYNAMIC <br />
-        RECORD KEY IS ClaveRegistro. <br />
-        FD RegistroEmpleado. <br />
-        01 NumeroEmpleado PIC 9(5). <br />
+        <Red>ACCESS MODE IS DYNAMIC</Red> <br />
+        <Red>RECORD KEY IS</Red> ClaveRegistro. <br />
+        <Red>FD</Red> RegistroEmpleado. <br />
+        01 NumeroEmpleado <Red>PIC</Red> 9(5). <br />
         <br />
-        01 NombreEmpleado PIC X(30). <br />
-        01 DepartamentoEmpleado PIC X(10). <br />
-        01 SalarioEmpleado PIC 9(7)V99. <br />
+        01 NombreEmpleado <Red>PIC</Red> X(30). <br />
+        01 DepartamentoEmpleado <Red>PIC</Red> X(10). <br />
+        01 SalarioEmpleado <Red>PIC</Red> 9(7)V99. <br />
         01 RegistroLeido. <br />
         <Esp />
-        COPY RegistroEmpleado. <br />
+        <Red>COPY</Red> RegistroEmpleado. <br />
         <br />
-        PROCEDURE DIVISION. <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        OPEN I-O ArchivoAleatorio. <br />
-        <br />
-        <Esp />
-        MOVE 12345 TO NumeroEmpleado <br />
-        <Esp />
-        READ ArchivoAleatorio <br />
+        <Red>OPEN I-O</Red> ArchivoAleatorio. <br />
         <br />
         <Esp />
+        <Red>MOVE</Red> 12345 <Red>TO</Red> NumeroEmpleado <br />
         <Esp />
-        INVALID KEY <br />
+        <Red>READ</Red> ArchivoAleatorio <br />
+        <br />
+        <Esp />
+        <Esp />
+        <Red>INVALID KEY </Red><br />
         <Esp />
         <Esp />
         <Esp />
-        DISPLAY 'Registro no encontrado' <br />
+        <Red>DISPLAY</Red> 'Registro no encontrado' <br />
         <Esp />
         <Esp />
         NOT INVALID KEY <br />
         <Esp />
         <Esp />
         <Esp />
-        DISPLAY 'Número de Empleado: ' NumeroEmpleado <br />
+        <Red>DISPLAY</Red> <Grey>'Número de Empleado: '</Grey> NumeroEmpleado <br />
         <Esp />
         <Esp />
         <Esp />
-        DISPLAY 'Nombre de Empleado: ' NombreEmpleado <br />
+        <Red>DISPLAY</Red> <Grey>'Nombre de Empleado: '</Grey> NombreEmpleado <br />
         <Esp />
         <Esp />
         <Esp />
-        DISPLAY 'Departamento de Empleado: ' DepartamentoEmpleado <br />
+        <Red>DISPLAY</Red> <Grey>'Departamento de Empleado: '</Grey> DepartamentoEmpleado <br />
         <Esp />
         <Esp />
         <Esp />
-        DISPLAY 'Salario de Empleado: ' SalarioEmpleado <br />
+        <Red>DISPLAY</Red> <Grey>'Salario de Empleado: '</Grey> SalarioEmpleado <br />
         <Esp />
-        END-READ. <br />
+        <Red>END-READ</Red>. <br />
         <br />
         <Esp />
-        CLOSE ArchivoAleatorio.
+        <Red>CLOSE</Red> ArchivoAleatorio.
         <Esp />
-        STOP RUN.
+        <Red>STOP RUN</Red>.
       </div>
       <p>
         En este ejemplo, se abre el archivo indexado y se utiliza la clave
@@ -85,60 +85,60 @@ const Mod5_4 = () => {
         WRITE con la opción KEY IS.
       </p>
       <div className="codigo">
-        SELECT ArchivoAleatorio ASSIGN TO 'datos.dat'
+        <Red>SELECT</Red> ArchivoAleatorio <Red>ASSIGN TO</Red> <Grey>'datos.dat'</Grey>
         <br />
-        ORGANIZATION IS INDEXED
+        <Red>ORGANIZATION IS INDEXED</Red>
         <br />
-        ACCESS MODE IS DYNAMIC
+        <Red>ACCESS MODE IS DYNAMIC</Red>
         <br />
-        RECORD KEY IS ClaveRegistro.
+        <Red>RECORD KEY IS</Red> ClaveRegistro.
         <br />
         <br />
-        FD RegistroEmpleado.
+        <Red>FD</Red> RegistroEmpleado.
         <br />
-        01 NumeroEmpleado PIC 9(5).
+        01 NumeroEmpleado <Red>PIC</Red> 9(5).
         <br />
-        01 NombreEmpleado PIC X(30).
+        01 NombreEmpleado <Red>PIC</Red> X(30).
         <br />
-        01 DepartamentoEmpleado PIC X(10).
+        01 DepartamentoEmpleado <Red>PIC</Red> X(10).
         <br />
-        01 SalarioEmpleado PIC 9(7)V99.
+        01 SalarioEmpleado <Red>PIC</Red> 9(7)V99.
         <br />
         <br />
         01 NuevoRegistro.
         <br />
         <Esp />
-        COPY RegistroEmpleado.
+        <Red>COPY</Red> RegistroEmpleado.
         <br />
         <br />
-        PROCEDURE DIVISION.
-        <br />
-        <Esp />
-        OPEN I-O ArchivoAleatorio.
-        <br />
+        <Red>PROCEDURE DIVISION</Red>.
         <br />
         <Esp />
-        MOVE 54321 TO NumeroEmpleado
-        <br />
-        <Esp />
-        MOVE 'María Rodríguez' TO NombreEmpleado
-        <br />
-        <Esp />
-        MOVE 'Ventas' TO DepartamentoEmpleado
-        <br />
-        <Esp />
-        MOVE 5000.75 TO SalarioEmpleado
+        <Red>OPEN I-O</Red> ArchivoAleatorio.
         <br />
         <br />
         <Esp />
-        WRITE NuevoRegistro.
+        <Red>MOVE</Red> 54321<Red> TO </Red>NumeroEmpleado
+        <br />
+        <Esp />
+        <Red>MOVE</Red> <Grey>'María Rodríguez'</Grey><Red> TO </Red>NombreEmpleado
+        <br />
+        <Esp />
+        <Red>MOVE</Red> <Grey>'Ventas'</Grey><Red> TO </Red>DepartamentoEmpleado
+        <br />
+        <Esp />
+        <Red>MOVE</Red> 5000.75<Red> TO </Red>SalarioEmpleado
         <br />
         <br />
         <Esp />
-        CLOSE ArchivoAleatorio.
+        <Red>WRITE</Red> NuevoRegistro.
+        <br />
         <br />
         <Esp />
-        STOP RUN.
+        <Red>CLOSE</Red> ArchivoAleatorio.
+        <br />
+        <Esp />
+        <Red>STOP RUN</Red>.
       </div>
       <p>
         En este ejemplo, se abre el archivo indexado y se agrega un nuevo
@@ -150,58 +150,58 @@ const Mod5_4 = () => {
         la sentencia REWRITE.
       </p>
       <div className="codigo">
-        SELECT ArchivoAleatorio ASSIGN TO 'datos.dat' <br />
-        ORGANIZATION IS INDEXED <br />
-        ACCESS MODE IS DYNAMIC <br />
-        RECORD KEY IS ClaveRegistro. <br />
+        <Red>SELECT</Red> ArchivoAleatorio <Red>ASSIGN TO</Red> <Grey>'datos.dat'</Grey> <br />
+        <Red>ORGANIZATION IS INDEXED</Red> <br />
+        <Red>ACCESS MODE IS DYNAMIC</Red> <br />
+        <Red>RECORD KEY IS</Red> ClaveRegistro. <br />
         <br />
-        FD RegistroEmpleado. <br />
-        01 NumeroEmpleado PIC 9(5). <br />
-        01 NombreEmpleado PIC X(30). <br />
-        01 DepartamentoEmpleado PIC X(10). <br />
-        01 SalarioEmpleado PIC 9(7)V99. <br />
+        <Red>FD</Red> RegistroEmpleado. <br />
+        01 NumeroEmpleado <Red>PIC</Red> 9(5). <br />
+        01 NombreEmpleado <Red>PIC</Red> X(30). <br />
+        01 DepartamentoEmpleado <Red>PIC</Red> X(10). <br />
+        01 SalarioEmpleado <Red>PIC</Red> 9(7)V99. <br />
         <br />
-        PROCEDURE DIVISION. <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        OPEN I-O ArchivoAleatorio. <br />
-        <br />
-        <Esp />
-        MOVE 12345 TO NumeroEmpleado <br />
-        <Esp />
-        READ ArchivoAleatorio <br />
-        <Esp />
-        <Esp />
-        INVALID KEY <br />
-        <Esp />
-        <Esp />
-        <Esp />
-        DISPLAY 'Registro no encontrado' <br />
-        <Esp />
-        <Esp />
-        NOT INVALID KEY <br />
-        <Esp />
-        <Esp />
-        <Esp />
-        MOVE 'Juan Pérez' TO NombreEmpleado <br />
-        <Esp />
-        <Esp />
-        <Esp />
-        MOVE 'Recursos Humanos' TO DepartamentoEmpleado <br />
-        <Esp />
-        <Esp />
-        <Esp />
-        MOVE 6000.00 TO SalarioEmpleado <br />
-        <Esp />
-        <Esp />
-        <Esp />
-        REWRITE RegistroEmpleado <br />
-        <Esp />
-        END-READ. <br />
+        <Red>OPEN I-O</Red> ArchivoAleatorio. <br />
         <br />
         <Esp />
-        CLOSE ArchivoAleatorio. <br />
+        <Red>MOVE</Red> 12345<Red> TO </Red>NumeroEmpleado <br />
         <Esp />
-        STOP RUN. <br />
+        <Red>READ</Red> ArchivoAleatorio <br />
+        <Esp />
+        <Esp />
+        <Red>INVALID KEY</Red> <br />
+        <Esp />
+        <Esp />
+        <Esp />
+        <Red>DISPLAY</Red><Grey> <Grey>'Registro no encontrado'</Grey></Grey> <br />
+        <Esp />
+        <Esp />
+        <Red>NOT INVALID KEY</Red> <br />
+        <Esp />
+        <Esp />
+        <Esp />
+        <Red>MOVE</Red> <Grey>'Juan Pérez'</Grey><Red> TO </Red>NombreEmpleado <br />
+        <Esp />
+        <Esp />
+        <Esp />
+        <Red>MOVE</Red> <Grey>'Recursos Humanos'</Grey><Red> TO </Red>DepartamentoEmpleado <br />
+        <Esp />
+        <Esp />
+        <Esp />
+        <Red>MOVE</Red> 6000.00<Red> TO </Red>SalarioEmpleado <br />
+        <Esp />
+        <Esp />
+        <Esp />
+        <Red>REWRITE</Red> RegistroEmpleado <br />
+        <Esp />
+        <Red>END-READ</Red>. <br />
+        <br />
+        <Esp />
+        <Red>CLOSE</Red> ArchivoAleatorio. <br />
+        <Esp />
+        <Red>STOP RUN</Red>. <br />
       </div>
       <p>
         En este ejemplo, se abre el archivo indexado, se busca un registro

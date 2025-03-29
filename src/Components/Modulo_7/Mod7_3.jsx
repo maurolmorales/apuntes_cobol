@@ -24,28 +24,28 @@ const Mod7_3 = () => {
         <li>División (/)</li>
       </ul>
       <div className="codigo">
-        DATA DIVISION. <br />
-        WORKING-STORAGE SECTION. <br />
-        01 NumeroA PIC 9(3) VALUE 100. <br />
-        01 NumeroB PIC 9(3) VALUE 50. <br />
-        01 Resultado PIC 9(4). <br /> <br />
-        PROCEDURE DIVISION. <br />
+        <Red>DATA DIVISION</Red>. <br />
+        <Red>WORKING-STORAGE SECTION</Red>. <br />
+        01 NumeroA<Red> PIC </Red>9(3)<Red> VALUE </Red>100. <br />
+        01 NumeroB<Red> PIC </Red>9(3)<Red> VALUE </Red>50. <br />
+        01 Resultado<Red> PIC </Red>9(4). <br /> <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        COMPUTE Resultado = NumeroA + NumeroB. <br />
+        <Red>COMPUTE </Red>Resultado = NumeroA + NumeroB. <br />
         <Esp />
-        DISPLAY 'Suma: ' Resultado. <br /> <br />
+        <Red>DISPLAY </Red><Grey>'Suma: '</Grey> Resultado. <br /> <br />
         <Esp />
-        COMPUTE Resultado = NumeroA - NumeroB. <br />
+        <Red>COMPUTE </Red>Resultado = NumeroA - NumeroB. <br />
         <Esp />
-        DISPLAY 'Resta: ' Resultado. <br /> <br />
+        <Red>DISPLAY </Red><Grey>'Resta: '</Grey> Resultado. <br /> <br />
         <Esp />
-        COMPUTE Resultado = NumeroA * NumeroB. <br />
+        <Red>COMPUTE </Red>Resultado = NumeroA * NumeroB. <br />
         <Esp />
-        DISPLAY 'Multiplicación: ' Resultado. <br /> <br />
+        <Red>DISPLAY </Red><Grey>'Multiplicación: '</Grey> Resultado. <br /> <br />
         <Esp />
-        COMPUTE Resultado = NumeroA / NumeroB. <br />
+        <Red>COMPUTE </Red>Resultado = NumeroA / NumeroB. <br />
         <Esp />
-        DISPLAY 'División: ' Resultado.
+        <Red>DISPLAY </Red><Grey>'División: ' </Grey>Resultado.
       </div>
       <h4>Operaciones Financieras</h4>
       <p>
@@ -55,17 +55,17 @@ const Mod7_3 = () => {
         la aplicación de fórmulas financieras específicas.
       </p>
       <div className="codigo">
-        DATA DIVISION. <br />
-        WORKING-STORAGE SECTION. <br />
-        01 Capital PIC 9(7)V99 VALUE 1000.00. <br />
-        01 TasaInteres PIC 9(4)V99 VALUE 5.25. <br />
-        01 Tiempo PIC 9(3) VALUE 3. <br />
-        01 InteresSimple PIC 9(7)V99. <br /> <br />
-        PROCEDURE DIVISION. <br />
+        <Red>DATA DIVISION</Red>. <br />
+        <Red>WORKING-STORAGE SECTION</Red>. <br />
+        01 Capital<Red> PIC </Red>9(7)V99<Red> VALUE </Red>1000.00. <br />
+        01 TasaInteres<Red> PIC </Red>9(4)V99<Red> VALUE </Red>5.25. <br />
+        01 Tiempo<Red> PIC </Red>9(3)<Red> VALUE </Red>3. <br />
+        01 InteresSimple<Red> PIC </Red>9(7)V99. <br /> <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        COMPUTE InteresSimple = (Capital * TasaInteres * Tiempo) / 100. <br />
+        <Red>COMPUTE </Red>InteresSimple = (Capital * TasaInteres * Tiempo) / 100. <br />
         <Esp />
-        DISPLAY 'Interés Simple: ' InteresSimple.
+        <Red>DISPLAY </Red><Grey>'Interés Simple: ' </Grey>InteresSimple.
       </div>
       <p>
         En este ejemplo, calculamos el interés simple utilizando la fórmula
@@ -80,16 +80,16 @@ const Mod7_3 = () => {
         Floating-Point, y puedes especificar la precisión y la escala.
       </p>
       <div className="codigo">
-        DATA DIVISION. <br />
-        WORKING-STORAGE SECTION. <br />
-        01 PrecioVenta PIC S9(5)V99 VALUE -123.45. <br />
-        01 Cantidad PIC 9(3) VALUE 10. <br />
-        01 TotalVenta PIC 9(7)V99. <br /> <br />
-        PROCEDURE DIVISION. <br />
+        <Red>DATA DIVISION</Red>. <br />
+        <Red>WORKING-STORAGE SECTION</Red>. <br />
+        01 PrecioVenta<Red> PIC </Red>S9(5)V99<Red> VALUE </Red>-123.45. <br />
+        01 Cantidad<Red> PIC </Red>9(3)<Red> VALUE </Red>10. <br />
+        01 TotalVenta<Red> PIC </Red>9(7)V99. <br /> <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        COMPUTE TotalVenta = PrecioVenta * Cantidad. <br />
+        <Red>COMPUTE </Red>TotalVenta = PrecioVenta * Cantidad. <br />
         <Esp />
-        DISPLAY 'Total de Venta: ' TotalVenta.
+        <Red>DISPLAY </Red><Grey>'Total de Venta: '</Grey> TotalVenta.
       </div>
       <p>
         En este ejemplo, PrecioVenta es una variable de tipo Packed-Decimal que

@@ -18,8 +18,8 @@ const Mod5_1 = () => {
         donde los datos se leen y escriben en un orden lineal.
       </p>
       <div className="codigo">
-      SELECT ArchivoSecuencial ASSIGN TO 'datos.dat' <br />
-      ORGANIZATION IS SEQUENTIAL.
+      <Red>SELECT</Red> ArchivoSecuencial <Red>ASSIGN TO</Red> <Grey>'datos.dat'</Grey> <br />
+      <Red>ORGANIZATION IS SEQUENTIAL</Red>.
       </div>
       <h4>Archivos de Acceso Aleatorio</h4>
       <p>
@@ -29,10 +29,10 @@ const Mod5_1 = () => {
         valor clave.
       </p>
       <div className="codigo">
-      SELECT ArchivoAleatorio ASSIGN TO 'datos.dat' <br />
-      <Esp/>ORGANIZATION IS INDEXED <br />
-      <Esp/>ACCESS MODE IS DYNAMIC <br />
-      <Esp/>RECORD KEY IS ClaveRegistro.
+      <Red>SELECT</Red> ArchivoAleatorio <Red>ASSIGN TO</Red> <Grey>'datos.dat'</Grey> <br />
+      <Esp/><Red>ORGANIZATION IS INDEXED</Red> <br />
+      <Esp/><Red>ACCESS MODE IS DYNAMIC</Red> <br />
+      <Esp/><Red>RECORD KEY IS</Red> ClaveRegistro.
       </div>
       <h4>Archivos de Acceso Directo</h4>
       <p>
@@ -42,8 +42,8 @@ const Mod5_1 = () => {
         individuales.
       </p>
       <div className="codigo">
-      SELECT ArchivoDirecto ASSIGN TO 'datos.dat' <br />
-      ORGANIZATION IS RELATIVE.
+      <Red>SELECT</Red> ArchivoDirecto <Red>ASSIGN TO</Red> <Grey>'datos.dat'</Grey> <br />
+      <Red>ORGANIZATION IS RELATIVE</Red>.
       </div>
       <h4>Archivos de Acceso Dinámico</h4>
       <p>
@@ -52,9 +52,9 @@ const Mod5_1 = () => {
         a registros por número de registro en lugar de una clave única.
       </p>
       <div className="codigo">
-        SELECT ArchivoDinamico ASSIGN TO 'datos.dat' <br />
-        ORGANIZATION IS LINE SEQUENTIAL <br />
-        ACCESS MODE IS DYNAMIC.
+        <Red>SELECT</Red> ArchivoDinamico <Red>ASSIGN TO</Red> <Grey>'datos.dat'</Grey> <br />
+        <Red>ORGANIZATION IS LINE SEQUENTIAL</Red> <br />
+        <Red>ACCESS MODE IS DYNAMIC</Red>.
       </div>
       <h4>Conclusión</h4>
       <p>

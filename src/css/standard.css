@@ -149,7 +149,7 @@ h2{
   border-left: 0.7rem solid var(--marron);
   text-shadow: 1px 1px var(--marron);
 } 
-h3{  
+h3{ 
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: underline;
@@ -164,11 +164,22 @@ h4{
   margin-top: 1.5rem;
   margin-bottom: 0.2rem;
 }
-/* h5{} */
+h5{
+  font-size: 1rem;
+  color: saddlebrown;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: 0.2rem;
+}
 /* h6{} */
 /* p{} */
 /* br{} */
-/* hr{}  */
+hr{
+  width: 100%;
+  padding: 2rem 0;
+  border-bottom: 1px solid black;
+} 
 
 /* ------------------------------    Formating      ----------------------------------- */
 /* abbr{} */
@@ -272,7 +283,7 @@ p a {
 ul{ margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.5rem;}
 ol{ margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.5rem;}
 /* ol li{color: red;} */
-ul li { list-style-type: none;}
+ul li { list-style-type: none; }
 ul li::before {  content: '\25B8'; font-size: 1.5rem; padding-right: 0.5rem; }
 ul li li {list-style-type: none;}
 ul li li::before {  content: '\2022'; font-size: 1.5rem; padding-right: 0.5rem; }
@@ -381,8 +392,25 @@ article{
   background-image: linear-gradient(to bottom,rgb(255, 248, 235) , rgb(255, 248, 235), rgb(255, 248, 235),transparent);
 }
 
+.twoColums{
+  padding: 2rem 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column: auto;
+  align-items: center;
+}
 
-
+.cuadro{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.col{display: grid; grid-template-rows: repeat(14, 1fr);}
+.col div{ border: 1px solid grey; align-content: center; padding-left: 1rem;}
+.col div:first-child{background-color: #393939; color: aliceblue; text-align: center; font-weight: bold;}
+.tCenter{ text-align: center;}
 /* ------------------------------    media     --------------------------------- */
 @media print {
   @page {
@@ -391,9 +419,9 @@ article{
   }
 
   /* Estilo para el contenido que se va a imprimir */
-  body {
+  /* body {
     width: 210mm;
     height: 297mm;
-    margin: 0; /* Puedes ajustar los márgenes según tus necesidades */
-  }
+    margin: 0;
+  } */
 }

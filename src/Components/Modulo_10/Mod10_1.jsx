@@ -22,7 +22,7 @@ const Mod10_1 = () => {
         lenguaje externo se realiza a través de convenciones de llamada, como C
         o el estándar de llamada externa de COBOL.
       </p>
-      <div className="codigo">CALL 'C_FUNCTION' USING Argumentos.</div>
+      <div className="codigo"><Red>CALL</Red> <Grey>'C_FUNCTION'</Grey> <Red>USING </Red> Argumentos.</div>
       <h4>2. Uso de Bibliotecas Compartidas (DLL, SO)</h4>
       <p>
         Otra técnica de integración es utilizar bibliotecas compartidas (también

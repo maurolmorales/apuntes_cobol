@@ -18,59 +18,59 @@ const Mod5_3 = () => {
         utiliza la sentencia READ.
       </p>
       <div className="codigo">
-        SELECT ArchivoSecuencial ASSIGN TO 'datos.dat' <br />
-        ORGANIZATION IS SEQUENTIAL. <br /> <br />
-        FD RegistroCliente. <br />
-        01 NumeroCliente PIC 9(5). <br />
-        01 NombreCliente PIC X(30). <br />
-        01 DireccionCliente PIC X(50). <br /> <br />
+        <Red>SELECT</Red> ArchivoSecuencial <Red>ASSIGN TO</Red> <Grey>'datos.dat'</Grey> <br />
+        <Red>ORGANIZATION IS SEQUENTIAL</Red>. <br /> <br />
+        <Red>FD</Red> RegistroCliente. <br />
+        01 NumeroCliente <Red>PIC</Red> 9(5). <br />
+        01 NombreCliente <Red>PIC</Red> X(30). <br />
+        01 DireccionCliente <Red>PIC</Red> X(50). <br /> <br />
         01 RegistroLeido. <br />
         <Esp />
-        COPY RegistroCliente. <br />
+        <Red>COPY</Red> RegistroCliente. <br />
         <br />
-        PROCEDURE DIVISION. <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        OPEN INPUT ArchivoSecuencial. <br />
+        <Red>OPEN INPUT</Red> ArchivoSecuencial. <br />
         <br />
         <Esp />
-        PERFORM UNTIL EOF <br />
+        <Red>PERFORM UNTIL EOF</Red> <br />
         <Esp />
         <Esp />
-        READ ArchivoSecuencial <br />
-        <Esp />
-        <Esp />
-        <Esp />
-        AT END <br />
+        <Red>READ</Red> ArchivoSecuencial <br />
         <Esp />
         <Esp />
         <Esp />
-        <Esp /> MOVE 'Y' TO EOF <br />
+        <Red>AT END</Red> <br />
         <Esp />
         <Esp />
         <Esp />
-        NOT AT END <br />
+        <Esp /> <Red>MOVE</Red> <Grey>'Y'</Grey> <Red>TO EOF</Red> <br />
         <Esp />
         <Esp />
         <Esp />
-        <Esp />
-        DISPLAY 'Número de Cliente: ' NumeroCliente <br />
+        <Red>NOT AT END</Red> <br />
         <Esp />
         <Esp />
         <Esp />
         <Esp />
-        DISPLAY 'Nombre del Cliente: ' NombreCliente <br />
+        <Red>DISPLAY</Red> <Grey>'Número de Cliente: '</Grey> NumeroCliente <br />
         <Esp />
         <Esp />
         <Esp />
         <Esp />
-        DISPLAY 'Dirección del Cliente: ' DireccionCliente <br />
+        <Red>DISPLAY</Red> <Grey>'Nombre del Cliente: '</Grey> NombreCliente <br />
         <Esp />
         <Esp />
-        END-READ <br />
-        END-PERFORM. <br />
+        <Esp />
+        <Esp />
+        <Red>DISPLAY</Red> <Grey>'Dirección del Cliente: '</Grey> DireccionCliente <br />
+        <Esp />
+        <Esp />
+        <Red>END-READ</Red> <br />
+        <Red>END-PERFORM</Red>. <br />
         <br />
-        CLOSE ArchivoSecuencial. <br />
-        STOP RUN.
+        <Red>CLOSE</Red> ArchivoSecuencial. <br />
+        <Red>STOP RUN</Red>.
       </div>
       <p>
         En este ejemplo, se abre el archivo secuencial y se lee registro por
@@ -83,47 +83,47 @@ const Mod5_3 = () => {
         WRITE.
       </p>
       <div className="codigo">
-        SELECT ArchivoSecuencial ASSIGN TO 'datos.dat' <br />
+        <Red>SELECT</Red> ArchivoSecuencial <Red>ASSIGN TO</Red> <Grey>'datos.dat'</Grey> <br />
         <Esp />
-        ORGANIZATION IS SEQUENTIAL. <br />
+        <Red>ORGANIZATION IS SEQUENTIAL</Red>. <br />
         <br />
-        FD RegistroCliente. <br />
-        01 NumeroCliente PIC 9(5). <br />
-        01 NombreCliente PIC X(30). <br />
-        01 DireccionCliente PIC X(50). <br />
+        <Red>FD</Red> RegistroCliente. <br />
+        01 NumeroCliente <Red>PIC</Red> 9(5). <br />
+        01 NombreCliente <Red>PIC</Red> X(30). <br />
+        01 DireccionCliente <Red>PIC</Red> X(50). <br />
         <br />
         01 NuevoRegistro. <br />
         <Esp />
-        COPY RegistroCliente. <br />
+        <Red>COPY</Red> RegistroCliente. <br />
         <br />
-        PROCEDURE DIVISION. <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        OPEN OUTPUT ArchivoSecuencial. <br />
-        <br />
-        <Esp />
-        MOVE 12345 TO NumeroCliente <br />
-        <Esp />
-        MOVE 'Juan Pérez' TO NombreCliente <br />
-        <Esp />
-        MOVE '123 Main St.' TO DireccionCliente <br />
+        <Red>OPEN OUTPUT</Red> ArchivoSecuencial. <br />
         <br />
         <Esp />
-        WRITE NuevoRegistro. <br />
+        <Red>MOVE</Red> 12345 <Red>TO</Red> NumeroCliente <br />
+        <Esp />
+        <Red>MOVE</Red> <Grey>'Juan Pérez'</Grey> <Red>TO</Red> NombreCliente <br />
+        <Esp />
+        <Red>MOVE</Red> <Grey>'123 Main St.'</Grey> <Red>TO</Red> DireccionCliente <br />
         <br />
         <Esp />
-        MOVE 54321 TO NumeroCliente <br />
-        <Esp />
-        MOVE 'María Rodríguez' TO NombreCliente <br />
-        <Esp />
-        MOVE '456 Elm St.' TO DireccionCliente <br />
+        <Red>WRITE</Red> NuevoRegistro. <br />
         <br />
         <Esp />
-        WRITE NuevoRegistro. <br />
+        <Red>MOVE</Red> 54321 <Red>TO</Red> NumeroCliente <br />
+        <Esp />
+        <Red>MOVE</Red> <Grey>'María Rodríguez'</Grey> <Red>TO</Red> NombreCliente <br />
+        <Esp />
+        <Red>MOVE</Red> <Grey>'456 Elm St.'</Grey> <Red>TO</Red> DireccionCliente <br />
         <br />
         <Esp />
-        CLOSE ArchivoSecuencial. <br />
+        <Red>WRITE</Red> NuevoRegistro. <br />
+        <br />
         <Esp />
-        STOP RUN.
+        <Red>CLOSE</Red> ArchivoSecuencial. <br />
+        <Esp />
+        <Red>STOP RUN</Red>.
       </div>
       <p>
         En este ejemplo, se abre el archivo secuencial y se escriben nuevos

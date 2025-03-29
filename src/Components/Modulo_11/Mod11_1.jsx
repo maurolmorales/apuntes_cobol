@@ -23,22 +23,22 @@ const Mod11_1 = () => {
         plazo.
       </p>
       <div className="codigo">
-        IDENTIFICATION DIVISION. <br />
-        PROGRAM-ID. MiAplicacion. <br />
+        <Red>IDENTIFICATION DIVISION</Red>. <br />
+        <Red>PROGRAM-ID</Red>. MiAplicacion. <br />
         <br />
-        DATA DIVISION. <br />
-        WORKING-STORAGE SECTION. <br />
+        <Red>DATA DIVISION</Red>. <br />
+        <Red>WORKING-STORAGE SECTION</Red>. <br />
         01 Datos-Cliente. <br />
         <Esp />
-        05 Nombre PIC X(50). <br />
+        05 Nombre<Red> PIC </Red>X(50). <br />
         <Esp />
-        05 Edad PIC 9(3). <br />
+        05 Edad<Red> PIC </Red>9(3). <br />
         <br />
-        PROCEDURE DIVISION. <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        PERFORM Procesar-Datos <br />
+        <Red>PERFORM</Red> Procesar-Datos <br />
         <Esp />
-        PERFORM Generar-Reporte <br />
+        <Red>PERFORM</Red> Generar-Reporte <br />
         ...
       </div>
       <h4>2. Procesamiento por Lotes y Transaccional</h4>

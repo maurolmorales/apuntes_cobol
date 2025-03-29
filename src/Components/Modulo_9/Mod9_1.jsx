@@ -26,9 +26,9 @@ const Mod9_1 = () => {
         comprensión y el mantenimiento del código.
       </p>
       <div className="codigo">
-        PERFORM Inicializar-Datos <br />
-        PERFORM Procesar-Datos <br />
-        PERFORM Mostrar-Resultados
+        <Red>PERFORM</Red> Inicializar-Datos <br />
+        <Red>PERFORM</Red> Procesar-Datos <br />
+        <Red>PERFORM</Red> Mostrar-Resultados
       </div>
       <h4>2. Secuencia y Control de Flujo</h4>
       <p>
@@ -39,13 +39,13 @@ const Mod9_1 = () => {
         código.
       </p>
       <div className="codigo">
-        IF Saldo {"<"} 0 <br />
+        <Red>IF </Red>Saldo {"<"} 0 <br />
         <Esp />
-        DISPLAY 'Saldo negativo' <br />
-        ELSE <br />
+        <Red>DISPLAY </Red><Grey>'Saldo negativo'</Grey> <br />
+        <Red>ELSE</Red> <br />
         <Esp />
-        DISPLAY 'Saldo positivo' <br />
-        END-IF.
+        <Red>DISPLAY </Red><Grey>'Saldo positivo'</Grey> <br />
+        <Red>END-IF</Red>.
       </div>
       <h4>3. Abstracción de Datos</h4>
       <p>
@@ -56,7 +56,7 @@ const Mod9_1 = () => {
         innecesaria de datos.
       </p>
       <div className="codigo">
-        PERFORM Calcular-Interes (Capital, TasaInteres, Tiempo)
+        <Red>PERFORM</Red> Calcular-Interes (Capital, TasaInteres, Tiempo)
       </div>
       <h4>4. Evitar Estructuras de Control Anidadas en Exceso</h4>
       <p>
@@ -66,12 +66,12 @@ const Mod9_1 = () => {
         subrutinas si es necesario
       </p>
       <div className="codigo">
-        PERFORM UNTIL Contador {">"} 10 <br />
+        <Red>PERFORM UNTIL</Red> Contador {">"} 10 <br />
         <Esp />
-        PERFORM Dentro-Del-Bucle <br />
+        <Red>PERFORM</Red> Dentro-Del-Bucle <br />
         <Esp />
-        ADD 1 TO Contador <br />
-        END-PERFORM.
+        <Red>ADD</Red> 1 <Red>TO</Red> Contador <br />
+        <Red>END-PERFORM</Red>.
       </div>
       <h4>5. Comentarios Significativos</h4>
       <p>
@@ -82,7 +82,7 @@ const Mod9_1 = () => {
       </p>
       <div className="codigo">
         * Este programa calcula el interés simple. <br />
-        IDENTIFICATION DIVISION.
+        <Red>IDENTIFICATION DIVISION</Red>.
       </div>
       <h4>6. Pruebas Unitarias</h4>
       <p>
@@ -91,7 +91,7 @@ const Mod9_1 = () => {
         desarrollar casos de prueba específicos para cada subrutina y verificar
         su funcionamiento antes de la integración.
       </p>
-      <div className="codigo">PERFORM Test-Calcular-Interes</div>
+      <div className="codigo"><Red>PERFORM</Red> Test-Calcular-Interes</div>
       <h4>7. Reutilización de Código</h4>
       <p>
         La reutilización de código es un principio fundamental en la
@@ -100,8 +100,8 @@ const Mod9_1 = () => {
         programa.
       </p>
       <div className="codigo">
-        PERFORM Calcular-Interes <br />
-        PERFORM Calcular-Amortización
+        <Red>PERFORM</Red> Calcular-Interes <br />
+        <Red>PERFORM</Red> Calcular-Amortización
       </div>
 
       <h4>Conclusión</h4>

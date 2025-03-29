@@ -1,4 +1,6 @@
 import { Esp } from "../espacio";
+import Red from "../Colors/Red";
+import Grey from "../Colors/Grey";
 const Mod3_4 = () => {
   return (
     <section id="3.4">
@@ -7,9 +9,9 @@ const Mod3_4 = () => {
         Los tipos de datos alfanuméricos en COBOL se utilizan para representar
         caracteres, texto y cadenas de caracteres. Estos tipos de datos son
         fundamentales para almacenar información de texto, nombres,
-        descripciones y otros datos no numéricos.{" "}
+        descripciones y otros datos no numéricos.
       </p>
-      <h4>ALPHANUMERIC (PIC X):</h4>
+      <h4>Alphanumeric (PIC X):</h4>
       <p>
         El tipo de dato ALPHANUMERIC se utiliza para representar cadenas de
         caracteres alfanuméricos. Puede contener letras, números y caracteres
@@ -17,17 +19,47 @@ const Mod3_4 = () => {
         la cláusula PIC seguida de una especificación de tamaño, que indica la
         cantidad máxima de caracteres que puede contener la variable.
       </p>
-      <div className="codigo">
-        01 NombreCliente PIC X(30). <br />
-        01 DireccionCliente PIC X(50). <br />
-        01 DescripcionProducto PIC X(100).
+      <div className="twoColums">
+        <div className="codigo">
+          01 Ejemplo <Red>PIC</Red> XXXX. <br />
+          01 NombreCliente <Red>PIC</Red> X(30). <br />
+          01 DireccionCliente <Red>PIC</Red> X(50). <br />
+          01 DescripcionProducto <Red>PIC</Red> X(100).
+        </div>
+        <p>
+          En el primer ejemplo, NombreCliente puede contener hasta 30 caracteres
+          alfanuméricos. En el segundo ejemplo, DireccionCliente puede contener
+          hasta 50 caracteres, y en el tercer ejemplo, DescripcionProducto puede
+          contener hasta 100 caracteres.
+        </p>
       </div>
+
+      <h4>Alphabetic (PIC A):</h4>
       <p>
-        En el primer ejemplo, NombreCliente puede contener hasta 30 caracteres
-        alfanuméricos. En el segundo ejemplo, DireccionCliente puede contener
-        hasta 50 caracteres, y en el tercer ejemplo, DescripcionProducto puede
-        contener hasta 100 caracteres.
+        Los tipos de datos alfabéticos permiten almacenar y manipular cadenas de
+        caracteres. Los campos definidos con PIC A solo pueden contener
+        caracteres del alfabeto (A-Z, a-z) y espacios en blanco. Históricamente,
+        PIC A se utilizaba para definir campos que solo contenían letras y
+        espacios, mientras que PIC X permitía una mayor flexibilidad. En la
+        actualidad, PIC X es el formato más utilizado. Solo admite letras y
+        espacios. No permite caracteres especiales ni números. Puede ser menos
+        flexible que PIC X. Está en desuso en muchas implementaciones modernas de
+        COBOL.
       </p>
+      <div className="codigo">
+        <Red>DATA DIVISION</Red>. <br />
+        <Red>WORKING-STORAGE SECTION</Red>. <br />
+        01 NOMBRE <Red>PIC</Red> A(10). <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
+        <Red>BEGIN</Red>. <br />
+        <Esp />
+        <Red>MOVE</Red> <Grey>"PROGRAMAR "</Grey> <Red>TO</Red> NOMBRE. <br />
+        <Esp />
+        <Red>DISPLAY</Red> <Grey>"Contenido: "</Grey> NOMBRE. <br />
+        <Esp />
+        <Red>STOP RUN</Red>.
+      </div>
+
       <h4>Fecha (PIC 9(6) COMP-3):</h4>
       <p>
         Se utiliza para almacenar fechas en formato YYMMDD. Cada parte
@@ -38,20 +70,33 @@ const Mod3_4 = () => {
         la variable es de 6 dígitos. Además, al utilizar COMP-3, la variable se
         almacena de manera comprimida para ahorrar espacio de almacenamiento.
       </p>
-      <div className="codigo">01 FECHA-DE-NACIMIENTO PIC 9(6) COMP-3.</div>
+      <div className="codigo">
+        01 FECHA-DE-NACIMIENTO <Red>PIC</Red> 9(6) COMP-3.
+      </div>
       <h4>Carácter especial (PIC X(n) SPECIAL CHARACTER):</h4>
       <p>
         Se utiliza para almacenar caracteres especiales como símbolos o
         caracteres extendidos. Ejemplo: PIC X(5) SPECIAL CHARACTER define una
         variable de caracteres especiales de longitud 5.
       </p>
+
       <h4>Inicializar Variables</h4>
+
+      <h5>Constantes Figurativas</h5>
+      <p>
+        Son constantes predefinidas de COBOL que pueden usarse en cualquier
+        parte de la WORKING STORAGE SECTION o de la PROCEDURE DIVISION para
+        darle valor a un campo. Son palabras reservadas que tienen un valor
+        constante.
+      </p>
+
       <ul>
         <li>
           <strong>SPACE o SPACES</strong>: Se refiere al carácter espacio en
-          blanco. Puede ser utilizado para inicializar variables alfanuméricas
-          con espacios en blanco. Por ejemplo, MOVE SPACES TO NOMBRE asigna
-          espacios en blanco a la variable NOMBRE.
+          blanco. Asigna espacios a un campo no numérico. Puede ser utilizado
+          para inicializar variables alfanuméricas con espacios en blanco. Por
+          ejemplo, MOVE SPACES TO NOMBRE asigna espacios en blanco a la variable
+          NOMBRE.
         </li>
 
         <li>
@@ -86,14 +131,55 @@ const Mod3_4 = () => {
           LOW-VALUES TO CADENA asigna el valor más bajo posible a la variable
           CADENA.
         </li>
-      </ul>
 
-      <p>
-        En el primer ejemplo, MensajeBienvenida puede contener un mensaje de
-        bienvenida con hasta 40 caracteres legibles. En el segundo ejemplo,
-        ErrorMensaje puede contener un mensaje de error con hasta 80 caracteres
-        legibles.
-      </p>
+        <li>
+          <strong>ALL</strong> "literal": Representa una repetición del literal
+          especificado. Se usa para llenar un campo con un valor repetido.
+        </li>
+
+        <li>
+          <strong>SYMBOLIC CHARACTERS</strong>: Definidos en la cláusula
+          SPECIAL-NAMES, permiten asignar nombres a caracteres especiales.
+          <div className="codigo">
+            <Red>SPECIAL-NAMES</Red>. <br />
+            <Esp />
+            <Red>SYMBOLIC CHARACTERS EURO IS X</Red>
+            <Grey>'20AC'</Grey>.
+          </div>
+        </li>
+      </ul>
+      <br />
+
+      <p>Ejemplo de uso de constantes figurativas en COBOL:</p>
+      <div className="codigo">
+        <Red>DATA DIVISION</Red>. <br />
+        <Red>WORKING-STORAGE SECTION</Red>. <br />
+        01 NOMBRE <Red>PIC</Red> X(20). <br />
+        01 MONTO <Red>PIC</Red> 9(5)V99. <br />
+        01 DELIMITADOR <Red>PIC</Red> X. <br />
+        01 FIN-REGISTRO <Red>PIC</Red> X(1). <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
+        <Red>BEGIN</Red>. <br />
+        <Esp />
+        <Red>MOVE SPACES TO</Red> NOMBRE. <br />
+        <Esp />
+        <Red>MOVE ZEROS TO</Red> MONTO. <br />
+        <Esp />
+        <Red>MOVE QUOTE TO</Red> DELIMITADOR. <br />
+        <Esp />
+        <Red>MOVE HIGH-VALUES TO</Red> FIN-REGISTRO. <br />
+        <Esp />
+        <Red>DISPLAY</Red> <Grey>"Nombre: "</Grey> NOMBRE. <br />
+        <Esp />
+        <Red>DISPLAY</Red> <Grey>"Monto: "</Grey> MONTO. <br />
+        <Esp />
+        <Red>DISPLAY</Red> <Grey>"Delimitador: "</Grey> DELIMITADOR. <br />
+        <Esp />
+        <Red>DISPLAY</Red> <Grey>"Fin Registro: "</Grey> FIN-REGISTRO. <br />
+        <Esp />
+        <Red>STOP RUN</Red>.
+      </div>
+
       <h4>Uso de OCCURS y REDEFINES</h4>
       <p>
         En COBOL, se pueden utilizar cláusulas como OCCURS y REDEFINES para
@@ -107,9 +193,9 @@ const Mod3_4 = () => {
         </li>
       </ul>
       <div className="codigo">
-        01 TelefonoClientes OCCURS 10 TIMES. <br />
+        01 TelefonoClientes <Red>OCCURS</Red> 10 <Red>TIMES</Red>. <br />
         <Esp />
-        02 NumeroTelefono PIC 9(10).
+        02 NumeroTelefono <Red>PIC</Red> 9(10).
       </div>
       <p>
         En este ejemplo, TelefonoClientes es un arreglo de 10 elementos, cada
@@ -124,12 +210,12 @@ const Mod3_4 = () => {
       <div className="codigo">
         01 DetalleProducto. <br />
         <Esp />
-        02 CodigoProducto PIC X(10). <br />
+        02 CodigoProducto <Red>PIC</Red> X(10). <br />
         <Esp />
-        02 PrecioProducto PIC 9(5)V99. <br />
-        01 InformacionAdicional REDEFINES DetalleProducto. <br />
+        02 PrecioProducto <Red>PIC</Red> 9(5)V99. <br />
+        01 InformacionAdicional <Red>REDEFINES</Red> DetalleProducto. <br />
         <Esp />
-        02 CodigoBarra PIC X(12).
+        02 CodigoBarra <Red>PIC</Red> X(12).
       </div>
       <p>
         En este ejemplo, InformacionAdicional reorganiza los datos de
@@ -150,9 +236,8 @@ const Mod3_4 = () => {
         </li>
         <div className="codigo">
           01 NOMBRE-REGISTRO. <br />
-          <Esp /> 05 NOMBRE PIC X(30). <br />
-          <Esp />
-          05 APELLIDO PIC X(30). <br />
+          <Esp /> 05 NOMBRE <Red>PIC</Red> X(30). <br />
+          <Esp /> 05 APELLIDO <Red>PIC</Red> X(30). <br />
         </div>
 
         <li>
@@ -166,13 +251,13 @@ const Mod3_4 = () => {
         <div className="codigo">
           01 TABLA-NOMBRES. <br />
           <Esp />
-          05 NOMBRE-REGISTRO OCCURS 100 TIMES. <br />
+          05 NOMBRE-REGISTRO <Red>OCCURS</Red> 100 <Red>TIMES</Red>. <br />
           <Esp />
           <Esp />
-          10 NOMBRE PIC X(30). <br />
+          10 NOMBRE <Red>PIC</Red> X(30). <br />
           <Esp />
           <Esp />
-          10 APELLIDO PIC X(30). <br />
+          10 APELLIDO <Red>PIC</Red> X(30). <br />
         </div>
         <li>
           <strong>Acceder y manipular la tabla:</strong>
@@ -183,63 +268,64 @@ const Mod3_4 = () => {
           necesario en tu programa.
         </li>
         <div className="codigo">
-          IDENTIFICATION DIVISION. <br />
-          PROGRAM-ID. EJEMPLO-TABLA. <br /> <br />
-          DATA DIVISION. <br />
-          WORKING-STORAGE SECTION. <br />
+          <Red>IDENTIFICATION DIVISION</Red>. <br />
+          <Red>PROGRAM-ID</Red>. <Red>EJEMPLO-TABLA</Red>. <br /> <br />
+          <Red>DATA DIVISION</Red>. <br />
+          <Red>WORKING-STORAGE SECTION</Red>. <br />
           01 NOMBRE-REGISTRO. <br />
           <Esp />
-          05 NOMBRE PIC X(30). <br />
+          05 NOMBRE <Red>PIC</Red> X(30). <br />
           <Esp />
-          05 APELLIDO PIC X(30). <br /> <br />
+          05 APELLIDO <Red>PIC</Red> X(30). <br /> <br />
           01 TABLA-NOMBRES. <br />
           <Esp />
-          05 NOMBRE-REGISTRO OCCURS 100 TIMES. <br />
+          05 NOMBRE-REGISTRO <Red>OCCURS</Red> 100 <Red>TIMES</Red>. <br />
           <Esp />
           <Esp />
-          10 NOMBRE PIC X(30). <br />
+          10 NOMBRE <Red>PIC</Red> X(30). <br />
           <Esp />
           <Esp />
-          10 APELLIDO PIC X(30). <br /> <br />
-          PROCEDURE DIVISION. <br />
+          10 APELLIDO <Red>PIC</Red> X(30). <br /> <br />
+          <Red>PROCEDURE DIVISION</Red>. <br />
           <Esp />
-          PERFORM VACIAR-TABLA <br />
+          <Red>PERFORM</Red> VACIAR-TABLA <br />
           <Esp />
-          PERFORM LLENAR-TABLA <br />
+          <Red>PERFORM</Red> LLENAR-TABLA <br />
           <Esp />
-          PERFORM MOSTRAR-TABLA <br />
+          <Red>PERFORM</Red> MOSTRAR-TABLA <br />
           <Esp />
-          STOP RUN. <br /> <br />
+          <Red>STOP RUN</Red>. <br /> <br />
           VACIAR-TABLA. <br />
           <Esp />
-          INITIALIZE TABLA-NOMBRES. <br /> <br />
+          <Red>INITIALIZE</Red> TABLA-NOMBRES. <br /> <br />
           LLENAR-TABLA. <br />
           <Esp />
-          MOVE 'Juan' TO NOMBRE-REGISTRO(1). // Asigna 'Juan' al primer elemento{" "}
-          <br />
+          <Red>MOVE</Red> <Grey>'Juan'</Grey> <Red>TO</Red> NOMBRE-REGISTRO(1).
+          // Asigna 'Juan' al primer elemento <br />
           <Esp />
-          MOVE 'Perez' TO APELLIDO(1). // Asigna 'Perez' al primer elemento{" "}
-          <br />
+          <Red>MOVE</Red> <Grey>'Perez'</Grey> <Red>TO</Red> APELLIDO(1). //
+          Asigna 'Perez' al primer elemento <br />
           <Esp />
-          MOVE 'Maria' TO NOMBRE-REGISTRO(2). // Asigna 'Maria' al segundo
-          elemento <br />
+          <Red>MOVE</Red> <Grey>'Maria'</Grey> <Red>TO</Red> NOMBRE-REGISTRO(2).
+          // Asigna 'Maria' al segundo elemento <br />
           <Esp />
-          MOVE 'Gomez' TO APELLIDO(2). // Asigna 'Gomez' al segundo elemento{" "}
-          <br />
+          <Red>MOVE</Red> <Grey>'Gomez'</Grey> <Red>TO</Red> APELLIDO(2). //
+          Asigna 'Gomez' al segundo elemento <br />
           ... // Continuar llenando la tabla <br /> <br />
           MOSTRAR-TABLA. <br />
           <Esp />
-          DISPLAY 'Tabla de nombres:' <br />
+          <Red>DISPLAY</Red> <Grey>'Tabla de nombres:'</Grey> <br />
           <Esp />
-          PERFORM VARYING I FROM 1 BY 1 UNTIL I {"> "}100 <br />
-          <Esp />
-          <Esp />
-          DISPLAY 'Nombre: ' NOMBRE-REGISTRO(I) <br />
+          <Red>PERFORM</Red> <Red>VARYING</Red> I <Red>FROM</Red> 1{" "}
+          <Red>BY</Red> 1 <Red>UNTIL</Red> I {"> "}100 <br />
           <Esp />
           <Esp />
-          DISPLAY 'Apellido: ' APELLIDO(I) <br />
+          <Red>DISPLAY</Red> <Grey>'Nombre: '</Grey> NOMBRE-REGISTRO(I) <br />
           <Esp />
-          END-PERFORM. <br />
+          <Esp />
+          <Red>DISPLAY</Red> <Grey>'Apellido: '</Grey> APELLIDO(I) <br />
+          <Esp />
+          <Red>END-PERFORM</Red>. <br />
           <br />
         </div>
       </ol>
@@ -306,7 +392,7 @@ const Mod3_4 = () => {
           de hasta 4 dígitos en formato binario.
         </li>
         <div className="codigo">
-          01 NUM-COMP PIC 9(5)V9(2) COMP VALUE 12345,67.
+          01 NUM-COMP <Red>PIC</Red> 9(5)V9(2) COMP <Red>VALUE</Red> 12345,67.
         </div>
         <li>
           <strong>COMP-3:</strong>
@@ -323,7 +409,8 @@ const Mod3_4 = () => {
           dígitos decimales en formato binario comprimido.
         </li>
         <div className="codigo">
-          01 NUM-COMP3 PIC S9(5)V9(2) COMP-3 VALUE 12345,67.
+          01 NUM-COMP3 <Red>PIC</Red> S9(5)V9(2) COMP-3 <Red>VALUE</Red>{" "}
+          12345,67.
         </div>
       </ul>
       <h4>Variables de Edición</h4>
@@ -379,8 +466,9 @@ const Mod3_4 = () => {
         </li>
       </ul>
       <div className="codigo">
-        01 NUM-EDIT PIC Z.ZZZ.ZZ9,99- VALUE -12345.67. <br />
-        01 NUM-EDIT2 PIC -.---.--9,99 VALUE -12345.67
+        01 NUM-EDIT <Red>PIC</Red> Z.ZZZ.ZZ9,99- <Red>VALUE</Red> -12345.67.{" "}
+        <br />
+        01 NUM-EDIT2 <Red>PIC</Red> -.---.--9,99 <Red>VALUE</Red> -12345.67
       </div>
       <h4>El uso de la Cláusula USAGE</h4>
       <p>

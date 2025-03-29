@@ -1,4 +1,6 @@
 import Red from "../Colors/Red";
+import Grey from "../Colors/Grey";
+
 import { Esp } from "../espacio";
 const Mod2_4 = () => {
   return (
@@ -122,13 +124,13 @@ const Mod2_4 = () => {
           diferentes ejecuciones del programa; se inicializan cada vez que se
           ejecuta el programa.
           <div className="codigo">
-            DATA DIVISION. <br />
+            <Red>DATA DIVISION</Red>. <br />
             <Esp />
-            WORKING-STORAGE SECTION. <br />
+            <Red>WORKING-STORAGE SECTION</Red>. <br />
             <Esp />
-            01 WS-COUNTER PIC 9(3) VALUE ZEROES. <br />
+            01 WS-COUNTER <Red>PIC</Red> 9(3) <Red>VALUE ZEROES</Red>. <br />
             <Esp />
-            01 WS-NAME PIC X(20) VALUE 'John Doe'. <br />
+            01 WS-NAME <Red>PIC</Red> X(20) <Red>VALUE</Red> <Grey>'John Doe'</Grey>. <br />
           </div>
           <ul>
             <li>

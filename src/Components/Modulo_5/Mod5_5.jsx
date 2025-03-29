@@ -19,51 +19,51 @@ const Mod5_5 = () => {
         COBOL.
       </p>
       <div className="codigo">
-        SELECT ArchivoDirecto ASSIGN TO 'datos.dat' <br />
-        ORGANIZATION IS RELATIVE. <br />
+        <Red>SELECT </Red>ArchivoDirecto <Red>ASSIGN<Red> TO </Red></Red><Grey>'datos.dat'</Grey> <br />
+        <Red>ORGANIZATION IS RELATIVE</Red>. <br />
         <br />
-        FD RegistroProducto. <br />
-        01 CodigoProducto PIC 9(5). <br />
-        01 NombreProducto PIC X(30). <br />
-        01 PrecioProducto PIC 9(7)V99. <br />
+        <Red>FD </Red>RegistroProducto. <br />
+        01 CodigoProducto<Red> PIC </Red>9(5). <br />
+        01 NombreProducto<Red> PIC </Red>X(30). <br />
+        01 PrecioProducto<Red> PIC </Red>9(7)V99. <br />
         <br />
-        PROCEDURE DIVISION. <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        OPEN I-O ArchivoDirecto. <br />
-        <br />
-        <Esp />
-        MOVE 3 TO CodigoProducto <br />
-        <Esp />
-        READ ArchivoDirecto <br />
-        <Esp />
-        <Esp />
-        INVALID KEY <br />
-        <Esp />
-        <Esp />
-        <Esp />
-        DISPLAY 'Registro no encontrado' <br />
-        <Esp />
-        <Esp />
-        NOT INVALID KEY <br />
-        <Esp />
-        <Esp />
-        <Esp />
-        DISPLAY 'Código de Producto: ' CodigoProducto <br />
-        <Esp />
-        <Esp />
-        <Esp />
-        DISPLAY 'Nombre de Producto: ' NombreProducto <br />
-        <Esp />
-        <Esp />
-        <Esp />
-        DISPLAY 'Precio de Producto: ' PrecioProducto <br />
-        <Esp />
-        END-READ. <br />
+        <Red>OPEN I-O </Red>ArchivoDirecto. <br />
         <br />
         <Esp />
-        CLOSE ArchivoDirecto. <br />
+        <Red>MOVE </Red>3<Red> TO </Red>CodigoProducto <br />
         <Esp />
-        STOP RUN.
+        <Red>READ </Red>ArchivoDirecto <br />
+        <Esp />
+        <Esp />
+        <Red>INVALID KEY</Red> <br />
+        <Esp />
+        <Esp />
+        <Esp />
+        <Red>DISPLAY </Red>'Registro no encontrado' <br />
+        <Esp />
+        <Esp />
+        <Red>NOT INVALID KEY </Red><br />
+        <Esp />
+        <Esp />
+        <Esp />
+        <Red>DISPLAY </Red><Grey>'Código de Producto: '</Grey> CodigoProducto <br />
+        <Esp />
+        <Esp />
+        <Esp />
+        <Red>DISPLAY </Red><Grey>'Nombre de Producto: '</Grey> NombreProducto <br />
+        <Esp />
+        <Esp />
+        <Esp />
+        <Red>DISPLAY </Red><Grey>'Precio de Producto: '</Grey> PrecioProducto <br />
+        <Esp />
+        <Red>END-READ</Red>. <br />
+        <br />
+        <Esp />
+        <Red>CLOSE </Red>ArchivoDirecto. <br />
+        <Esp />
+        <Red>STOP RUN</Red>.
       </div>
       <p>
         En este ejemplo, se abre el archivo VSAM y se utiliza el número relativo
@@ -76,36 +76,36 @@ const Mod5_5 = () => {
         la sentencia WRITE en COBOL.
       </p>
       <div className="codigo">
-        SELECT ArchivoDirecto ASSIGN TO 'datos.dat' <br />
-        ORGANIZATION IS RELATIVE. <br />
+        <Red>SELECT </Red>ArchivoDirecto <Red>ASSIGN<Red> TO </Red></Red><Grey>'datos.dat'</Grey> <br />
+        <Red>ORGANIZATION IS RELATIVE</Red>. <br />
         <br />
-        FD RegistroProducto. <br />
-        01 CodigoProducto PIC 9(5). <br />
-        01 NombreProducto PIC X(30). <br />
-        01 PrecioProducto PIC 9(7)V99. <br />
+        <Red>FD </Red>RegistroProducto. <br />
+        01 CodigoProducto<Red> PIC </Red>9(5). <br />
+        01 NombreProducto<Red> PIC </Red>X(30). <br />
+        01 PrecioProducto<Red> PIC </Red>9(7)V99. <br />
         <br />
         01 NuevoRegistro. <br />
         <Esp />
-        COPY RegistroProducto. <br />
+        <Red>COPY</Red> RegistroProducto. <br />
         <br />
-        PROCEDURE DIVISION. <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        OPEN OUTPUT ArchivoDirecto. <br />
-        <br />
-        <Esp />
-        MOVE 4 TO CodigoProducto <br />
-        <Esp />
-        MOVE 'Nuevo Producto' TO NombreProducto <br />
-        <Esp />
-        MOVE 99.99 TO PrecioProducto <br />
+        <Red>OPEN OUTPUT </Red>ArchivoDirecto. <br />
         <br />
         <Esp />
-        WRITE NuevoRegistro. <br />
+        <Red>MOVE </Red>4<Red> TO </Red>CodigoProducto <br />
+        <Esp />
+        <Red>MOVE </Red>'Nuevo Producto'<Red> TO </Red>NombreProducto <br />
+        <Esp />
+        <Red>MOVE </Red>99.99<Red> TO </Red>PrecioProducto <br />
         <br />
         <Esp />
-        CLOSE ArchivoDirecto. <br />
+        <Red>WRITE </Red>NuevoRegistro. <br />
+        <br />
         <Esp />
-        STOP RUN.
+        <Red>CLOSE </Red>ArchivoDirecto. <br />
+        <Esp />
+        <Red>STOP RUN</Red>.
       </div>
       <p>
         En este ejemplo, se abre el archivo VSAM y se utiliza un número relativo
@@ -117,51 +117,51 @@ const Mod5_5 = () => {
         la sentencia REWRITE en COBOL.
       </p>
       <div className="codigo">
-        SELECT ArchivoDirecto ASSIGN TO 'datos.dat' <br />
-        ORGANIZATION IS RELATIVE. <br />
+        <Red>SELECT </Red>ArchivoDirecto <Red>ASSIGN<Red> TO </Red></Red><Grey>'datos.dat'</Grey> <br />
+        <Red>ORGANIZATION IS RELATIVE</Red>. <br />
         <br />
-        FD RegistroProducto. <br />
-        01 CodigoProducto PIC 9(5). <br />
-        01 NombreProducto PIC X(30). <br />
-        01 PrecioProducto PIC 9(7)V99. <br />
+        <Red>FD </Red>RegistroProducto. <br />
+        01 CodigoProducto<Red> PIC </Red>9(5). <br />
+        01 NombreProducto<Red> PIC </Red>X(30). <br />
+        01 PrecioProducto<Red> PIC </Red>9(7)V99. <br />
         <br />
-        PROCEDURE DIVISION. <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        OPEN I-O ArchivoDirecto. <br />
-        <br />
-        <Esp />
-        MOVE 2 TO CodigoProducto <br />
-        <Esp />
-        READ ArchivoDirecto <br />
-        <Esp />
-        <Esp />
-        INVALID KEY <br />
-        <Esp />
-        <Esp />
-        <Esp />
-        DISPLAY 'Registro no encontrado' <br />
-        <Esp />
-        <Esp />
-        NOT INVALID KEY <br />
-        <Esp />
-        <Esp />
-        <Esp />
-        MOVE 'Producto Actualizado' TO NombreProducto <br />
-        <Esp />
-        <Esp />
-        <Esp />
-        MOVE 49.99 TO PrecioProducto <br />
-        <Esp />
-        <Esp />
-        <Esp />
-        REWRITE RegistroProducto <br />
-        <Esp />
-        END-READ. <br />
+        <Red>OPEN I-O </Red>ArchivoDirecto. <br />
         <br />
         <Esp />
-        CLOSE ArchivoDirecto. <br />
+        <Red>MOVE </Red>2<Red> TO </Red>CodigoProducto <br />
         <Esp />
-        STOP RUN.
+        <Red>READ </Red>ArchivoDirecto <br />
+        <Esp />
+        <Esp />
+        <Red>INVALID KEY </Red><br />
+        <Esp />
+        <Esp />
+        <Esp />
+        <Red>DISPLAY </Red><Grey>'Registro no encontrado' </Grey><br />
+        <Esp />
+        <Esp />
+        <Red>NOT INVALID KEY </Red><br />
+        <Esp />
+        <Esp />
+        <Esp />
+        <Red>MOVE </Red><Grey>'Producto Actualizado'</Grey><Red> TO </Red>NombreProducto <br />
+        <Esp />
+        <Esp />
+        <Esp />
+        <Red>MOVE </Red>49.99<Red> TO </Red>PrecioProducto <br />
+        <Esp />
+        <Esp />
+        <Esp />
+        <Red>REWRITE</Red> RegistroProducto <br />
+        <Esp />
+        <Red>END-READ</Red>. <br />
+        <br />
+        <Esp />
+        <Red>CLOSE </Red>ArchivoDirecto. <br />
+        <Esp />
+        <Red>STOP RUN</Red>.
       </div>
       <p>
         En este ejemplo, se abre el archivo VSAM y se utiliza un número relativo

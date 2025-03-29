@@ -20,26 +20,26 @@ const Mod7_4 = () => {
         cumple con un formato específico.
       </p>
       <div className="codigo">
-        DATA DIVISION. <br />
-        WORKING-STORAGE SECTION. <br />
-        01 Edad PIC 9(3) VALUE 25. <br />
-        01 Resultado PIC X(20). <br />
+        <Red>DATA DIVISION</Red>. <br />
+        <Red>WORKING-STORAGE SECTION</Red>  . <br />
+        01 Edad<Red> PIC </Red>9(3)<Red> VALUE </Red>25. <br />
+        01 Resultado<Red> PIC </Red>X(20). <br />
         <br />
-        PROCEDURE DIVISION. <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        IF Edad {">"} 0 <br />
-        <Esp />
-        <Esp />
-        MOVE 'Edad válida' TO Resultado <br />
-        <Esp />
-        ELSE <br />
+        <Red>IF </Red>Edad {">"} 0 <br />
         <Esp />
         <Esp />
-        MOVE 'Edad no válida' TO Resultado <br />
+        <Red>MOVE </Red><Grey>'Edad válida'</Grey><Red> TO </Red>Resultado <br />
         <Esp />
-        END-IF. <br />
+        <Red>ELSE </Red><br />
         <Esp />
-        DISPLAY Resultado.
+        <Esp />
+        <Red>MOVE </Red><Grey>'Edad no válida'</Grey><Red> TO </Red>Resultado <br />
+        <Esp />
+        <Red>END-IF</Red>. <br />
+        <Esp />
+        <Red>DISPLAY</Red> Resultado.
       </div>
       <p>
         En este ejemplo, validamos si la variable Edad es un número positivo
@@ -53,16 +53,16 @@ const Mod7_4 = () => {
         una fecha o convertir una cadena en mayúsculas o minúsculas.
       </p>
       <div className="codigo">
-        DATA DIVISION. <br />
-        WORKING-STORAGE SECTION. <br />
-        01 NombreMayusculas PIC X(20) VALUE 'juan perez'. <br />
-        01 NombreTransformado PIC X(20). <br />
+        <Red>DATA DIVISION</Red>. <br />
+        <Red>WORKING-STORAGE SECTION</Red>. <br />
+        01 NombreMayusculas<Red> PIC </Red>X(20)<Red> VALUE </Red><Grey>'juan perez'</Grey>. <br />
+        01 NombreTransformado<Red> PIC </Red>X(20). <br />
         <br />
-        PROCEDURE DIVISION. <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        MOVE FUNCTION UPPER-CASE(NombreMayusculas) TO NombreTransformado. <br />
+        <Red>MOVE FUNCTION</Red> UPPER-CASE(NombreMayusculas)<Red> TO </Red>NombreTransformado. <br />
         <Esp />
-        DISPLAY 'Nombre en mayúsculas: ' NombreTransformado.
+        <Red>DISPLAY</Red> <Grey>'Nombre en mayúsculas: ' </Grey>NombreTransformado.
       </div>
       <p>
         En este ejemplo, transformamos la variable NombreMayusculas a mayúsculas
@@ -73,43 +73,44 @@ const Mod7_4 = () => {
       <p>
         COBOL también permite la validación y transformación de datos en
         estructuras compuestas, como registros y tablas. Puedes utilizar
-        instrucciones PERFORM y declaraciones INSPECT para iterar a través de
+        instrucciones PERFORM y declaraciones <Red>INSPECT </Red>para iterar a través de
         elementos y realizar validaciones o transformaciones específicas.
       </p>
       <div className="codigo">
-        DATA DIVISION. <br />
-        WORKING-STORAGE SECTION. <br />
+        <Red>DATA DIVISION</Red>. <br />
+        <Red>WORKING-STORAGE SECTION</Red>. <br />
         01 Empleado. <br />
         <Esp />
-        05 Nombre PIC X(30) VALUE 'Ana López'. <br />
+        05 Nombre<Red> PIC </Red>X(30)<Red> VALUE </Red><Grey>'Ana López'</Grey>. <br />
         <Esp />
-        05 Edad PIC 9(3) VALUE 30. <br /> <br />
-        PROCEDURE DIVISION. <br />
+        05 Edad<Red> PIC </Red>9(3)<Red> VALUE </Red>30. <br /> <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        INSPECT Empleado TALLYING TotalEspacios FOR ALL SPACE. <br />
+        <Red>INSPECT </Red>Empleado <Red>TALLYING </Red>TotalEspacios <Red>FOR ALL SPACE</Red>. <br />
         <Esp />
-        IF TotalEspacios {">"} 0 <br />
-        <Esp />
-        <Esp />
-        DISPLAY 'El nombre contiene espacios en blanco.' <br />
-        <Esp />
-        ELSE <br />
+        <Red>IF </Red>TotalEspacios {">"} 0 <br />
         <Esp />
         <Esp />
-        DISPLAY 'El nombre no contiene espacios en blanco.' <br />
+        <Red>DISPLAY</Red> <Grey>'El nombre contiene espacios en blanco.'</Grey> <br />
         <Esp />
-        END-IF. <br /> <br />
+        <Red>ELSE </Red><br />
         <Esp />
-        PERFORM VALIDAR-EDAD VARYING Edad FROM 1 BY 1 UNTIL Edad {">"} 100.{" "}
+        <Esp />
+        <Red>DISPLAY</Red> <Grey>'El nombre no contiene espacios en blanco.'</Grey>
+         <br />
+        <Esp />
+        <Red>END-IF</Red>. <br /> <br />
+        <Esp />
+        <Red>PERFORM </Red>VALIDAR-EDAD <Red>VARYING</Red> Edad <Red>FROM</Red> 1 <Red>BY</Red> 1 <Red>UNTIL</Red> Edad {">"} 100.{" "}
         <br /> <br />
         VALIDAR-EDAD. <br />
         <Esp />
-        IF Edad {"<"} 0 OR Edad {">"} 99 <br />
+        <Red>IF </Red>Edad {"<"} 0 <Red>OR</Red> Edad {">"} 99 <br />
         <Esp />
         <Esp />
-        DISPLAY 'Edad no válida: ' Edad <br />
+        <Red>DISPLAY</Red> <Grey>'Edad no válida: '</Grey> Edad <br />
         <Esp />
-        END-IF.
+        <Red>END-IF</Red>.
       </div>
       <p>
         En este ejemplo, validamos si el campo Nombre contiene espacios en

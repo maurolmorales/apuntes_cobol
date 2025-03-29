@@ -18,12 +18,14 @@ const Mod4_3 = () => {
         especificar la condición de finalización.
       </p>
       <div className="codigo">
-01 Contador PIC 9 VALUE 1. <br /><br /> 
-
-PERFORM UNTIL Contador {">"} 5 <br />
-   <Esp/>DISPLAY 'Iteración ' Contador <br />
-   <Esp/>ADD 1 TO Contador <br />
-END-PERFORM.
+        01 Contador <Red>PIC</Red> 9 <Red>VALUE</Red> 1. <br />
+        <br />
+        <Red>PERFORM UNTIL </Red> Contador {">"} 5 <br />
+        <Esp />
+        <Red>DISPLAY</Red> <Grey>'Iteración '</Grey> Contador <br />
+        <Esp />
+        <Red>ADD</Red> 1 <Red>TO</Red> Contador <br />
+        <Red>END-PERFORM</Red>.
       </div>
       <p>
         En este ejemplo, se muestra un mensaje en cada iteración hasta que el
@@ -35,11 +37,12 @@ END-PERFORM.
         modificar una variable de control en cada iteración.
       </p>
       <div className="codigo">
-01 Contador PIC 9 VALUE 1. <br /><br />
-
-PERFORM VARYING Contador FROM 1 BY 1 UNTIL Contador {">"} 5 <br />
-<Esp/>DISPLAY 'Iteración ' Contador <br />
-END-PERFORM.
+        01 Contador <Red>PIC</Red> 9 <Red>VALUE</Red> 1. <br />
+        <br />
+        <Red>PERFORM VARYING </Red> Contador <Red>FROM</Red> 1 <Red>BY</Red> 1 <Red>UNTIL</Red> Contador {">"} 5 <br />
+        <Esp />
+        <Red>DISPLAY</Red> <Grey>'Iteración '</Grey> Contador <br />
+        <Red>END-PERFORM</Red>.
       </div>
       <p>
         En este ejemplo, la variable Contador se modifica en cada iteración
@@ -51,16 +54,25 @@ END-PERFORM.
         un bloque de código en función de múltiples condiciones.
       </p>
       <div className="codigo">
-01 Opcion PIC 9 VALUE 1. <br /><br />
-
-EVALUATE TRUE <br />
-   <Esp/>WHEN Opcion = 1 <br />
-   <Esp/><Esp/>DISPLAY 'Seleccionó la opción 1' <br />
-   <Esp/>WHEN Opcion = 2 <br />
-   <Esp/><Esp/>DISPLAY 'Seleccionó la opción 2' <br />
-   <Esp/>WHEN OTHER <br />
-   <Esp/><Esp/>DISPLAY 'Opción no válida' <br />
-END-EVALUATE.
+        01 Opcion <Red>PIC</Red> 9 <Red>VALUE</Red> 1. <br />
+        <br />
+        <Red>EVALUATE TRUE</Red> <br />
+        <Esp />
+        <Red>WHEN</Red> Opcion = 1 <br />
+        <Esp />
+        <Esp />
+        <Red>DISPLAY </Red><Grey>'Seleccionó la opción 1'</Grey> <br />
+        <Esp />
+        <Red>WHEN</Red> Opcion = 2 <br />
+        <Esp />
+        <Esp />
+        <Red>DISPLAY </Red><Grey>'Seleccionó la opción 2'</Grey> <br />
+        <Esp />
+        <Red>WHEN OTHER </Red> <br />
+        <Esp />
+        <Esp />
+        <Red>DISPLAY </Red><Grey>'Opción no válida'</Grey> <br />
+        <Red>END-EVALUATE</Red>.
       </div>
       <p>
         En este ejemplo, se ejecuta el bloque de código basado en la opción

@@ -20,52 +20,52 @@ const Mod6_2 = () => {
         definida para recibir los parámetros en el mismo orden.
       </p>
       <div className="codigo">
-        IDENTIFICATION DIVISION. <br />
-        PROGRAM-ID. MiPrograma. <br />
+        <Red>IDENTIFICATION DIVISION</Red>. <br />
+        <Red>PROGRAM-ID</Red>. MiPrograma. <br />
         <br />
-        DATA DIVISION. <br />
+        <Red>DATA DIVISION</Red>. <br />
         <br />
-        WORKING-STORAGE SECTION. <br />
-        01 NumeroA PIC 9(3) VALUE 100. <br />
-        01 NumeroB PIC 9(3) VALUE 50. <br />
-        01 Resultado PIC 9(4). <br />
+        <Red>WORKING-STORAGE SECTION</Red>. <br />
+        01 NumeroA<Red> PIC </Red>9(3)<Red> VALUE </Red>100. <br />
+        01 NumeroB<Red> PIC </Red>9(3)<Red> VALUE </Red>50. <br />
+        01 Resultado<Red> PIC </Red>9(4). <br />
         <br />
-        PROCEDURE DIVISION. <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        DISPLAY 'Inicio del programa principal'. <br />
-        <br />
-        <Esp />
-        CALL 'MiSubrutina' USING NumeroA NumeroB Resultado. <br />
+        <Red>DISPLAY </Red><Grey>'Inicio del programa principal'</Grey>. <br />
         <br />
         <Esp />
-        DISPLAY 'Resultado: ' Resultado. <br />
-        <Esp />
-        DISPLAY 'Fin del programa principal'. <br />
+        <Red>CALL</Red> <Grey>'MiSubrutina'</Grey> <Red>USING</Red> NumeroA NumeroB Resultado. <br />
         <br />
-        STOP RUN. <br />
+        <Esp />
+        <Red>DISPLAY </Red><Grey>'Resultado: ' </Grey>Resultado. <br />
+        <Esp />
+        <Red>DISPLAY </Red><Grey>'Fin del programa principal'</Grey>. <br />
+        <br />
+        <Red>STOP RUN</Red>. <br />
         <br />
         MiSubrutina. <br />
         <Esp />
-        IDENTIFICATION DIVISION. <br />
+        <Red>IDENTIFICATION DIVISION</Red>. <br />
         <Esp />
-        PROGRAM-ID. MiSubrutina. <br />
+        <Red>PROGRAM-ID</Red>. MiSubrutina. <br />
         <br />
         <Esp />
-        DATA DIVISION. <br />
+        <Red>DATA DIVISION</Red>. <br />
         <br />
         <Esp />
-        LINKAGE SECTION. <br />
+        <Red>LINKAGE SECTION</Red>. <br />
         <Esp />
-        01 NumA PIC 9(3). <br />
+        01 NumA<Red> PIC </Red>9(3). <br />
         <Esp />
-        01 NumB PIC 9(3). <br />
+        01 NumB<Red> PIC </Red>9(3). <br />
         <Esp />
-        01 Resul PIC 9(4). <br />
+        01 Resul<Red> PIC </Red>9(4). <br />
         <br />
         <Esp />
-        PROCEDURE DIVISION USING NumA NumB Resul. <br />
+        <Red>PROCEDURE DIVISION USING</Red> NumA NumB Resul. <br />
         <Esp />
-        COMPUTE Resul = NumA + NumB.
+        <Red>COMPUTE</Red> Resul = NumA + NumB.
       </div>
       <p>
         En este ejemplo, la subrutina MiSubrutina recibe tres parámetros: NumA,
@@ -80,52 +80,52 @@ const Mod6_2 = () => {
         programa principal.
       </p>
       <div className="codigo">
-        DENTIFICATION DIVISION. <br />
-        PROGRAM-ID. MiPrograma. <br />
+        <Red>DENTIFICATION DIVISION</Red>. <br />
+        <Red>PROGRAM-ID</Red>. MiPrograma. <br />
         <br />
-        DATA DIVISION. <br />
+        <Red>DATA DIVISION</Red>. <br />
         <br />
-        WORKING-STORAGE SECTION. <br />
-        01 NumeroA PIC 9(3) VALUE 100. <br />
-        01 NumeroB PIC 9(3) VALUE 50. <br />
-        01 Resultado PIC 9(4). <br />
+        <Red>WORKING-STORAGE SECTION</Red>. <br />
+        01 NumeroA<Red> PIC </Red>9(3)<Red> VALUE </Red>100. <br />
+        01 NumeroB<Red> PIC </Red>9(3)<Red> VALUE </Red>50. <br />
+        01 Resultado<Red> PIC </Red>9(4). <br />
         <br />
-        PROCEDURE DIVISION. <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        DISPLAY 'Inicio del programa principal'. <br />
-        <br />
-        <Esp />
-        CALL 'MiSubrutina' USING NumeroA NumeroB Resultado. <br />
+        <Red>DISPLAY </Red><Grey>'Inicio del programa principal'</Grey>. <br />
         <br />
         <Esp />
-        DISPLAY 'Resultado: ' Resultado. <br />
-        <Esp />
-        DISPLAY 'Fin del programa principal'. <br />
+        CALL <Grey>'MiSubrutina'</Grey> USING NumeroA NumeroB Resultado. <br />
         <br />
-        STOP RUN. <br />
+        <Esp />
+        <Red>DISPLAY </Red><Grey>'Resultado: ' </Grey>Resultado. <br />
+        <Esp />
+        <Red>DISPLAY </Red><Grey>'Fin del programa principal'</Grey>. <br />
+        <br />
+        <Red>STOP RUN</Red>. <br />
         <br />
         MiSubrutina. <br />
         <Esp />
-        IDENTIFICATION DIVISION. <br />
+        <Red>IDENTIFICATION DIVISION</Red>. <br />
         <Esp />
-        PROGRAM-ID. MiSubrutina. <br />
+        <Red>PROGRAM-ID</Red>. MiSubrutina. <br />
         <br />
         <Esp />
-        DATA DIVISION. <br />
+        <Red>DATA DIVISION</Red>. <br />
         <br />
         <Esp />
-        LINKAGE SECTION. <br />
+        <Red>LINKAGE SECTION</Red>. <br />
         <Esp />
-        01 NumA PIC 9(3). <br />
+        01 NumA<Red> PIC </Red>9(3). <br />
         <Esp />
-        01 NumB PIC 9(3). <br />
+        01 NumB<Red> PIC </Red>9(3). <br />
         <Esp />
-        01 Resul PIC 9(4). <br />
+        01 Resul<Red> PIC </Red>9(4). <br />
         <br />
         <Esp />
-        PROCEDURE DIVISION USING NumA NumB Resul. <br />
+        <Red>PROCEDURE DIVISION USING</Red> NumA NumB Resul. <br />
         <Esp />
-        COMPUTE Resul = NumA + NumB.
+        <Red>COMPUTE</Red> Resul = NumA + NumB.
       </div>
       <p>
         En este ejemplo, la subrutina MiSubrutina modifica el parámetro Resul y

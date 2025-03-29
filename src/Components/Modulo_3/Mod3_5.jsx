@@ -1,4 +1,6 @@
 import { Esp } from "../espacio";
+import Red from "../Colors/Red"
+import Grey from "../Colors/Grey"
 const Mod3_5 = () => {
   return (
     <section id="3.5">
@@ -16,35 +18,39 @@ const Mod3_5 = () => {
         operadores aritméticos como +, -, * y /. Estas operaciones son
         fundamentales para realizar cálculos financieros y matemáticos.
       </p>
-      <div className="codigo">
-        01 SaldoFinal PIC S9(7)V99. <br />
-        01 Interes PIC 9(5)V99 VALUE 3.25. <br /> <br />
-        MOVE SaldoInicial TO SaldoFinal. <br />
-        COMPUTE SaldoFinal = SaldoFinal + Deposito - Interes.
+      <div className="twoColums">
+        <div className="codigo">
+          01 SaldoFinal <Red>PIC</Red> S9(7)V99. <br />
+          01 Interes <Red>PIC</Red> 9(5)V99 <Red>VALUE</Red> 3.25. <br /> <br />
+          <Red>MOVE</Red> SaldoInicial <Red>TO</Red> SaldoFinal. <br />
+          <Red>COMPUTE</Red> SaldoFinal = SaldoFinal + Deposito - Interes.
+        </div>
+        <p>
+          En este ejemplo, se realiza una serie de operaciones aritméticas para
+          calcular el saldo final.
+        </p>
       </div>
-      <p>
-        En este ejemplo, se realiza una serie de operaciones aritméticas para
-        calcular el saldo final.
-      </p>
       <h4>Concatenación de Cadenas</h4>
       <p>
         Para unir cadenas de texto en COBOL, se utiliza la operación
         CONCATENATE. Esta operación permite combinar cadenas de caracteres y
         crear una cadena más larga.
       </p>
-      <div className="codigo">
-        01 Nombre PIC X(20) VALUE 'Juan'. <br />
-        01 Apellido PIC X(20) VALUE 'Pérez'. <br />
-        <br />
-        01 NombreCompleto PIC X(40). <br />
-        <br />
-        MOVE SPACES TO NombreCompleto. <br />
-        CONCATENATE Nombre ' ' Apellido INTO NombreCompleto.
+      <div className="twoColums">
+        <div className="codigo">
+          01 Nombre <Red>PIC</Red> X(20) VALUE <Grey>'Juan'</Grey>. <br />
+          01 Apellido <Red>PIC</Red> X(20) VALUE <Grey>'Pérez'</Grey>. <br />
+          <br />
+          01 NombreCompleto <Red>PIC</Red> X(40). <br />
+          <br />
+          <Red>MOVE</Red> <Red>SPACES TO</Red> NombreCompleto. <br />
+          <Red>CONCATENATE</Red> Nombre <Grey>' '</Grey> Apellido <Red>INTO</Red> NombreCompleto.
+        </div>
+        <p>
+          En este ejemplo, se concatena el nombre y el apellido para crear un
+          nombre completo.
+        </p>
       </div>
-      <p>
-        En este ejemplo, se concatena el nombre y el apellido para crear un
-        nombre completo.
-      </p>
       <h4>Comparación de Datos</h4>
       <p>
         COBOL proporciona operadores de comparación que permiten comparar
@@ -53,13 +59,13 @@ const Mod3_5 = () => {
         THAN, LESS OR EQUAL TO, y GREATER OR EQUAL TO.
       </p>
       <div className="codigo">
-        01 Edad PIC 99 VALUE 25. <br /> <br />
-        IF Edad LESS THAN 18 <br />
+        01 Edad <Red>PIC</Red> 99 <Red>VALUE</Red> 25. <br /> <br />
+        <Red>IF</Red> Edad <Red>LESS THAN</Red> 18 <br />
         <Esp />
-        DISPLAY 'Menor de edad' <br />
-        ELSE <br />
+        <Red>DISPLAY</Red> <Grey>'Menor de edad'</Grey> <br />
+        <Red>ELSE</Red> <br />
         <Esp />
-        DISPLAY 'Mayor de edad' <br />
+        <Red>DISPLAY</Red> <Grey>'Mayor de edad'</Grey> <br />
         END-IF.
       </div>
       <p>
@@ -75,23 +81,23 @@ const Mod3_5 = () => {
       <div className="codigo">
         01 FechaActual. <br />
         <Esp />
-        02 Dia PIC 99. <br />
+        02 Dia <Red>PIC</Red> 99. <br />
         <Esp />
-        02 Mes PIC 99. <br />
+        02 Mes <Red>PIC</Red> 99. <br />
         <Esp />
-        02 Anio PIC 9999. <br />
+        02 Anio <Red>PIC</Red> 9999. <br />
         <br />
-        MOVE 05 TO Dia. <br />
-        MOVE 10 TO Mes. <br />
-        MOVE 2023 TO Anio. <br />
+        <Red>MOVE</Red> 05 <Red>TO</Red> Dia. <br />
+        <Red>MOVE</Red> 10 <Red>TO</Red> Mes. <br />
+        <Red>MOVE</Red> 2023 <Red>TO</Red> Anio. <br />
         <br />
-        ADD 1 TO Dia GIVING Dia. <br /> <br />
-        IF Dia {">"} 31 <br />
+        <Red>ADD</Red> 1 <Red>TO</Red> Dia <Red>GIVING</Red> Dia. <br /> <br />
+        <Red>IF</Red> Dia {">"} 31 <br />
         <Esp />
-        MOVE 1 TO Dia <br />
+        <Red>MOVE</Red> 1 <Red>TO</Red> Dia <br />
         <Esp />
-        ADD 1 TO Mes GIVING Mes. <br /> <br />
-        DISPLAY 'Fecha después de sumar un día: ' Dia '/' Mes '/' Anio. <br />
+        <Red>ADD</Red> 1 <Red>TO</Red> Mes <Red>GIVING</Red> Mes. <br /> <br />
+        <Red>DISPLAY</Red> <Grey>'Fecha después de sumar un día: '</Grey> Dia <Grey>'/'</Grey> Mes '/' Anio. <br />
       </div>
       <p>
         En este ejemplo, se suma un día a una fecha y se maneja adecuadamente el

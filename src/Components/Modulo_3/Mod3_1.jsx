@@ -31,17 +31,18 @@ const Mod3_1 = () => {
           implementación de COBOL, pero generalmente es de 30 a 31 caracteres.
         </li>
       </ul>
-      <div className="codigo">
-        01 NumeroCliente <Red>PIC</Red>
-        <Grey> 9(5)</Grey>. <br />
-        01 NombreCliente <Red>PIC</Red> <Grey>X(30)</Grey>. <br />
-        01 SaldoCuenta <Red>PIC</Red> <Grey>S9(7)V99</Grey>.
+      <div className="twoColums">
+        <div className="codigo">
+          01 NumeroCliente <Red>PIC</Red> <Grey> 9(5)</Grey>. <br />
+          01 NombreCliente <Red>PIC</Red> <Grey>X(30)</Grey>. <br />
+          01 SaldoCuenta <Red>PIC</Red> <Grey>S9(7)V99</Grey>.
+        </div>
+        <p>
+          En el ejemplo anterior, hemos declarado tres variables: NumeroCliente,
+          NombreCliente y SaldoCuenta. Estos nombres siguen las reglas de nombres
+          de variables en COBOL.
+        </p>
       </div>
-      <p>
-        En el ejemplo anterior, hemos declarado tres variables: NumeroCliente,
-        NombreCliente y SaldoCuenta. Estos nombres siguen las reglas de nombres
-        de variables en COBOL.
-      </p>
       <h4>El uso de DISPLAY</h4>
       <p>
         Es una instrucción utilizada para mostrar información en la salida del
@@ -57,9 +58,10 @@ const Mod3_1 = () => {
         minimizar el impacto en el rendimiento del programa.
       </p>
       <div className="codigo">
-        DISPLAY '¡Hola, mundo!'. <br />
-        DISPLAY 'El valor de X es: ' X. <br />
-        DISPLAY 'El resultado de la suma es: ' NUM1 + NUM2. <br />
+        <Red>DISPLAY</Red> <Grey>'¡Hola, mundo!'</Grey>. <br />
+        <Red>DISPLAY</Red> <Grey>'El valor de X es: '</Grey> X. <br />
+        <Red>DISPLAY</Red> <Grey>'El resultado de la suma es: '</Grey> NUM1 +
+        NUM2. <br />
       </div>
 
       <h4>El uso de WITH NOT ADVANCING</h4>
@@ -95,18 +97,19 @@ const Mod3_1 = () => {
         un archivo.
       </p>
       <div className="codigo">
-        FILE-CONTROL. <br />
+        <Red>FILE-CONTROL</Red>. <br />
         <Esp />
-        SELECT archivo ASSIGN TO "datos.txt" <br />
-        <Esp />
-        <Esp />
-        ORGANIZATION IS SEQUENTIAL <br />
+        <Red>SELECT</Red> archivo <Red>ASSIGN TO</Red> <Grey>"datos.txt"</Grey>{" "}
+        <br />
         <Esp />
         <Esp />
-        FILE STATUS archivo-status UPON I-O. <br /> <br />
-        DATA DIVISION. <br />
-        WORKING-STORAGE SECTION. <br />
-        01 archivo-status PIC X(02). <br />
+        <Red>ORGANIZATION IS SEQUENTIAL</Red> <br />
+        <Esp />
+        <Esp />
+        <Red>FILE STATUS</Red> archivo-status <Red>UPON I-O</Red>. <br /> <br />
+        <Red>DATA DIVISION</Red>. <br />
+        <Red>WORKING-STORAGE SECTION</Red>. <br />
+        01 archivo-status <Red>PIC</Red> X(02). <br />
       </div>
 
       <h4>El uso de ACCEPT</h4>
@@ -121,9 +124,11 @@ const Mod3_1 = () => {
         situaciones de entrada de datos por parte del usuario.
       </p>
       <div className="codigo">
-        DISPLAY "Por favor, introduzca su nombre: ". <br />
-        ACCEPT nombre-alumno. <br />
-        DISPLAY "¡Hola, " nombre-alumno "!" <br />
+        <Red>DISPLAY</Red> <Grey>"Por favor, introduzca su nombre: "</Grey>.{" "}
+        <br />
+        <Red>ACCEPT</Red> nombre-alumno. <br />
+        <Red>DISPLAY</Red> <Grey>"¡Hola, "</Grey> nombre-alumno <Grey>"!"</Grey>{" "}
+        <br />
       </div>
 
       <h4>El uso de MOVE</h4>
@@ -137,15 +142,18 @@ const Mod3_1 = () => {
         aritméticas o lógicas en la fuente antes de asignar el valor utilizando
         MOVE.
       </p>
-      <div className="codigo">
-        MOVE numero1 TO numero2. <br />
-        DISPLAY "El valor de numero2 es: " numero2. <br />
+      <div className="twoColums">
+        <div className="codigo">
+          <Red>MOVE</Red> numero1 <Red>TO</Red> numero2. <br />
+          <Red>DISPLAY</Red> <Grey>"El valor de numero2 es: "</Grey> numero2.{" "}
+          <br />
+        </div>
+        <p>
+          En este ejemplo, la instrucción MOVE numero1 TO numero2 copia el valor
+          de la variable numero1 (que es 10) en la variable numero2. Luego, se
+          muestra el valor de numero2.
+        </p>
       </div>
-      <p>
-        En este ejemplo, la instrucción MOVE numero1 TO numero2 copia el valor
-        de la variable numero1 (que es 10) en la variable numero2. Luego, se
-        muestra el valor de numero2.
-      </p>
       <h4>Instrucciones Aritméticas</h4>
       <p>
         En COBOL, las instrucciones aritméticas son fundamentales para realizar
@@ -186,12 +194,15 @@ const Mod3_1 = () => {
         </li>
       </ul>
       <div className="codigo">
-        ADD numero1 TO numero2 GIVING resultado. <br />
-        SUBTRACT descuento FROM total GIVING resultado. <br />
-        MULTIPLY precio-unitario BY cantidad-comprada GIVING total-factura.{" "}
-        <br />
-        DIVIDE dividendo BY divisor GIVING cociente REMAINDER resto. <br />
-        COMPUTE c = {"(a * 2) - b"}.
+        <Red>ADD</Red> numero1 <Red>TO</Red> numero2 <Red>GIVING</Red>{" "}
+        resultado. <br />
+        <Red>SUBTRACT</Red> descuento <Red>FROM</Red> total <Red>GIVING</Red>{" "}
+        resultado. <br />
+        <Red>MULTIPLY</Red> precio-unitario <Red>BY</Red> cantidad-comprada{" "}
+        <Red>GIVING</Red> total-factura. <br />
+        <Red>DIVIDE</Red> dividendo <Red>BY</Red> divisor <Red>GIVING</Red>{" "}
+        cociente <Red>REMAINDER</Red> resto. <br />
+        <Red>COMPUTE</Red> c = {"(a * 2) - b"}.
       </div>
       <h4>Niveles de Jerarquía</h4>
       <p>
@@ -201,36 +212,86 @@ const Mod3_1 = () => {
         estructura. Esta jerarquía ayuda a organizar y describir las relaciones
         entre las variables.
       </p>
-      <div className="codigo">
-        01 Cliente. <br />
-        <Esp />
-        02 NumeroCliente PIC 9(5). <br />
-        <Esp />
-        02 NombreCliente PIC X(30). <br />
-        01 Cuenta. <br />
-        <Esp />
-        02 SaldoCuenta PIC S9(7)V99.
+      <div className="twoColums">
+        <div className="codigo">
+          01 Cliente. <br />
+          <Esp />
+          02 NumeroCliente <Red>PIC</Red> 9(5). <br />
+          <Esp />
+          02 NombreCliente <Red>PIC</Red> X(30). <br />
+          01 Cuenta. <br />
+          <Esp />
+          02 SaldoCuenta <Red>PIC</Red> S9(7)V99.
+        </div>
+        <p>
+          En este ejemplo, hemos definido dos variables principales, Cliente y
+          Cuenta, cada una con subvariables dentro de ellas.
+        </p>
       </div>
-      <p>
-        En este ejemplo, hemos definido dos variables principales, Cliente y
-        Cuenta, cada una con subvariables dentro de ellas.
-      </p>
       <h4>Uso de PICTURE</h4>
       <p>
         La cláusula PICTURE se utiliza para especificar la forma y el contenido
         de una variable en COBOL. Define el formato de datos que se almacenará
         en la variable y cómo se presentará.
       </p>
-      <div className="codigo">
-        01 FechaNacimiento PIC 9(8). <br />
-        01 NumeroSeguridadSocial PIC X(11). <br />
-        01 PrecioProducto PIC 9(5)V9(2).
+      <div className="twoColums">
+        <div className="codigo">
+          01 FechaNacimiento <Red>PIC</Red> 9(8). <br />
+          01 NumeroSeguridadSocial <Red>PIC</Red> X(11). <br />
+          01 PrecioProducto <Red>PIC</Red> 9(5)V9(2).
+        </div>
+        <p>
+          En estos ejemplos, hemos utilizado PICTURE para definir el formato de
+          variables que almacenan fechas, números de seguridad social y precios de
+          productos.
+        </p>
       </div>
+
+      <h4>Uso de FILLER</h4>
       <p>
-        En estos ejemplos, hemos utilizado PICTURE para definir el formato de
-        variables que almacenan fechas, números de seguridad social y precios de
-        productos.
+        Se usa en la División de Datos para definir espacios en un registro que
+        no necesitan un nombre específico ni serán referenciados en el programa.
+        Se emplea principalmente para reservar espacio en la memoria o para
+        estructurar mejor los datos en archivos o bases de datos.
       </p>
+      <ul>
+        <li>
+          Relleno: Se usa para completar espacios en blanco entre campos de
+          datos, asegurando que los campos subsiguientes se alineen
+          correctamente. Esto es crucial en COBOL, donde el diseño de los
+          registros es fijo y la posición de los datos es importante.
+        </li>
+        <li>
+          Espacios reservados: FILLER permite reservar espacio para datos que
+          podrían ser necesarios en el futuro, o para campos que son utilizados
+          por otros programas o sistemas.
+        </li>
+        <li>
+          Alineación: Ayuda a alinear los campos de datos en posiciones
+          específicas dentro de un registro, lo cual es esencial para el
+          procesamiento de datos en archivos de formato fijo.
+        </li>
+      </ul>
+      <div className="twoColums">
+        <div className="codigo">
+          <Red>DATA DIVISION</Red>. <br />
+          <Red>WORKING-STORAGE SECTION</Red>. <br />
+          01 REGISTRO. <br />
+          <Esp /> 05 NOMBRE <Red>PIC</Red> X(10). <br />
+          <Esp /> 05 <Red>FILLER PIC</Red> X(5) <Red>VALUE</Red>{" "}
+          <Grey>
+            "<Esp />
+            <Esp /> "
+          </Grey>
+          . (Espacios en blanco) <br />
+          <Esp /> 05 APELLIDO <Red>PIC</Red> X(15).
+        </div>
+        <p>
+          En estos ejemplos, hemos utilizado PICTURE para definir el formato de
+          variables que almacenan fechas, números de seguridad social y precios de
+          productos.
+        </p>
+      </div>
       <h4>Conclusión</h4>
       <p>
         La declaración de variables en COBOL es fundamental para definir la
@@ -249,21 +310,22 @@ const Mod3_1 = () => {
         caracteres o fechas. Aquí hay una descripción detallada:
       </p>
       <div className="codigo">
-        IDENTIFICATION DIVISION. <br />
-        PROGRAM-ID. VariablesSimplesExample. <br />
-        DATA DIVISION. <br />
-        WORKING-STORAGE SECTION. <br />
-        <Esp /> 01 NUMERO-SIMPLE PIC 9(5). <br />
-        <Esp /> 01 NOMBRE-SIMPLE PIC X(20). <br />
-        <Esp /> 01 FECHA-SIMPLE PIC 9(8). <br />
-        PROCEDURE DIVISION. <br />
-        <Esp /> MOVE 12345 TO NUMERO-SIMPLE. <br />
-        <Esp /> MOVE "Ejemplo" TO NOMBRE-SIMPLE. <br />
-        <Esp /> MOVE 20231031 TO FECHA-SIMPLE. <br />
-        <Esp /> DISPLAY "Número: " NUMERO-SIMPLE. <br />
-        <Esp /> DISPLAY "Nombre: " NOMBRE-SIMPLE. <br />
-        <Esp /> DISPLAY "Fecha: " FECHA-SIMPLE. <br />
-        STOP RUN.
+        <Red>IDENTIFICATION DIVISION</Red>. <br />
+        <Red>PROGRAM-ID</Red>. VariablesSimplesExample. <br />
+        <Red>DATA DIVISION</Red>. <br />
+        <Red>WORKING-STORAGE SECTION</Red>. <br />
+        <Esp /> 01 NUMERO-SIMPLE <Red>PIC</Red> 9(5). <br />
+        <Esp /> 01 NOMBRE-SIMPLE <Red>PIC</Red> X(20). <br />
+        <Esp /> 01 FECHA-SIMPLE <Red>PIC</Red> 9(8). <br />
+        <Red>PROCEDURE DIVISION</Red>. <br />
+        <Esp /> <Red>MOVE</Red> 12345 <Red>TO</Red> NUMERO-SIMPLE. <br />
+        <Esp /> <Red>MOVE</Red> <Grey>"Ejemplo"</Grey> <Red>TO</Red>{" "}
+        NOMBRE-SIMPLE. <br />
+        <Esp /> <Red>MOVE</Red> 20231031 <Red>TO</Red> FECHA-SIMPLE. <br />
+        <Esp /> <Red>DISPLAY</Red> <Grey>"Número: "</Grey> NUMERO-SIMPLE. <br />
+        <Esp /> <Red>DISPLAY</Red> <Grey>"Nombre: "</Grey> NOMBRE-SIMPLE. <br />
+        <Esp /> <Red>DISPLAY</Red> <Grey>"Fecha: "</Grey> FECHA-SIMPLE. <br />
+        <Red>STOP RUN</Red>.
       </div>
       <p>Descripción de las Variables:</p>
       <ul>
@@ -284,19 +346,28 @@ const Mod3_1 = () => {
       <ol>
         <li>
           Asignación de Valores:
-          <div className="codigo">MOVE 67890 TO NUMERO-SIMPLE.</div>
+          <div className="codigo">
+            <Red>MOVE</Red> 67890 <Red>TO</Red> NUMERO-SIMPLE.
+          </div>
         </li>
         <li>
           Visualización de Valores:
-          <div className="codigo">DISPLAY "Número: " NUMERO-SIMPLE.</div>
+          <div className="codigo">
+            <Red>DISPLAY</Red> <Grey>"Número: "</Grey> NUMERO-SIMPLE.
+          </div>
         </li>
         <li>
           Operaciones Aritméticas:
-          <div className="codigo">ADD 100 TO NUMERO-SIMPLE.</div>
+          <div className="codigo">
+            <Red>ADD</Red> 100 <Red>TO</Red> NUMERO-SIMPLE.
+          </div>
         </li>
         <li>
           Manipulación de Cadenas:
-          <div className="codigo">MOVE "NuevoNombre" TO NOMBRE-SIMPLE.</div>
+          <div className="codigo">
+            <Red>MOVE</Red> <Grey>"NuevoNombre"</Grey> <Red>TO</Red>{" "}
+            NOMBRE-SIMPLE.
+          </div>
         </li>
       </ol>
       <h3>3.1.2 Variables Compuestas</h3>

@@ -17,11 +17,11 @@ const Mod7_1 = () => {
         DIVISION.{" "}
       </p>
       <div className="codigo">
-        DATA DIVISION. <br />
-        WORKING-STORAGE SECTION. <br />
-        01 Cadena1 PIC X(20) VALUE 'Hola, ' <br />
-        01 Cadena2 PIC X(20) VALUE 'Mundo!' <br />
-        01 Resultado PIC X(40). <br />
+        <Red>DATA DIVISION</Red>. <br />
+        <Red>WORKING-STORAGE SECTION</Red>. <br />
+        01 Cadena1<Red> PIC </Red>X(20)<Red> VALUE</Red> <Grey>'Hola, '</Grey> <br />
+        01 Cadena2<Red> PIC </Red>X(20)<Red> VALUE</Red> <Grey>'Mundo!'</Grey> <br />
+        01 Resultado<Red> PIC </Red>X(40). <br />
       </div>
       <p>
         En este ejemplo, hemos declarado tres variables de cadena: Cadena1,
@@ -37,12 +37,12 @@ const Mod7_1 = () => {
       </p>
       <p>Usando la sentencia MOVE:</p>
       <div className="codigo">
-        MOVE Cadena1 TO Resultado. <br />
-        MOVE ' ' TO Resultado(7:1). <br />
-        MOVE Cadena2 TO Resultado(8:6). <br />
+        <Red>MOVE</Red> Cadena1 <Red>TO</Red> Resultado. <br />
+        <Red>MOVE</Red> <Grey>' '</Grey> <Red>TO</Red> Resultado(7:1). <br />
+        <Red>MOVE</Red> Cadena2 <Red>TO</Red> Resultado(8:6). <br />
       </div>
       <p>Usando el operador +:</p>
-      <div className="codigo">MOVE Cadena1 + ' ' + Cadena2 TO Resultado.</div>
+      <div className="codigo"><Red>MOVE</Red> Cadena1 + <Grey>' '</Grey> + Cadena2 <Red>TO</Red> Resultado.</div>
       <p>Ambos ejemplos producirán Resultado con el valor "Hola, Mundo!".</p>
       <h4>Longitud de Cadenas</h4>
       <p>
@@ -50,8 +50,8 @@ const Mod7_1 = () => {
         función LENGTH OF.
       </p>
       <div className="codigo">
-        MOVE LENGTH OF Cadena1 TO Longitud. <br />
-        DISPLAY 'La longitud de Cadena1 es: ' Longitud.
+        <Red>MOVE LENGTH OF </Red>Cadena1 <Red>TO</Red> Longitud. <br />
+        <Red>DISPLAY</Red> <Grey>'La longitud de Cadena1 es: '</Grey> Longitud.
       </div>
       <p>Este código calculará y mostrará la longitud de Cadena1.</p>
       <h4>Extracción de Subcadenas</h4>
@@ -60,8 +60,8 @@ const Mod7_1 = () => {
         de "subíndices".
       </p>
       <div className="codigo">
-        MOVE Cadena1(7:5) TO Subcadena. <br />
-        DISPLAY 'Subcadena: ' Subcadena.
+        <Red>MOVE</Red> Cadena1(7:5) <Red>TO</Red> Subcadena. <br />
+        <Red>DISPLAY</Red> <Grey>'Subcadena: ' </Grey>Subcadena.
       </div>
       <p>
         En este ejemplo, estamos extrayendo una subcadena de Cadena1, comenzando
@@ -73,10 +73,9 @@ const Mod7_1 = () => {
         Esto se puede hacer utilizando las funciones INSPECT y REPLACE.
       </p>
       <div className="codigo">
-        INSPECT Cadena1 TALLYING NumReemplazos FOR ALL 'a' REPLACING ALL 'a' BY
-        'X'. <br />
-        DISPLAY 'Cadena1 con reemplazos: ' Cadena1. <br />
-        DISPLAY 'Número de reemplazos realizados: ' NumReemplazos. <br />
+        <Red>INSPECT</Red> Cadena1 <Red>TALLYING</Red> NumReemplazos <Red>FOR ALL</Red> <Grey>'a'</Grey> <Red>REPLACING ALL</Red> <Grey>'a'</Grey> <Red>BY</Red> <Grey>'X'</Grey>. <br />
+        <Red>DISPLAY </Red><Grey>'Cadena1 con reemplazos: '</Grey> Cadena1. <br />
+        <Red>DISPLAY </Red>'Número de reemplazos realizados: ' NumReemplazos. <br />
       </div>
       <p>
         Este código busca todas las instancias de 'a' en Cadena1 y las reemplaza

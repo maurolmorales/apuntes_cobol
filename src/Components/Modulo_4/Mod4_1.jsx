@@ -18,12 +18,12 @@ const Mod4_1 = () => {
         alternativas.
       </p>
       <div className="codigo">
-        IF SaldoCuenta {"<"} 0 <br />
-        <Esp /> DISPLAY 'Cuenta en números rojos' <br />
-        ELSE <br />
+        <Red>IF</Red> SaldoCuenta {"<"} 0 <br />
+        <Esp /> <Red>DISPLAY</Red> <Grey>'Cuenta en números rojos'</Grey> <br />
+        <Red>ELSE</Red> <br />
         <Esp />
-        DISPLAY 'Cuenta en buen estado' <br />
-        END-IF.
+        <Red>DISPLAY</Red> <Grey>'Cuenta en buen estado'</Grey> <br />
+        <Red>END-IF</Red>.
       </div>
       <p>
         En este ejemplo, se muestra un mensaje en función del saldo de la
@@ -36,16 +36,16 @@ const Mod4_1 = () => {
         de esas comparaciones.
       </p>
       <div className="codigo">
-        EVALUATE OpcionMenu <br />
+        <Red>EVALUATE</Red> OpcionMenu <br />
         <Esp />
-        WHEN '1' DISPLAY 'Seleccionó la opción 1' <br />
+        <Red>WHEN</Red> <Grey>'1'</Grey> <Red>DISPLAY</Red> <Grey>'Seleccionó la opción 1'</Grey> <br />
         <Esp />
-        WHEN '2' DISPLAY 'Seleccionó la opción 2' <br />
+        <Red>WHEN</Red> <Grey>'2'</Grey> <Red>DISPLAY</Red> <Grey>'Seleccionó la opción 2'</Grey> <br />
         <Esp />
-        WHEN '3' DISPLAY 'Seleccionó la opción 3' <br />
+        <Red>WHEN</Red> <Grey>'3'</Grey> <Red>DISPLAY</Red> <Grey>'Seleccionó la opción 3'</Grey> <br />
         <Esp />
-        WHEN OTHER DISPLAY 'Opción no válida' <br />
-        END-EVALUATE.
+        <Red>WHEN  OTHER DISPLAY</Red> <Grey>'Opción no válida'</Grey> <br />
+        <Red>END-EVALUATE</Red>.
       </div>
       <p>
         En este ejemplo, se evalúa la opción de menú y se muestra un mensaje en
@@ -58,12 +58,12 @@ const Mod4_1 = () => {
         modificar una variable de control en cada iteración.
       </p>
       <div className="codigo">
-        01 Contador PIC 9 VALUE 1. <br /> <br />
-        PERFORM UNTIL Contador {">"} 5 <br />
+        01 Contador <Red>PIC</Red> 9 <Red>VALUE</Red> 1. <br /> <br />
+        <Red>PERFORM UNTIL </Red> Contador {">"} 5 <br />
         <Esp />
-        DISPLAY 'Iteración ' Contador <br />
+        <Red>DISPLAY</Red> <Grey>'Iteración '</Grey> Contador <br />
         <Esp />
-        ADD 1 TO Contador <br />
+        <Red>ADD</Red> 1 <Red>TO</Red> Contador <br />
         END-PERFORM.
       </div>
       <p>
@@ -77,10 +77,10 @@ const Mod4_1 = () => {
         modernos, todavía se encuentra en aplicaciones COBOL legadas.
       </p>
       <div className="codigo">
-        IF Error <br />
+        <Red>IF</Red> Error <br />
         <Esp />
-        GO TO ManejarError <br />
-        END-IF.
+        <Red>GO TO</Red> ManejarError <br />
+        <Red>END-IF</Red>.
       </div>
       <p>
         En este ejemplo, si se encuentra un error, el programa salta a la
