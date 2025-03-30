@@ -1,6 +1,7 @@
 import { Esp } from "../espacio";
 import Red from "../Colors/Red";
 import Grey from "../Colors/Grey";
+import Cuadro from "../Cuadro";
 const Mod3_1 = () => {
   return (
     <section id="Mod3_1">
@@ -154,6 +155,7 @@ const Mod3_1 = () => {
           muestra el valor de numero2.
         </p>
       </div>
+     
       <h4>Instrucciones Aritméticas</h4>
       <p>
         En COBOL, las instrucciones aritméticas son fundamentales para realizar

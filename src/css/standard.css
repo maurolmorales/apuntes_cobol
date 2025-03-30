@@ -410,7 +410,7 @@ article{
   display: grid;
   /* grid-template-columns: 1fr 5fr 2fr 1fr; */
 }
-.col{display: grid; grid-template-rows: repeat(14, 1fr);}
+.col{display: grid; grid-auto-rows: 1fr;}
 .col div{ border: 1px solid grey; align-content: center; padding-left: 1rem;}
 .col div:first-child{background-color: #393939; color: aliceblue; text-align: center; font-weight: bold;}
 .tCenter{ text-align: center;}

@@ -191,21 +191,82 @@ const Ape1_1 = () => {
         como de forma aleatoria, para acceder a los archivos de forma aleatoria,
         el usuario debe especificar el número de registro relativo.
       </p>
-
-
-      <Cuadro data={{gridTemplateColumns:" 1fr 5fr"}} key={2}>
-      <div className="col tCenter">
-          <div>Carácter</div>
+      <br />
+      <Cuadro data={{ gridTemplateColumns: "1fr 1fr 1fr" }} key={2}>
+        <div className="col tCenter">
+          <div>ARCHIVOS SECUENCIALES</div>
+          <div>Solo se puede acceder a estos archivos de forma secuencial.</div>
+          <div>Los registros se almacenan secuencialmente.</div>
           <div>
-            <strong>Z</strong>
+            Los registros no se pueden eliminar y solo se pueden almacenar al
+            final del archivo.
           </div>
-      </div>
-      <div className="col tCenter">
-          <div>Carácter</div>
           <div>
-            <strong>Z</strong>
+            Ocupa menos espacio ya que los registros se almacenan en orden
+            continuo.
           </div>
-      </div>
+          <div>
+            Proporciona un acceso lento, ya que para acceder a cualquier
+            registro se debe acceder primero a todos los registros anteriores.
+          </div>
+          <div>
+            En la organización de archivos secuenciales, los registros se leen y
+            escriben en orden secuencial.
+          </div>
+          <div>
+            No es necesario declarar ninguna CLAVE para almacenar y acceder a
+            los registros.
+          </div>
+        </div>
+        <div className="col tCenter">
+          <div>ARCHIVOS INDEXADOS</div>
+          <div>
+            Se puede acceder a estos archivos de forma secuencial y aleatoria
+            con la ayuda de la clave de registro.
+          </div>
+          <div>
+            Los registros se almacenan en función del valor de la CLAVE DE
+            REGISTRO que es parte de los datos. Es posible almacenar los
+            registros en medio del archivo.
+          </div>
+          <div>Es posible almacenar los registros en medio del archivo.</div>
+          <div>Ocupa más espacio.</div>
+          <div>
+            También proporciona un acceso lento (pero es rápido en comparación
+            con el acceso secuencial) ya que lleva tiempo buscar el índice.
+          </div>
+          <div>
+            En la organización de archivos indexados, los registros se escriben
+            en orden secuencial, pero se pueden leer tanto en orden secuencial
+            como aleatorio.
+          </div>
+          <div>
+            Se pueden crear una o más LLAVES para almacenar y acceder a los
+            registros.
+          </div>
+        </div>
+        <div className="col tCenter">
+          <div>ARCHIVOS RELATIVOS</div>
+          <div>
+            Se puede acceder a estos archivos de forma secuencial y aleatoria
+            con la ayuda de su número de registro relativo.
+          </div>
+          <div>Los registros se almacenan por su dirección relativa.</div>
+          <div>Los registros se pueden insertar en cualquier posición.</div>
+          <div>Ocupa más espacio.</div>
+          <div>
+            Proporciona un acceso rápido, ya que proporciona la clave de
+            registro en comparación con los otros dos.
+          </div>
+          <div>
+            En la organización relativa de archivos, los registros se pueden
+            escribir y leer en orden secuencial y aleatorio.
+          </div>
+          <div>
+            Solo se declara una CLAVE única para almacenar y acceder a los
+            registros.
+          </div>
+        </div>
       </Cuadro>
     </section>
   );
