@@ -112,10 +112,8 @@ const Mod3_5 = ({ Cuadro, Red, Grey, Esp, Com }) => {
         contexto de aplicaciones empresariales que requieren una manipulación
         precisa de datos.
       </p>
-
       <br />
       <br />
-
       <h4>Reglas generales en COBOL al mover datos entre distintos formatos</h4>
       <p>
         Cuando se mueve información de una variable a otra con distintos
@@ -169,11 +167,10 @@ const Mod3_5 = ({ Cuadro, Red, Grey, Esp, Com }) => {
         </div>
       </Cuadro>
       <br />
-
       <h5>
         Movimiento de un campo alfanumérico (PIC X) a un campo numérico (PIC 9)
       </h5>
-      <Cuadro data={{ gridTemplateColumns: "6fr 2fr 2fr 2fr 2fr"}} key={180} >
+      <Cuadro data={{ gridTemplateColumns: "6fr 2fr 2fr 2fr 2fr" }} key={180}>
         <div className="col tCenter">
           <div>Regla</div>
           <div>
@@ -187,11 +184,15 @@ const Mod3_5 = ({ Cuadro, Red, Grey, Esp, Com }) => {
             lo que puede causar pérdida de información o errores.
           </div>
           <div>
-          Si el campo numérico de destino es más pequeño, se trunca el valor,
-          lo que puede causar pérdida de información o errores.
+            Si el campo numérico de destino es más pequeño, se trunca el valor,
+            lo que puede causar pérdida de información o errores.
           </div>
-          <div>   Si el campo decimal de destino es más pequeño, se trunca el valor,
-          lo que puede causar pérdida de información o errores y se complementa los decimales.</div>
+          <div>
+            {" "}
+            Si el campo decimal de destino es más pequeño, se trunca el valor,
+            lo que puede causar pérdida de información o errores y se
+            complementa los decimales.
+          </div>
         </div>
         <div className="col tCenter">
           <div>Dato </div>
@@ -217,17 +218,23 @@ const Mod3_5 = ({ Cuadro, Red, Grey, Esp, Com }) => {
         <div className="col tCenter">
           <div>Resultado</div>
           <div>1234</div>
-          <div> 001234 <br /> (si la conversión es válida)</div>
-          <div> 3456 <br /> (se pierden los primeros dígitos si la conversión es válida) </div>
+          <div>
+            {" "}
+            001234 <br /> (si la conversión es válida)
+          </div>
+          <div>
+            {" "}
+            3456 <br /> (se pierden los primeros dígitos si la conversión es
+            válida){" "}
+          </div>
           <div> 56,0000 </div>
         </div>
       </Cuadro>
       <br />
-
       <h5>
         Movimiento de un campo numérico (PIC 9) a un campo alfanumérico (PIC X)
       </h5>
-      <Cuadro data={{ gridTemplateColumns: "6fr 2fr 2fr 2fr 2fr" }} key={233} >
+      <Cuadro data={{ gridTemplateColumns: "6fr 2fr 2fr 2fr 2fr" }} key={233}>
         <div className="col tCenter">
           <div>Regla</div>
           <div>
@@ -271,7 +278,6 @@ const Mod3_5 = ({ Cuadro, Red, Grey, Esp, Com }) => {
         </div>
       </Cuadro>
       <br />
-
       <h5>Movimiento entre campos numéricos (PIC 9) de distinto tamaño</h5>
       <Cuadro data={{ gridTemplateColumns: "6fr 2fr 2fr 2fr 2fr" }} key={279}>
         <div className="col tCenter">
@@ -310,7 +316,6 @@ const Mod3_5 = ({ Cuadro, Red, Grey, Esp, Com }) => {
         </div>
       </Cuadro>
       <br />
-
       <h5>Movimiento entre campos con decimales (V, S9)</h5>
       <Cuadro data={{ gridTemplateColumns: "6fr 2fr 2fr 2fr 2fr" }} key={318}>
         <div className="col tCenter">
@@ -372,7 +377,6 @@ const Mod3_5 = ({ Cuadro, Red, Grey, Esp, Com }) => {
         </div>
       </Cuadro>
       <br />
-
       <h5>
         Movimiento entre campos numéricos (PIC 9) a campos con decimales (V, S9){" "}
       </h5>
@@ -428,9 +432,9 @@ const Mod3_5 = ({ Cuadro, Red, Grey, Esp, Com }) => {
         </div>
       </Cuadro>
       <br />
-
       <h5>
-        Movimiento entre campos con decimales (V, S9 ) a campos numéricos (PIC 9)
+        Movimiento entre campos con decimales (V, S9 ) a campos numéricos (PIC
+        9)
       </h5>
       <Cuadro data={{ gridTemplateColumns: "6fr 2fr 2fr 2fr 2fr" }} key={435}>
         <div className="col tCenter">
@@ -485,7 +489,79 @@ const Mod3_5 = ({ Cuadro, Red, Grey, Esp, Com }) => {
         </div>
       </Cuadro>
       <br />
-
+      <h4>Funciones Intrínsecas</h4>
+      <p>
+        Las Funciones Intrínsecas (Intrinsic Functions) son funciones
+        predefinidas que proporciona COBOL para realizar cálculos y operaciones
+        complejas de forma sencilla y eficiente, sin que el programador tenga
+        que implementarlas manualmente. Se introdujeron a partir de COBOL 85
+        (con más funciones en versiones posteriores) y su uso debe estar
+        habilitado por el compilador. Se deben usar con la palabra reservada
+        FUNCTION. El argumento debe ser del tipo correcto (texto o numérico).
+        Puedes almacenar el resultado en una variable COBOL. Evitan codificar
+        operaciones repetitivas. Aumentan la legibilidad del código. Están
+        optimizadas por el compilador. <br />
+        Las funciones intrínsecas no están disponibles en todos los
+        compiladores, o pueden necesitar una directiva para habilitarlas
+        (INTRINSIC en algunos casos). <br />
+        Permiten hacer operaciones como:
+      </p>
+      <li>Manipular números (matemáticas, redondeo, trigonometría).</li>
+      <li>Procesar cadenas de texto (buscar, contar, convertir).</li>
+      <li>Obtener información del sistema (fecha, hora, etc.).</li>
+      <li>Realizar conversión de tipos de datos.</li>
+      <br />
+      <ol>
+        <li>
+          Función matemática
+          <div className="codigo">
+            <Red>COMPUTE</Red> RESULTADO = <Red>FUNCTION SQRT</Red>(25). <Esp />
+            <Com>* Resultado será 5</Com>
+          </div>
+        </li>
+        <br />
+        <li>
+          Longitud de una cadena
+          <div className="codigo">
+            <Red>MOVE FUNCTION LENGTH</Red>("COBOL") <Red>TO</Red> LONGITUD.{" "}
+            <Esp />
+            <Com>* LONGITUD = 5</Com>
+          </div>
+        </li>{" "}
+        <br />
+        <li>
+          Convertir a mayúsculas
+          <div className="codigo">
+            <Red>MOVE FUNCTION UPPER-CASE</Red>("cobol") <Red>TO</Red> TEXTO.{" "}
+            <Esp />
+            <Com>* TEXTO = "COBOL"</Com>
+          </div>
+        </li>{" "}
+        <br />
+        <li>
+          Fecha y hora actual
+          <div className="codigo">
+            <Red>MOVE FUNCTION CURRENT-DATE TO</Red> FECHA-HORA.
+          </div>
+        </li>
+        <br />
+        <li>
+          Convertir string a número
+          <div className="codigo">
+            <Red>MOVE FUNCTION NUMVAL</Red>("123.45") <Red>TO</Red> WS-NUMERO.
+          </div>
+        </li>
+      </ol>
+      <br />
+      Nuevas FUNCIONES:
+      <Esp />
+      <li>DATE-TO-YYYYMMDD</li>
+      <li>DAY-TO-YYYY</li>
+      <li>YEAR-TO-YYYY</li> <br />
+      FUNCIONES NO MÁS SOPORTADAS EN COBOL V5:
+      <li>DATEVAL</li>
+      <li>UNDATE</li>
+      <li>YEARWINDOW</li>
       <hr />
     </section>
   );

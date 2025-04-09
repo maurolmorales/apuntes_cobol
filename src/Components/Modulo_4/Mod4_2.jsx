@@ -25,24 +25,7 @@ const Mod4_2 = ({ Cuadro, Red, Grey, Esp, Com }) => {
         En este ejemplo, se muestra un mensaje en función del saldo de la
         cuenta.
       </p>
-      <h4>EVALUATE</h4>
-      <p>
-        La sentencia EVALUATE en COBOL se utiliza para realizar múltiples
-        comparaciones en paralelo y tomar decisiones basadas en los resultados
-        de esas comparaciones.
-      </p>
-      <div className="codigo">
-        <Red>EVALUATE</Red> OpcionMenu <br />
-          <Esp/><Red>WHEN</Red> <Grey>'1'</Grey> <Red>DISPLAY</Red> <Grey>'Seleccionó la opción 1'</Grey> <br />
-          <Esp/><Red>WHEN</Red> <Grey>'2'</Grey> <Red>DISPLAY</Red> <Grey>'Seleccionó la opción 2'</Grey> <br />
-          <Esp/><Red>WHEN</Red> <Grey>'3'</Grey> <Red>DISPLAY</Red> <Grey>'Seleccionó la opción 3'</Grey> <br />
-          <Esp/><Red>WHEN OTHER DISPLAY</Red> <Grey>'Opción no válida'</Grey> <br />
-        <Red>END-EVALUATE</Red>.
-      </div>
-      <p>
-        En este ejemplo, se evalúa la opción de menú y se muestra un mensaje en
-        función de la opción seleccionada.
-      </p>
+    
       <h4>PERFORM UNTIL</h4>
       <p>
         La sentencia PERFORM UNTIL se utiliza para repetir un bloque de código

@@ -13,7 +13,7 @@ const Mod3_4 = ({ Cuadro, Red, Grey, Esp, Com }) => {
         El tipo de dato ALPHANUMERIC se utiliza para representar cadenas de
         caracteres alfanuméricos. Puede contener letras, números y caracteres
         especiales. La declaración de una variable ALPHANUMERIC se realiza con
-        la cláusula PIC seguida de una especificación de tamaño, que indica la
+        la cláusula PIC seguida de una especificación de tamaño, que indica la 
         cantidad máxima de caracteres que puede contener la variable.
       </p>
       <div className="twoColums">
@@ -137,13 +137,13 @@ const Mod3_4 = ({ Cuadro, Red, Grey, Esp, Com }) => {
         <li>
           <strong>SYMBOLIC CHARACTERS</strong>: Definidos en la cláusula
           SPECIAL-NAMES, permiten asignar nombres a caracteres especiales.
+        </li>
           <div className="codigo">
             <Red>SPECIAL-NAMES</Red>. <br />
             <Esp />
             <Red>SYMBOLIC CHARACTERS EURO IS X</Red>
             <Grey>'20AC'</Grey>.
           </div>
-        </li>
       </ul>
       <br />
 
@@ -184,22 +184,23 @@ const Mod3_4 = ({ Cuadro, Red, Grey, Esp, Com }) => {
       </p>
       <ul>
         <li>
-          <strong>OCCURS</strong>: Esta cláusula es para definir tablas de 'n' dimensiones, y
-          pueden ser referenciadas por índices o suscriptores. Esta cláusula no
-          se puede usar en los niveles 01/66/77/88. Se utiliza para declarar
-          arreglos de variables. Permite especificar el número de elementos y la
-          estructura de cada elemento dentro del arreglo. Indica el número de
-          veces 'n' que se repite un elemento (campo simple o compuesto) con la
-          misma descripción. El subíndice correspondiente al primer elemento es
-          1. El subíndice puede ser un número entero o un nombre de datos. Si es
-          un nombre de datos se recomienda declararlo con formato binario
-          (COMP). La cláusula OCCURS no puede especificarse en una descripción
-          con número de nivel 01 o 77. Una tabla en COBOL puede tener hasta 3
-          subíndices. En este caso se dice que la tabla es de 3 dimensiones. La
-          cláusula OCCURS y VALUE son incompatibles, lo cual no permite
-          inicializar una tabla en su propia declaración.
+          <strong>OCCURS</strong>: Esta cláusula es para definir tablas de 'n'
+          dimensiones, y pueden ser referenciadas por índices o suscriptores.
+          Esta cláusula no se puede usar en los niveles 01/66/77/88. Se utiliza
+          para declarar arreglos de variables. Permite especificar el número de
+          elementos y la estructura de cada elemento dentro del arreglo. Indica
+          el número de veces 'n' que se repite un elemento (campo simple o
+          compuesto) con la misma descripción. El subíndice correspondiente al
+          primer elemento es 1. El subíndice puede ser un número entero o un
+          nombre de datos. Si es un nombre de datos se recomienda declararlo con
+          formato binario (COMP). La cláusula OCCURS no puede especificarse en
+          una descripción con número de nivel 01 o 77. Una tabla en COBOL puede
+          tener hasta 3 subíndices. En este caso se dice que la tabla es de 3
+          dimensiones. La cláusula OCCURS y VALUE son incompatibles, lo cual no
+          permite inicializar una tabla en su propia declaración.
         </li>
-<br />
+        </ul>
+        <br />
         <p>Ejemplo con suscriptores: </p>
         <div className="codigo">
           01 TABLA-ELEM <Red>PIC</Red> X(03)<Red> OCCURS</Red> 31{" "}
@@ -238,7 +239,7 @@ const Mod3_4 = ({ Cuadro, Red, Grey, Esp, Com }) => {
           <Red>END-IF</Red> <br />
           <Red>END-PERFORM</Red>. <br />
         </div>
-      </ul>
+      
       <div className="twoColums">
         <div className="codigo">
           01 TelefonoClientes <Red>OCCURS</Red> 10 <Red>TIMES</Red>. <br />
@@ -252,20 +253,20 @@ const Mod3_4 = ({ Cuadro, Red, Grey, Esp, Com }) => {
       </div>
       <ul>
         <li>
-          <strong>REDEFINES</strong>: Se utiliza para reorganizar datos y asignar diferentes
-          interpretaciones a la misma área de almacenamiento. Esta cláusula
-          permite dar a un campo o a un área de memoria más de un nombre y más
-          de un formato. Su formato es el siguiente: Level-number data-name-1
-          REDEFINES data-name-2 FILLER La cláusula REDEFINES ha de ser la
-          primera que siga al nombre de datos. Los campos nombre de dato-1 y
-          campos nombre de dato-2 deben estar declarados al mismo nivel, pero no
-          a nivel 66 u 88. La redefinición de un campo compuesto se hace
-          inmediatamente después del último de los campos elementales que forman
-          parte de aquél. Esta cláusula va a permitir inicializar una tabla en
-          el momento de declararla.
+          <strong>REDEFINES</strong>: Se utiliza para reorganizar datos y
+          asignar diferentes interpretaciones a la misma área de almacenamiento.
+          Esta cláusula permite dar a un campo o a un área de memoria más de un
+          nombre y más de un formato. Su formato es el siguiente: Level-number
+          data-name-1 REDEFINES data-name-2 FILLER La cláusula REDEFINES ha de
+          ser la primera que siga al nombre de datos. Los campos nombre de
+          dato-1 y campos nombre de dato-2 deben estar declarados al mismo
+          nivel, pero no a nivel 66 u 88. La redefinición de un campo compuesto
+          se hace inmediatamente después del último de los campos elementales
+          que forman parte de aquél. Esta cláusula va a permitir inicializar una
+          tabla en el momento de declararla.
         </li>
       </ul>
-      <div className="twoColums" style={{gridTemplateColumns:"2fr 1fr"}}>
+      <div className="twoColums" style={{ gridTemplateColumns: "2fr 1fr" }}>
         <div>
           <div className="codigo">
             01 DetalleProducto. <br />
@@ -284,18 +285,26 @@ const Mod3_4 = ({ Cuadro, Red, Grey, Esp, Com }) => {
           </p>
         </div>
         <div>
-        <div>
-          <p>Ejemplos de REDEFINES</p>
-        </div>
-<div className="codigo">
-  05 AAA <Red>PIC</Red> X(06). <br />
-  05 BBB REDEFINES AAA. <br />
-  <Esp/><Esp/>10 B-1 <Red>PIC</Red> X(02). <br />
-  <Esp/><Esp/>10 B-2 <Red>PIC</Red> 9(04). <br />
-  05 CCC REDEFINES AAA. <br />
-  <Esp/><Esp/>10 C-1 <Red>PIC</Red> X(04). <br />
-  <Esp/><Esp/>10 C-2 <Red>PIC</Red> 9(02). <br />
-</div>
+          <div>
+            <p>Ejemplos de REDEFINES</p>
+          </div>
+          <div className="codigo">
+            05 AAA <Red>PIC</Red> X(06). <br />
+            05 BBB REDEFINES AAA. <br />
+            <Esp />
+            <Esp />
+            10 B-1 <Red>PIC</Red> X(02). <br />
+            <Esp />
+            <Esp />
+            10 B-2 <Red>PIC</Red> 9(04). <br />
+            05 CCC REDEFINES AAA. <br />
+            <Esp />
+            <Esp />
+            10 C-1 <Red>PIC</Red> X(04). <br />
+            <Esp />
+            <Esp />
+            10 C-2 <Red>PIC</Red> 9(02). <br />
+          </div>
         </div>
       </div>
 
@@ -444,6 +453,7 @@ const Mod3_4 = ({ Cuadro, Red, Grey, Esp, Com }) => {
         cláusula USAGE IS INDEX o como un campo elemental entero. El valor de
         este campo evoluciona paralelamente al índice de la tabla y se emplea
         cuando:
+      </p>
         <ul>
           <li>
             A: Aparte de realizar la búsqueda de un determinado elemento de la
@@ -456,7 +466,6 @@ const Mod3_4 = ({ Cuadro, Red, Grey, Esp, Com }) => {
             están descritas.
           </li>
         </ul>
-      </p>
 
       <h4>El Uso de JUST</h4>
       <p>
