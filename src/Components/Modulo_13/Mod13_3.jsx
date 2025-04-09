@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod13_3 = () => {
+const Mod13_3 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="13.3">
       <h3>13.3. Monitorización y Análisis de Rendimiento en COBOL</h3>

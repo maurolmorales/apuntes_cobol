@@ -1,8 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-import Cuadro from "../Cuadro";
-const Mod3_3 = () => {
+const Mod3_3 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="3.3">
       <h3>3.3. Tipos de Datos Numéricos en COBOL</h3>
@@ -43,6 +39,68 @@ const Mod3_3 = () => {
           enteros positivos o negativos de hasta cinco dígitos.
         </p>
       </div>
+
+<h5>Usage</h5>
+<p>USAGE IS BINARY EL USAGE DISPLAY ES POR DEFECTO, SI NO HAY USAGE ESCRITO ASUME DISPLAY</p>
+COMP <br />
+COMP 3 <br />
+COMP 4 <br />
+INDEX <br />
+POINTER <br />
+<h5>BINARY o COMPUTATIONAL o COMPUTATIONAL-4</h5>
+<li>El dato es almacenado en formato binario ( media palabra, palabra, etc).</li>
+<li>Cuando tiene signo ( positivo o negativo ), se representa en dos medias palabras complementarias.</li>
+<li>Del ejemplo de +1234 / -1234 será 00 00 y 04 D2</li>
+<li>Una media palabra ( 2 BYTES ) es usada para 4 dígitos. Una palabra ( 4 BYTES ) es usada para 5 a 9 dígitos.</li>
+<li>Una doble palabra ( 8 BYTES ) es usada para 10 a 18 dígitos.</li>
+
+<h5>COMPUTATIONAL-3</h5>
+<li>El dato es almacenado en un packed-decimal o sea dos dígitos por byte.</li>
+<h5>Estructura</h5>
+<Cuadro data={{gridTemplateColumns:"1fr 1fr 1fr"}} key={51}>
+<div className="col tCenter">
+<div>PICTURE</div>
+<div>9999</div>
+<div>S9999</div>
+<div>S9999</div>
+<div>9999BINARY</div>
+<div>999999BINARY</div>
+<div>S9999BINARY</div>
+<div>S999999BINARY</div>
+<div>9999COMP-3</div>
+<div>S9999COMP-3</div>
+<div>S9999COMP-3</div>
+
+</div>
+<div className="col tCenter">
+<div>VALOR</div>
+<div>+1234 / -1234</div>
+<div>+1234</div>
+<div>-1234</div>
+<div>+1234 / -1234</div>
+<div>+1234 / -1234</div>
+<div>+1234 / -1234</div>
+<div>+1234 / -1234</div>
+<div>+1234 / -1234</div>
+<div>+1234</div>
+<div>-1234</div>
+
+</div>
+<div className="col tCenter">
+<div>REPRESENTACIÓN INTERNA</div>
+<div>F1F2F3F4</div>
+<div>F1F2F3C4</div>
+<div>F1F2F3D4</div>
+<div>04 D2</div>
+<div>00 00 04 D2</div>
+<div>FB 2E</div>
+<div>FFFFFB2E</div>
+<div>01 23 4F</div>
+<div>01 23 4C</div>
+<div>01 23 4D</div>
+  </div>
+</Cuadro>
+
       <h4>DECIMAL (PIC 9(3)V9(2)): </h4>
       <p>
         El tipo de dato DECIMAL se utiliza para representar números decimales en
@@ -218,6 +276,30 @@ const Mod3_3 = () => {
           cálculos utilizando la cláusula COMPUTATIONAL-3.
         </p>
       </div>
+
+<h4>SIGN</h4>
+<p>
+Esta cláusula especifica la posición y el modo de representación del signo
+operacional de un campo numérico en cuya especificación de formato se ha
+especificado 'S'.
+</p>
+<ul>
+  <li>
+    Si la cláusula SEPARATE no se especifica, el signo del número es
+    incorporado en el dígito de la derecha (TRAILING) o en el dígito de la
+    izquierda LEADING. En este caso el carácter S de la PICTURE no se tiene
+    en cuenta para determinar el tamaño del campo.
+  </li>
+  <li>
+    Si la cláusula SEPARATE se especifica, entonces el signo es almacenado
+    como un carácter separado adicional a los dígitos. En este caso el carácter
+    'S' se tiene en cuenta para determinar el tamaño del campo.
+  </li>
+  <li>
+    Si la cláusula SIGN no se especifica, generalmente la posición por defecto
+    es a la izquierda
+  </li>
+</ul>
       <h4>Conclusión</h4>
       <p>
         Los tipos de datos numéricos en COBOL son esenciales para el manejo de

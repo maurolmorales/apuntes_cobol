@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod9_2 = () => {
+const Mod9_2 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="9.2">
       <p>falta data</p>

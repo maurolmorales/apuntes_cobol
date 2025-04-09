@@ -1,8 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-import Cuadro from "../Cuadro";
-const Mod3_5 = () => {
+const Mod3_5 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="3.5">
       <h3>3.5. Manipulación de Datos en COBOL</h3>

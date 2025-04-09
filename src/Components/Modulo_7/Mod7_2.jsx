@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod7_2 = () => {
+const Mod7_2 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="7.2">
       <h3>7.2. Formateo de Fechas y Horas en COBOL</h3>

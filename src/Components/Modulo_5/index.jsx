@@ -1,4 +1,8 @@
-import { Esp } from "../espacio";
+import Cuadro from "../Cuadro.jsx";
+import Red from "../Colors/Red.jsx";
+import Grey from "../Colors/Grey.jsx";
+import Com from "../Colors/Com.jsx";
+import { Esp } from "../espacio.jsx";
 import { Mod5_1 } from "./Mod5_1";
 import { Mod5_2 } from "./Mod5_2";
 import { Mod5_3 } from "./Mod5_3";
@@ -11,11 +15,11 @@ const Modulo5 = () => {
         <h2> Módulo 5: Manejo de Archivos</h2>
         <a href="#indice">al Indice</a>
       </div>
-      <Mod5_1 />
-      <Mod5_2 />
-      <Mod5_3 />
-      <Mod5_4 />
-      <Mod5_5 />
+      <Mod5_1 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp} />
+      <Mod5_2 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp} />
+      <Mod5_3 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp} />
+      <Mod5_4 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp} />
+      <Mod5_5 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp} />
     </article>
   );
 };

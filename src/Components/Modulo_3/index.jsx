@@ -1,4 +1,8 @@
-import { Esp } from "../espacio";
+import Cuadro from "../Cuadro.jsx";
+import Red from "../Colors/Red.jsx";
+import Grey from "../Colors/Grey.jsx";
+import Com from "../Colors/Com.jsx";
+import { Esp } from "../espacio.jsx";
 import { Mod3_1 } from "./Mod3_1";
 import { Mod3_2 } from "./Mod3_2";
 import { Mod3_3 } from "./Mod3_3";
@@ -21,11 +25,11 @@ const Modulo3 = () => {
         <h2> Módulo 3: Variables y Tipos de Datos en COBOL </h2>
         <a href="#indice">al Indice</a>
       </div>
-      <Mod3_1 />
-      <Mod3_2 />
-      <Mod3_3 />
-      <Mod3_4 />
-      <Mod3_5 />
+      <Mod3_1 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp}/>
+      <Mod3_2 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp}/>
+      <Mod3_3 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp}/>
+      <Mod3_4 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp}/>
+      <Mod3_5 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp}/>
     </article>
   );
 };

@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod7_3 = () => {
+const Mod7_3 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="7.3">
       <h3>7.3. Cálculos Matemáticos y Financieros en COBOL</h3>

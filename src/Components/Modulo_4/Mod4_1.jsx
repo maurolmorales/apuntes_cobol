@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod4_1 = () => {
+const Mod4_1 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="4.1">
       <h3>4.1. Sentencias de control de flujo</h3>

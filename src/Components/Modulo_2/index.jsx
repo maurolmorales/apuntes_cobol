@@ -1,4 +1,8 @@
-import { Esp } from "../espacio";
+import Cuadro from "../Cuadro.jsx";
+import Red from "../Colors/Red.jsx";
+import Grey from "../Colors/Grey.jsx";
+import Com from "../Colors/Com.jsx";
+import { Esp } from "../espacio.jsx";
 import { Mod2_1 } from "./Mod2_1";
 import { Mod2_2 } from "./Mod2_2";
 import { Mod2_3 } from "./Mod2_3";
@@ -11,11 +15,11 @@ const Modulo2 = () => {
         <h2> Módulo 2: Estructura de un Programa en COBOL.</h2>
         <a href="#indice">al Indice</a>
       </div>
-      <Mod2_1 />
-      <Mod2_2 />
-      <Mod2_3 />
-      <Mod2_4 />
-      <Mod2_5 />
+      <Mod2_1 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp} />
+      <Mod2_2 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp} />
+      <Mod2_3 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp} />
+      <Mod2_4 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp} />
+      <Mod2_5 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp} />
 
      
     </article>

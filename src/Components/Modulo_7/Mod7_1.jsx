@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod7_1 = () => {
+const Mod7_1 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="7.1">
       <h3>7.1. Manipulación de Cadenas de Texto en COBOL</h3>

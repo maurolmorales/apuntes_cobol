@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod8_2 = () => {
+const Mod8_2 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="8.2">
       <h3>8.2. Pruebas Unitarias y de Integración en COBOL</h3>

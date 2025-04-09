@@ -1,4 +1,4 @@
-const Mod2_2 = () => {
+const Mod2_2 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="2.2">
       <h3>IDENTIFICATION DIVISION</h3>
@@ -23,7 +23,16 @@ const Mod2_2 = () => {
         <li>
           <strong>PROGRAM-ID:</strong> Esta declaración especifica el nombre del
           programa COBOL. El nombre del programa es una etiqueta única que lo
-          identifica.
+          identifica. Este párrafo sirve para especificar el nombre del
+          programa. Este nombre será utilizado por el compilador o durante la
+          ejecución para indicar en qué programa ocurrió algún error. El nombre
+          del programa debe ajustarse a las reglas de formación de un
+          identificador COBOL. El resto de los párrafos son opcionales, pueden
+          aparecer en cualquier orden, y su utilización queda perfectamente
+          definida en el formato descrito. Si un comentario ocupa más de una
+          línea, no está permitido utilizar el guión como carácter de
+          continuación, sin embargo puede ser continuado en las líneas
+          siguientes, comenzando en el margen B. <u>uso obligatorio</u>.
         </li>
       </ul>
       <br />
@@ -52,9 +61,28 @@ const Mod2_2 = () => {
           declaración de seguridad que describa aspectos de seguridad
           relacionados con el programa.
         </li>
+        <li>
+          <strong>REMARKS:</strong> Se utiliza para incluir comentarios sobre el
+          entorno de desarrollo del programa. Puede contener información
+          adicional sobre la configuración del sistema, requisitos de
+          compilación, etc.
+        </li>
       </ul>
+
+      <div className="codigo">
+        <Red>IDENTIFICATION DIVISION</Red>. <br />
+        <Red>PROGRAM-ID</Red>. NOMBRE-DEL-PROGRAMA. <br />
+        <Red>AUTHOR</Red> NOMBRE-DEL-AUTOR. <br />
+        <Red>DATE-WRITTEN</Red> <Grey>"2018-10-29"</Grey>. <br />
+        <Red>DATE-COMPILED</Red> <Grey>"2019-02-15"</Grey>. <br />
+        <Red>DATE-MODIFIED</Red> <Grey>"2019-02-15"</Grey>. <br />
+        <Red>INSTALLATION</Red> <Grey>"NOMBRE DE LA EMPRESA"</Grey>. <br />
+        <Red>SECURITY</Red> <Grey>"ASPECTOS RELACIONADOS A LA SEGURIDAD"</Grey>.{" "}
+        <br />
+        <Red>REMARKS</Red> <Grey>"COMENTARIO SOBRE EL PROGRAMA"</Grey>. <br />
+      </div>
     </section>
   );
 };
 
-export {Mod2_2};
+export { Mod2_2 };

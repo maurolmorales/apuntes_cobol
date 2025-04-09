@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod6_4 = () => {
+const Mod6_4 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="6.4">
       <h3>6.4. Reutilización de Código en COBOL</h3>
@@ -39,11 +36,15 @@ const Mod6_4 = () => {
         <Red>COPY</Red> RegistroCliente. <br /> <br />
         <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        <Red>MOVE</Red> <Grey>'Juan Pérez'</Grey><Red> TO </Red>NombreCliente. <br />
+        <Red>MOVE</Red> <Grey>'Juan Pérez'</Grey>
+        <Red> TO </Red>NombreCliente. <br />
         <Esp />
-        <Red>DISPLAY</Red> <Grey>'Nombre del Cliente: '</Grey> NombreCliente. <br /> <br />
+        <Red>DISPLAY</Red> <Grey>'Nombre del Cliente: '</Grey> NombreCliente.{" "}
+        <br /> <br />
         <Esp />
-        <Red>MOVE</Red><Grey> 'María Rodríguez'</Grey><Red> TO </Red>NombreCliente. <br />
+        <Red>MOVE</Red>
+        <Grey> 'María Rodríguez'</Grey>
+        <Red> TO </Red>NombreCliente. <br />
         <Esp />
         <Red>DISPLAY</Red> <Grey>'Nombre del Cliente: '</Grey> NombreCliente.
       </div>
@@ -53,6 +54,155 @@ const Mod6_4 = () => {
         datos en diferentes partes del programa sin tener que volver a
         definirla.
       </p>
+
+      <h4>COPY</h4>
+      <p>
+        Un programa COBOL puede y es aconsejable, re-utilizar el código
+        programado, recurriendo a la inclusión de estos por medio de COPY.
+      </p>
+      <ul>
+        <li>Declaración de archivos (Select)</li>
+        <li>Definición de archivos y sus registros (FD) </li>
+        <li>Variables propias de cada archivo (Ubicación, File Status)</li>
+        <li>
+          Definición de variables comunes para todos los programas
+          Working-Storage
+        </li>
+        <li>Definición de Tablas de Bases de Datos</li>
+        <li>Rutinas comunes (Cálculos, Mensajes, Errores, LOG, etc)</li>
+        <li>Esqueletos pre-definidos con pseudo-texto</li>
+      </ul>
+      <p>
+        Vamos a crear el COPY FILEA, como miembro FILEA en SYS1.COPYLIB, que
+        contendrá la siguiente estructura:
+      </p>
+      <div className="codigo">
+        <Esp />
+        01 FILEA <br />
+        <Esp />
+        <Esp />
+        02 NOMBRE-EMPL <Red>PIC</Red> X(40). <br />
+        <Esp />
+        <Esp />
+        02 DOMICILIO <Red>PIC</Red> X(40). <br />
+        <Esp />
+        <Esp />
+        02 CIUDAD <Red>PIC</Red> X(20). <br />
+        <Esp />
+        <Esp />
+        02 COD-POSTAL <Red>PIC</Red> X(04). <br />
+        <Com>. . . . . . . . . . . . . . . . . . . Fuente del programa </Com>
+        <br />
+        <Esp />
+        <Red>WORKING-STORAGE SECTION</Red>. <br />
+        <Esp />
+        <Esp />
+        <Red>COPY</Red> FILEA. <br />
+        <Com>
+          . . . . . . . . . . . . . . . . . . . Posterior a la compilación
+        </Com>{" "}
+        <br />
+        <Esp />
+        <Red>WORKING-STORAGE SECTION</Red>. <br />
+        01 FILEA <br />
+        <Esp />
+        <Esp />
+        02 NOMBRE-EMPL <Red>PIC</Red> X(40). <br />
+        <Esp />
+        <Esp />
+        02 DOMICILIO <Red>PIC</Red> X(40). <br />
+        <Esp />
+        <Esp />
+        02 CIUDAD <Red>PIC</Red> X(20). <br />
+        <Esp />
+        <Esp />
+        02 COD-POSTAL <Red>PIC</Red> X(04). <br />
+      </div>
+
+      <h4>REPLACE</h4>
+      <ul>
+        <li>Se proveen los copys que usan los programas</li>
+        <li>Archivos y Tablas de la Base de Datos</li>
+        <li>Ejemplos de Procedimientos comunes a todos los programas</li>
+      </ul>
+      <p>
+        Sirve para realizar cambios en el texto del COPY previamente generado en
+        COPYLIB, por necesidad del programador. Ejemplo de cómo es reemplazado
+        en el programa el contenido de un COPY:
+      </p>
+      <div className="codigo">
+        <Red>COPY</Red> PAYLIB <Red>REPLACING</Red> <br />
+        <Esp />
+        FLDA <Red>BY</Red> PAY-RECORD <br />
+        <Esp />
+        FLDB <Red>BY</Red> HRLY-RATE <br />
+        <Esp />
+        FLDC <Red>BY</Red> HRS-WORKD. <br />
+      </div>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          placeItems: "center",
+        }}
+      >
+        <div>
+          <p>TEXTO DEL COPY EN LA BIBLIOTECA</p>
+          <div className="codigo">
+            01 FLDA. <br />
+            <Esp />
+            02 FLDB <Red>PIC</Red> 999V99. <br />
+            <Esp />
+            02 FLDC <Red>PIC</Red> 999V99 <br />
+          </div>
+        </div>
+        <div>
+          <p>TEXTO DEL COPY EN EL PROGRAMA</p>
+          <div className="codigo">
+            01 PAY-RECORD. <br />
+            <Esp />
+            02 HRLY-RATE <Red>PIC</Red> 999V99. <br />
+            <Esp />
+            02 HRS-WORKD <Red>PIC</Red> 999V99. <br />
+          </div>
+        </div>
+      </div>
+
+      <h4>COPY DE PROCEDURE DIVISION</h4>
+      <p>
+        Este tipo de COPY se invoca en la PROCEDURE DIVISION y contiene un
+        conjunto de sentencias, de uso común para los programas, por ejemplo
+        tratamiento de errores.
+      </p>
+      <div className="codigo">
+        <Red>COPY</Red> text-name <Red>OF</Red> nombre-biblioteca{" "}
+        <Red>SUPRESS REPLACING</Red> operando-1 <Red>BY</Red> operando-2
+      </div>
+      <p>Ejemplo Invocando rutina error: </p>
+
+      <div className="codigo">
+        <Red>PROCEDURE DIVISION</Red>. <br />
+        <Esp />
+        <Red>READ</Red> FILEA <br />
+        <Esp />
+        <Red>IF</Red> RETORNO <Red>IS NOT EQUAL</Red> <Grey>'OK'</Grey> <br />
+        <Esp />
+        <Esp />
+        <Red>PERFORM</Red> INVOCO-ERROR <br />
+        <Esp />
+        <Red>ELSE</Red> <br />
+        <Com>. . . . . . . . . </Com> <br />
+        INVOCO-ERROR <br />
+        <Esp />
+        <Red>COPY</Red> RUT-ERROR <br />
+        <Com>... Texto del copy en la biblioteca ... </Com> <br />
+        <Esp />
+        <Red>MOVE</Red> RETORNO <Red>TO</Red> COD-ERROR. <br />
+        <Esp />
+        <Red>CALL</Red> <Grey>'RUTERROR'</Grey> <Red>USING</Red> COD-ERROR.{" "}
+        <br />
+      </div>
       <h4>Bibliotecas de Enlace Dinámico</h4>
       <p>
         En COBOL, también es posible reutilizar código a nivel de programas

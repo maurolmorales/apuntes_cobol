@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod10_3 = () => {
+const Mod10_3 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="10.3">
       <h3>10.3. Migración a Plataformas Modernas</h3>

@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod5_4 = () => {
+const Mod5_4 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="5.4">
       <h3>5.4. Acceso a Archivos Indexados en COBOL</h3>

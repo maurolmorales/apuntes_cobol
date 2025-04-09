@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod5_3 = () => {
+const Mod5_3 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="5.3">
       <h3>5.3. Lectura y Escritura de Archivos Secuenciales en COBOL</h3>

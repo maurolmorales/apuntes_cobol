@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod6_2 = () => {
+const Mod6_2 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="6.2">
       <h3>6.2. Paso de Parámetros en COBOL</h3>

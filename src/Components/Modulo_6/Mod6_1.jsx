@@ -1,18 +1,13 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod6_1 = () => {
+const Mod6_1 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="6.1">
       <h3>6.1. Definición de Procedimientos y Subrutinas en COBOL</h3>
       <p>
-        Por supuesto, a continuación, desarrollaré el punto 6.1: "Definición de
-        Procedimientos y Subrutinas" en un curso de COBOL. 6.1. Definición de
-        Procedimientos y Subrutinas en COBOL Los procedimientos y subrutinas en
-        COBOL son bloques de código reutilizable que se utilizan para realizar
-        tareas específicas dentro de un programa. Estas estructuras permiten
-        descomponer un programa en partes más pequeñas y más manejables, lo que
-        facilita el mantenimiento y la reutilización del código.
+        Los procedimientos y subrutinas en COBOL son bloques de código
+        reutilizable que se utilizan para realizar tareas específicas dentro de
+        un programa. Estas estructuras permiten descomponer un programa en
+        partes más pequeñas y más manejables, lo que facilita el mantenimiento y
+        la reutilización del código.
       </p>
       <h4>Definición de Procedimientos</h4>
       <p>
@@ -25,13 +20,15 @@ const Mod6_1 = () => {
       <div className="codigo">
         <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        <Red>DISPLAY </Red><Grey>'Inicio del programa principal'</Grey>. <br />
+        <Red>DISPLAY </Red>
+        <Grey>'Inicio del programa principal'</Grey>. <br />
         <br />
         <Esp />
         <Red>PERFORM </Red>MiProcedimiento. <br />
         <br />
         <Esp />
-        <Red>DISPLAY </Red><Grey>'Fin del programa principal'</Grey>. <br />
+        <Red>DISPLAY </Red>
+        <Grey>'Fin del programa principal'</Grey>. <br />
         <br />
         <Esp />
         <Red>STOP RUN</Red>. <br />
@@ -39,7 +36,8 @@ const Mod6_1 = () => {
         <Esp />
         MiProcedimiento. <br />
         <Esp />
-        <Red>DISPLAY </Red><Grey>'Este es un procedimiento'</Grey>.
+        <Red>DISPLAY </Red>
+        <Grey>'Este es un procedimiento'</Grey>.
       </div>
       <p>
         En este ejemplo, se define un procedimiento llamado MiProcedimiento que
@@ -67,21 +65,26 @@ const Mod6_1 = () => {
         <br />
         <Red>PROCEDURE DIVISION</Red>. <br />
         <Esp />
-        <Red>DISPLAY </Red><Grey>'Inicio del programa principal'</Grey>. <br />
+        <Red>DISPLAY </Red>
+        <Grey>'Inicio del programa principal'</Grey>. <br />
         <br />
         <Esp />
-        <Red>CALL</Red> <Grey>'MiSubrutina'</Grey> <Red>USING</Red> NumeroA NumeroB Resultado. <br />
+        <Red>CALL</Red> <Grey>'MiSubrutina'</Grey> <Red>USING</Red> NumeroA
+        NumeroB Resultado. <br />
         <br />
         <Esp />
-        <Red>DISPLAY </Red><Grey>'Resultado: '</Grey> Resultado. <br />
+        <Red>DISPLAY </Red>
+        <Grey>'Resultado: '</Grey> Resultado. <br />
         <Esp />
-        <Red>DISPLAY </Red><Grey>'Fin del programa principal'</Grey>. <br />
+        <Red>DISPLAY </Red>
+        <Grey>'Fin del programa principal'</Grey>. <br />
         <br />
         <Red>STOP RUN</Red>. <br />
         <br />
         MiSubrutina. <br />
         <Esp />
-        <Red>ENTRY</Red> <Grey>'MiSubrutina'</Grey> <Red>USING</Red> NumA NumB Result. <br />
+        <Red>ENTRY</Red> <Grey>'MiSubrutina'</Grey> <Red>USING</Red> NumA NumB
+        Result. <br />
         <Esp />
         <Red>COMPUTE</Red> Result = NumA + NumB. <br />
       </div>

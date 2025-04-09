@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Grey from "../Colors/Grey";
-import Red from "../Colors/Red";
-const Mod2_5 = () => {
+const Mod2_5 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="2.5">
       <h3>PROCEDURE DIVISION</h3>
@@ -46,9 +43,9 @@ const Mod2_5 = () => {
           <Red>STOP RUN</Red>.
         </div>
         <p>
-          Las instrucciones DISPLAY muestran mensajes en
-          la pantalla, ACCEPT recopila datos del usuario, COMPUTE realiza una
-          operación de suma y el programa se detiene con STOP RUN al final.
+          Las instrucciones DISPLAY muestran mensajes en la pantalla, ACCEPT
+          recopila datos del usuario, COMPUTE realiza una operación de suma y el
+          programa se detiene con STOP RUN al final.
         </p>
       </div>
       <h4>Control de Flujo y Toma de Decisiones</h4>
@@ -105,6 +102,83 @@ const Mod2_5 = () => {
           </div>
         </li>
       </ul>
+      <h5>Entry Point</h5>
+      <p>
+        Es el punto de entrada de ejecución de un programa ( ENTRY POINT ), con
+        el nombre definido en PROGRAMID
+      </p>
+      <h5>División de Procedimientos</h5>
+      Indica la secuencia de operaciones necesarias, sentencias COBOL, para
+      resolver un problema dado. El formato general para esta división es el
+      siguiente: <br />
+      {"{Nombre de Sección SECTION [numero-segmento]."} <br />
+      {"[Nombre de párrafo. Sentencia] ...]...}..."}
+      <br />
+      <p>
+        La cláusula USING se especifica solamente en programas que luego son
+        llamados (CALL) o enlazados CHAIN. Puede ser dividida en secciones y
+        estas a su vez en párrafos. Cada párrafo generalmente agrupa varias
+        sentencias. La división en párrafos es frecuente. Opcionalmente la
+        PROCEDURE DIVISION puede contener secciones DECLARATIVAS. En caso de
+        utilizarlas, estas deben ser las primeras en definirse.
+      </p>
+      <h5>Terminación de un Programa</h5>
+      <ul>
+        <li>
+          <strong>EXIT PROGRAM</strong>: Especifica el fin de una rutina y
+          retorna el control al programa llamador.
+        </li>
+        <li>
+          <strong>STOP RUN</strong>: Al fin de ejecución retorna el control al
+          sistema operativo.
+        </li>
+        <li>
+          GOBACK: Cumple las dos funciones la de EXIT PROGRAM, si es una rutina
+          y la STOP RUN si es un programa MAIN. EL GOBACK es el recomendado.
+        </li>
+      </ul>
+      <h5>Terminación de Sentencias</h5>
+      <Cuadro data={{ gridTemplateColumns: "1fr 1fr 1fr" }} key={1}>
+        <div className="col">
+          <ul>
+            <li>
+              <strong>END-SEARCH</strong>
+            </li>
+            <li>
+              <strong>END-PERFORM</strong>
+            </li>
+            <li>
+              <strong>END-READ</strong>
+            </li>
+            <li>
+              <strong>END-IF</strong>
+            </li>
+          </ul>
+        </div>
+        <div className="col">
+          <ul>
+            <li>END-ADD</li>
+            <li>END-INVOKE</li>
+            <li>END-CALL</li>
+            <li>END-MULTIPLY</li>
+            <li>END-START</li>
+            <li>END-COMPUTE</li>
+            <li>END-STRING</li>
+          </ul>
+        </div>
+        <div className="col">
+          <ul>
+            <li>END-DELETE</li>
+            <li>END-SUBSTRING</li>
+            <li>END-DIVIDE</li>
+            <li>END-RETURN</li>
+            <li>END-UNSTRING</li>
+            <li>END-EVALUATE</li>
+            <li>END-REWRITE</li>
+            <li>END-WRITE</li>
+          </ul>
+        </div>
+      </Cuadro>
       <hr />
     </section>
   );

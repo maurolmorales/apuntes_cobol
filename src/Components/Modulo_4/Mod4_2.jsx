@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod4_2 = () => {
+const Mod4_2 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="4.2">
             <h3>4.2. Sentencias de Toma de Decisiones en COBOL</h3>

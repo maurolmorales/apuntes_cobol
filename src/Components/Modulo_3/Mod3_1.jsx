@@ -1,8 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-import Cuadro from "../Cuadro";
-const Mod3_1 = () => {
+const Mod3_1 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="Mod3_1">
       <h3 id="3.1">Declaración de Variables en COBOL</h3>
@@ -155,7 +151,47 @@ const Mod3_1 = () => {
           muestra el valor de numero2.
         </p>
       </div>
-     
+<h4>VALUE</h4>
+<li>La cláusula VALUE especifica el contenido inicial del DATAITEM, puede ser un literal entre comillas, o un valor.</li>
+<li>La cláusula VALUE no es válida en LINKAGE SECTION.</li>
+<li>La cláusula VALUE tiene diferentes formatos.</li>
+<br />
+<p>FORMATO 1:</p>
+<ul>
+  <li>Literal VALUE 'xxxxx'</li>
+  <li>Valor VALUE ZEROS o VALUE 1 (cualquier valor numérico dependiendo del PICTURE )</li>
+</ul>
+<br />
+<p>FORMATO 2:</p>
+  <ul>
+    <li>88 condition-name VALUE literal-1 THRU literal-2</li>
+  </ul>
+  <br />
+<p>FORMATO 3:</p>
+<ul>
+  <li>VALUE IS NULL / NULLS</li>
+</ul>
+ejemplo:
+<div className="codigo">
+<Red>WORKING-STORAGE SECTION</Red>.  <br />
+01. ……………  <br />
+<Esp/>02 NIVEL-SKILL <Red>PIC</Red> 99.  <br />
+<Esp/><Esp/>88 TRAINEE <Red>VALUE</Red> 1 <Red>THRU</Red> 3.  <br />
+<Esp/><Esp/>88 JUNIOR <Red>VALUE</Red> 4 <Red>THRU</Red> 7.  <br />
+<Esp/><Esp/>88 SEMI-SENIOR <Red>VALUE</Red> 8 <Red>THRU</Red> 11.  <br />
+<Esp/><Esp/>88 SENIOR <Red>VALUE</Red> 12 <Red>THRU</Red> 15.  <br />
+<Esp/>02 COSTO.  <br />
+<Esp/><Esp/>03 PESOS <Red>PIC</Red> 9(05).  <br />
+<Esp/><Esp/>03 FILLER <Red>PIC</Red> X <Red>VALUE</Red> '*'.  <br />
+<Esp/><Esp/>03 CENTAVOS <Red>PIC</Red> 99.  <br />
+<Esp/>02 FC-CODE-GOOD <Red>PIC</Red> S9(08) BINARY <Red>VALUE</Red> LOW-VALUES.  <br />
+<Esp/>02 PRECIO <Red>PIC</Red> 999V99 <Red>VALUE</Red> 123,45.  <br />
+<Esp/>02 LINEA <Red>PIC</Red>X(132)<Red>VALUE</Red> SPACES.  <br />
+<Esp/>02 SUBRAYADO <Red>PIC</Red> X(132) <Red>VALUE</Red> ALL '_'.  <br />
+<Esp/>77 AEROPUERTO <Red>PIC</Red> X(10) <Red>VALUE</Red> 'AEROPARQUE'.  <br />
+</div>
+
+
       <h4>Instrucciones Aritméticas</h4>
       <p>
         En COBOL, las instrucciones aritméticas son fundamentales para realizar
@@ -232,9 +268,15 @@ const Mod3_1 = () => {
       </div>
       <h4>Uso de PICTURE</h4>
       <p>
-        La cláusula PICTURE se utiliza para especificar la forma y el contenido
-        de una variable en COBOL. Define el formato de datos que se almacenará
-        en la variable y cómo se presentará.
+        La cláusula PICTURE indica las características generales de edición de
+        un DATA-ITEM. PIC o PICTURE son equivalentes. El máximo STRING de
+        caracteres es de 30. Los paréntesis en un STRING de caracteres indican
+        repetición. La cláusula PICTURE se utiliza para especificar la forma y
+        el contenido de una variable en COBOL. Define el formato de datos que se
+        almacenará en la variable y cómo se presentará. La cláusula PICTURE es
+        especificada para todos los DATA-ITEM elementales. No es especificada
+        para DATA-ITEM grupales, en un INDEX-DATA (USAGE INDEX ) o USAGE IS
+        POINTER o en una cláusula RENAMES.
       </p>
       <div className="twoColums">
         <div className="codigo">
@@ -251,11 +293,18 @@ const Mod3_1 = () => {
 
       <h4>Uso de FILLER</h4>
       <p>
-        Se usa en la División de Datos para definir espacios en un registro que
-        no necesitan un nombre específico ni serán referenciados en el programa.
-        Se emplea principalmente para reservar espacio en la memoria o para
-        estructurar mejor los datos en archivos o bases de datos.
+        Es una palabra reservada del COBOL, usada para describir campos que no
+        son referenciados en PROCEDURE DIVISION. Si el DATANAME o FILLER como
+        cláusula es omitida siguiendo a un LEVELNUMBER, entonces el DATAITEM
+        va a ser tratado como un FILLER. En un MOVE CORRESPONDING, ADD
+        CORRESPONDING, SUBSTRACT CORRESPONDING el FILLER es ignorado. También en
+        el INITIALIZE el FILLER también es ignorado. Se usa para definir
+        espacios en un registro que no necesitan un nombre específico ni serán
+        referenciados en el programa. Se emplea principalmente para reservar
+        espacio en la memoria o para estructurar mejor los datos en archivos o
+        bases de datos.
       </p>
+
       <ul>
         <li>
           Relleno: Se usa para completar espacios en blanco entre campos de
@@ -274,25 +323,49 @@ const Mod3_1 = () => {
           procesamiento de datos en archivos de formato fijo.
         </li>
       </ul>
-      <div className="twoColums">
-        <div className="codigo">
-          <Red>DATA DIVISION</Red>. <br />
-          <Red>WORKING-STORAGE SECTION</Red>. <br />
-          01 REGISTRO. <br />
-          <Esp /> 05 NOMBRE <Red>PIC</Red> X(10). <br />
-          <Esp /> 05 <Red>FILLER PIC</Red> X(5) <Red>VALUE</Red>{" "}
-          <Grey>
-            "<Esp />
-            <Esp /> "
-          </Grey>
-          . (Espacios en blanco) <br />
-          <Esp /> 05 APELLIDO <Red>PIC</Red> X(15).
+      <div className="twoColums" style={{ gridTemplateColumns: "1fr 1fr" }}>
+        <div>
+          <div className="codigo">
+            <Red>DATA DIVISION</Red>. <br />
+            <Red>WORKING-STORAGE SECTION</Red>. <br />
+            01 REGISTRO. <br />
+            <Esp /> 05 NOMBRE <Red>PIC</Red> X(10). <br />
+            <Esp /> 05 <Red>FILLER PIC</Red> X(5) <Red>VALUE</Red>{" "}
+            <Grey>
+              "<Esp />
+              <Esp /> "
+            </Grey>
+            . (Espacios en blanco) <br />
+            <Esp /> 05 APELLIDO <Red>PIC</Red> X(15).
+          </div>
+          <p>
+            En estos ejemplos, hemos utilizado PICTURE para definir el formato
+            de variables que almacenan fechas, números de seguridad social y
+            precios de productos.
+          </p>
         </div>
-        <p>
-          En estos ejemplos, hemos utilizado PICTURE para definir el formato de
-          variables que almacenan fechas, números de seguridad social y precios
-          de productos.
-        </p>
+        <div className="codigo">
+          01 REG-EMPLEADO. <br />
+          <Esp />
+          02 COD-EMPLEADO <Red>PIC</Red> 9(05). <br />
+          <Esp />
+          02 NOMBRE-EMPLEADO <Red>PIC</Red> X(40). <br />
+          <Esp />
+          02 <Esp />
+          <Esp />
+          <Esp />
+          <Esp />
+          <Esp />
+          <Esp />
+          <Esp />
+          <Esp />
+          <Esp />
+          <Red>PIC</Red> XX. <br />
+          <Esp />
+          02 DIRECC-EMPLEADO <Red>PIC</Red> X(35). <br />
+          <Esp />
+          02 FILLER <Red>PIC</Red> X(18). <br />
+        </div>
       </div>
       <h4>Conclusión</h4>
       <p>

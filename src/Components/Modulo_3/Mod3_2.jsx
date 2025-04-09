@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red"
-import Grey from "../Colors/Grey"
-const Mod3_2 = () => {
+const Mod3_2 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="3.2">
       <h3>3.2. Niveles de Jerarquía en COBOL</h3>
@@ -12,6 +9,85 @@ const Mod3_2 = () => {
         esencial para organizar y describir la relación entre las variables en
         un programa COBOL.
       </p>
+      <h5>Level Numbers</h5>
+      <li>
+        Los niveles 01 y 77 deben comenzar en margen A y debe estar seguidos por
+        un blanco y los mismos están asociados a un data-name o FILLER.
+      </li>
+      <li>
+        Los niveles 02 al 49 deben comenzar en margen A o B, y deben estar
+        seguidos por un blanco y los mismos están asociados a un data-name o
+        FILLER.
+      </li>
+      <li>
+        Lo niveles 66 o 88, pueden empezar en margen A o B deben estar seguidos
+        por un blanco y junto con el nivel 77 son llamados niveles especiales.
+      </li>
+<li>
+  LEVEL 66, contiene una cláusula RENAMES. Reagrupa ítems previamente definidos.
+</li>
+  <li>No puede ser RENAME de otro nivel 66, 01, 77 o 88.</li>
+<li>
+  LEVEL 77, no puede ser subdivido y el data-name debe ser único como variable, dado
+  que no puede ser calificado.
+</li>
+<li>LEVEL 88, establece un condition-name asociado a una cláusula VALUE.</li>
+
+<div className="codigo">
+  77 CONTADOR <Red>PIC</Red> 9(06) <Red>COMP VALUE ZEROS</Red>.  <br/>
+  01 REG-EMPLEADO.  <br/>
+  <Esp/>05 TIPO-EMPLEADO <Red>PIC</Red> X.  <br/>
+  <Esp/><Esp/>88 EXPERTO <Red>VALUE</Red> 'E'.  <br/>
+  <Esp/><Esp/>88 NO-EXPERTO <Red>VALUE</Red> 'N'.  <br/>
+  <Esp/>05 DIRECCION.  <br/>
+  <Esp/><Esp/>10 CALLE <Red>PIC</Red> X(15).  <br/>
+  <Esp/><Esp/>10 NUMERO <Red>PIC</Red> X(05).  <br/>
+  <Esp/><Esp/>10 CIUDAD <Red>PIC</Red> X(15).  <br/>
+  <Esp/><Esp/>10 PROVINCIA <Red>PIC</Red> XX.  <br/>
+  66 CIUDAD-PROVINCIA <Red>RENAMES</Red> CIUDAD <Red>THRU</Red> PROVINCIA.  <br/>
+</div>
+
+
+      <h5>Level Indicators</h5>
+      <li>
+        Cuando un dato no puede subdividirse en más de un dato se llama ítem
+        elemental. En caso contrario es un ítem grupal.
+      </li>
+      <li>
+        Los niveles 01 al 49 pueden ser de un ítem elemental o grupal. Y los
+        niveles de ítem deben estar en orden creciente pero no consecutivo.
+      </li>
+      <li>Los niveles 66, 77 y 88 son para ítem elementales.</li>
+
+<h5>Data Name: </h5>
+
+<li>Identifican un dato a ser descripto.</li>
+<li>
+  Si el DATANAME identifica un DATAITEM a ser usados en un programa. Entonces el DATANAME debe
+  ser la primera palabra seguida del LEVELNUMBER
+</li>
+<li>
+  Un DATANAME no puede ser usado como nombre de párrafo o nombre de sección en la PROCEDURE
+  DIVISION
+</li>
+<li>Con calificación un DATANAME puede ser no único.</li>
+
+<div className="codigo">
+  01 REG-EMPLEADO.  <br />
+  <Esp/>02 COD-EMPLEADO <Red>PIC</Red> 9(05).  <br />
+  <Esp/>02 NOMBRE-EMPLEADO <Red>PIC</Red> X(40).  <br />
+  <Com>..........................</Com>  <br />
+  01 PROYECTO.  <br />
+  <Esp/>02 COD-PROYECTO <Red>PIC</Red> 9(03).  <br />
+  <Esp/>02 NOMBRE-PROYECTO <Red>PIC</Red> X(25).  <br />
+  <Esp/>02 CODEMPLEADO <Red>PIC</Red> 9(05).  <br />
+  <Com>..........................</Com>  <br />
+  <Red>PROCEDURE DIVISION</Red>.  <br />
+  <Esp/><Red>MOVE</Red> COD-EMPLEADO <Red>IN</Red> PROYECTO <Red>TO</Red> <Com>(IN o OF son equivalentes )</Com>  <br />
+  <Com>..........................</Com>  <br />
+  
+</div>
+
       <h4>Nivel 01 (Nivel Principal)</h4>
       <ul>
         <li>
@@ -49,8 +125,8 @@ const Mod3_2 = () => {
         </div>
         <p>
           En este ejemplo, Cliente es una variable a nivel 01 que contiene datos
-          de un cliente, como nombre, edad y dirección. A su vez, Direccion es una
-          estructura de datos dentro de Cliente.
+          de un cliente, como nombre, edad y dirección. A su vez, Direccion es
+          una estructura de datos dentro de Cliente.
         </p>
       </div>
       <h4>Nivel 02, 03, 04, etc. (Niveles Inferiores)</h4>
@@ -87,9 +163,9 @@ const Mod3_2 = () => {
           02 Salario <Red>PIC</Red> 9(7)V99.
         </div>
         <p>
-          En este ejemplo, las variables Nombre, Edad, Departamento, y Salario son
-          de nivel 02 dentro de la variable Empleado. A su vez, NombreDepto y
-          UbicacionDepto son de nivel 03 dentro de Departamento.
+          En este ejemplo, las variables Nombre, Edad, Departamento, y Salario
+          son de nivel 02 dentro de la variable Empleado. A su vez, NombreDepto
+          y UbicacionDepto son de nivel 03 dentro de Departamento.
         </p>
       </div>
       <h4>Uso del 77</h4>
@@ -99,7 +175,9 @@ const Mod3_2 = () => {
         de la estructura de datos y no forma parte de ningún registro. Es una
         variable independiente y no tiene componentes adicionales.
       </p>
-      <div className="codigo">77 VARIABLE-EJEMPLO <Red>PIC</Red> X(10).</div>
+      <div className="codigo">
+        77 VARIABLE-EJEMPLO <Red>PIC</Red> X(10).
+      </div>
       <h4>Uso del 88</h4>
       <p>
         El nivel 88 en COBOL se utiliza para definir condiciones simbólicas o
@@ -135,21 +213,25 @@ const Mod3_2 = () => {
       <div className="twoColums">
         <div className="codigo">
           <Red>IF</Red> SOLTERO <br />
-          <Esp /> <Red>DISPLAY</Red> <Grey>'La persona está soltera.'</Grey> <br />
+          <Esp /> <Red>DISPLAY</Red> <Grey>'La persona está soltera.'</Grey>{" "}
+          <br />
           <Red>ELSE IF</Red> CASADO <br />
-          <Esp /> <Red>DISPLAY</Red> <Grey>'La persona está casada.'</Grey> <br />
+          <Esp /> <Red>DISPLAY</Red> <Grey>'La persona está casada.'</Grey>{" "}
+          <br />
           <Red>ELSE IF</Red> DIVORCIADO <br />
-          <Esp /> <Red>DISPLAY</Red> <Grey>'La persona está divorciada.'</Grey> <br />
+          <Esp /> <Red>DISPLAY</Red> <Grey>'La persona está divorciada.'</Grey>{" "}
+          <br />
           <Red>ELSE IF</Red> VIUDO <br />
-          <Esp /> <Red>DISPLAY</Red> <Grey>'La persona está viuda.'</Grey> <br />
+          <Esp /> <Red>DISPLAY</Red> <Grey>'La persona está viuda.'</Grey>{" "}
+          <br />
           <Red>END-IF</Red>. <br />
         </div>
         <p>
           Aquí, SOLTERO, CASADO, DIVORCIADO y VIUDO actúan como condiciones
           simbólicas que se evalúan como verdaderas si la variable ESTADO-CIVIL
           tiene los valores correspondientes. Esto hace que el código sea más
-          legible y fácil de entender en comparación con el uso directo de valores
-          de variables en las condiciones.
+          legible y fácil de entender en comparación con el uso directo de
+          valores de variables en las condiciones.
         </p>
       </div>
       <h4>Uso de Niveles de Jerarquía</h4>

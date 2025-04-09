@@ -1,4 +1,4 @@
-const Mod1_1 = () => {
+const Mod1_1 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="1.1">
       <h3>Historia y Contexto de COBOL</h3>

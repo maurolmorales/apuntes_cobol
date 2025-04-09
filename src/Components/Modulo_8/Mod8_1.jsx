@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod8_1 = () => {
+const Mod8_1 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="8.1">
       <h3>8.1. Estrategias de Depuración en COBOL</h3>

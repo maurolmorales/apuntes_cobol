@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod7_4 = () => {
+const Mod7_4 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="7.4">
       <h3>7.4. Validación y Transformación de Datos en COBOL</h3>

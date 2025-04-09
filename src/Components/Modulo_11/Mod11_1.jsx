@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod11_1 = () => {
+const Mod11_1 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="11.1">
       <h3>11.1. Desarrollo de Aplicaciones Empresariales en COBOL</h3>

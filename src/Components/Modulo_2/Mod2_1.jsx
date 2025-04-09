@@ -1,5 +1,4 @@
-import Red from "../Colors/Red";
-const Mod2_1 = () => {
+const Mod2_1 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="2.1">
       <p>
@@ -29,7 +28,6 @@ const Mod2_1 = () => {
         <Red>DATA DIVISION</Red>. <br />
         <Red>PROCEDURE DIVISION</Red>.
       </div>
-
       <h4>Uso de Variables y Datos</h4>
       <p>
         En la PROCEDURE DIVISION, se utilizan las variables y estructuras de
@@ -71,6 +69,42 @@ const Mod2_1 = () => {
         programa COBOL, pero es importante recordar que la complejidad de los
         programas puede variar según las necesidades comerciales específicas.
       </p>
+
+      <h4>Formato de la sentencia COBOL</h4>
+      <Cuadro data={{ gridTemplateColumns: "10rem 20rem" }} key={1}>
+        <div className="col tCenter">
+          <div>COLUMNAS</div>
+          <div>01 al 06</div>
+          <div>07</div>
+          <div>08 al 11</div>
+          <div>12 al 72</div>
+          <div>73 al 80</div>
+        </div>
+        <div className="col tCenter">
+          <div>USO COBOL</div>
+          <div>Número de secuencia de área</div>
+          <div>Indicador de área</div>
+          <div>Área A</div>
+          <div>Área B</div>
+          <div>Designación del programa</div>
+        </div>
+      </Cuadro>
+
+      <p>
+        El indicador de área, si lleva un '*', indica que la línea es un
+        comentario.
+      </p>
+      <p>
+        En el Área A, se describen: Las DIVISION / SECTION / Nombres de párrafos
+        / Nivel de indicador  FS o SD / Nivel de número  01 o 77</p>
+
+      <p>
+        En el Área B, describen: Entradas, sentencias, cláusulas y continuación
+        de línea.
+      </p>
+
+
+
     </section>
   );
 };

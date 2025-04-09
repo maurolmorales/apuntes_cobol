@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod5_5 = () => {
+const Mod5_5 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="5.5">
       <h3>5.5. Acceso a Archivos Directos (VSAM) en COBOL</h3>

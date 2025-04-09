@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod8_3 = () => {
+const Mod8_3 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="8.3">
       <h3>8.3. Resolución de Errores Comunes en COBOL</h3>

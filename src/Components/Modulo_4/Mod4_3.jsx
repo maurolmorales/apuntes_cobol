@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod4_3 = () => {
+const Mod4_3 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="4.3">
       <h3>4.3. Bucles y Repeticiones en COBOL</h3>

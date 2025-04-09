@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod9_1 = () => {
+const Mod9_1 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="9.1">
       <h3>9.1. Principios de Programación Estructurada en COBOL</h3>

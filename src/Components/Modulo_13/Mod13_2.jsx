@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod13_2 = () => {
+const Mod13_2 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="13.2">
       <h3>13.2. Gestión de Recursos y Rendimiento en COBOL</h3>

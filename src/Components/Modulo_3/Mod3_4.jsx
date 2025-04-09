@@ -1,7 +1,4 @@
-import { Esp } from "../espacio";
-import Red from "../Colors/Red";
-import Grey from "../Colors/Grey";
-const Mod3_4 = () => {
+const Mod3_4 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="3.4">
       <h3>3.4. Tipos de Datos Alfanuméricos en COBOL</h3>
@@ -43,8 +40,8 @@ const Mod3_4 = () => {
         espacios, mientras que PIC X permitía una mayor flexibilidad. En la
         actualidad, PIC X es el formato más utilizado. Solo admite letras y
         espacios. No permite caracteres especiales ni números. Puede ser menos
-        flexible que PIC X. Está en desuso en muchas implementaciones modernas de
-        COBOL.
+        flexible que PIC X. Está en desuso en muchas implementaciones modernas
+        de COBOL.
       </p>
       <div className="codigo">
         <Red>DATA DIVISION</Red>. <br />
@@ -187,49 +184,161 @@ const Mod3_4 = () => {
       </p>
       <ul>
         <li>
-          OCCURS: Se utiliza para declarar arreglos de variables. Permite
-          especificar el número de elementos y la estructura de cada elemento
-          dentro del arreglo.
+          <strong>OCCURS</strong>: Esta cláusula es para definir tablas de 'n' dimensiones, y
+          pueden ser referenciadas por índices o suscriptores. Esta cláusula no
+          se puede usar en los niveles 01/66/77/88. Se utiliza para declarar
+          arreglos de variables. Permite especificar el número de elementos y la
+          estructura de cada elemento dentro del arreglo. Indica el número de
+          veces 'n' que se repite un elemento (campo simple o compuesto) con la
+          misma descripción. El subíndice correspondiente al primer elemento es
+          1. El subíndice puede ser un número entero o un nombre de datos. Si es
+          un nombre de datos se recomienda declararlo con formato binario
+          (COMP). La cláusula OCCURS no puede especificarse en una descripción
+          con número de nivel 01 o 77. Una tabla en COBOL puede tener hasta 3
+          subíndices. En este caso se dice que la tabla es de 3 dimensiones. La
+          cláusula OCCURS y VALUE son incompatibles, lo cual no permite
+          inicializar una tabla en su propia declaración.
+        </li>
+<br />
+        <p>Ejemplo con suscriptores: </p>
+        <div className="codigo">
+          01 TABLA-ELEM <Red>PIC</Red> X(03)<Red> OCCURS</Red> 31{" "}
+          <Red>TIMES</Red>. <br />
+          01 FERIADO <Red>PIC</Red> XX. <br />
+          <Esp />
+          <Esp />
+          88 SI-FER <Red>VALUE</Red> <Grey>'SI'</Grey> <br />
+          <Esp />
+          <Esp />
+          88 NO-FER <Red>VALUE</Red> <Grey>'NO'</Grey> <br />
+          77 CANTIDAD <Red>PIC</Red> 9(03) <Red>BINARY VALUE</Red> 1. <br />
+          <Com>............................................ </Com> <br />
+          <Red>SET</Red> NO-FER <Red>TO TRUE</Red>. <br />
+          <Red>PERFORM UNTIL</Red> CANTIDAD <Red>GREATER THAN</Red> 31 <br />
+          <Esp />
+          <Esp />
+          <Red>IF</Red> TABLA-ELEM (CANTIDAD) = <Grey>'FER'</Grey> <br />
+          <Esp />
+          <Esp />
+          <Esp />
+          <Red>SET</Red> SI-FER <Red>TO TRUE</Red> <br />
+          <Esp />
+          <Esp />
+          <Esp />
+          <Red>ADD</Red> 31 <Red>TO</Red> CANTIDAD <br />
+          <Esp />
+          <Esp />
+          <Red>ELSE</Red> <br />
+          <Esp />
+          <Esp />
+          <Esp />
+          <Red>ADD</Red> 1 <Red>TO</Red> CANTIDAD <br />
+          <Esp />
+          <Esp />
+          <Red>END-IF</Red> <br />
+          <Red>END-PERFORM</Red>. <br />
+        </div>
+      </ul>
+      <div className="twoColums">
+        <div className="codigo">
+          01 TelefonoClientes <Red>OCCURS</Red> 10 <Red>TIMES</Red>. <br />
+          <Esp />
+          02 NumeroTelefono <Red>PIC</Red> 9(10).
+        </div>
+        <p>
+          En este ejemplo, TelefonoClientes es un arreglo de 10 elementos, cada
+          uno de los cuales contiene un número de teléfono de hasta 10 dígitos.
+        </p>
+      </div>
+      <ul>
+        <li>
+          <strong>REDEFINES</strong>: Se utiliza para reorganizar datos y asignar diferentes
+          interpretaciones a la misma área de almacenamiento. Esta cláusula
+          permite dar a un campo o a un área de memoria más de un nombre y más
+          de un formato. Su formato es el siguiente: Level-number data-name-1
+          REDEFINES data-name-2 FILLER La cláusula REDEFINES ha de ser la
+          primera que siga al nombre de datos. Los campos nombre de dato-1 y
+          campos nombre de dato-2 deben estar declarados al mismo nivel, pero no
+          a nivel 66 u 88. La redefinición de un campo compuesto se hace
+          inmediatamente después del último de los campos elementales que forman
+          parte de aquél. Esta cláusula va a permitir inicializar una tabla en
+          el momento de declararla.
         </li>
       </ul>
-      <div className="codigo">
-        01 TelefonoClientes <Red>OCCURS</Red> 10 <Red>TIMES</Red>. <br />
-        <Esp />
-        02 NumeroTelefono <Red>PIC</Red> 9(10).
+      <div className="twoColums" style={{gridTemplateColumns:"2fr 1fr"}}>
+        <div>
+          <div className="codigo">
+            01 DetalleProducto. <br />
+            <Esp />
+            02 CodigoProducto <Red>PIC</Red> X(10). <br />
+            <Esp />
+            02 PrecioProducto <Red>PIC</Red> 9(5)V99. <br />
+            01 InformacionAdicional <Red>REDEFINES</Red> DetalleProducto. <br />
+            <Esp />
+            02 CodigoBarra <Red>PIC</Red> X(12).
+          </div>
+          <p>
+            En este ejemplo, InformacionAdicional reorganiza los datos de
+            DetalleProducto y utiliza CodigoBarra para representar una
+            interpretación diferente de los mismos datos.
+          </p>
+        </div>
+        <div>
+        <div>
+          <p>Ejemplos de REDEFINES</p>
+        </div>
+<div className="codigo">
+  05 AAA <Red>PIC</Red> X(06). <br />
+  05 BBB REDEFINES AAA. <br />
+  <Esp/><Esp/>10 B-1 <Red>PIC</Red> X(02). <br />
+  <Esp/><Esp/>10 B-2 <Red>PIC</Red> 9(04). <br />
+  05 CCC REDEFINES AAA. <br />
+  <Esp/><Esp/>10 C-1 <Red>PIC</Red> X(04). <br />
+  <Esp/><Esp/>10 C-2 <Red>PIC</Red> 9(02). <br />
+</div>
+        </div>
       </div>
+
+      <h4>MANIPULACIÓN DE TABLAS</h4>
       <p>
-        En este ejemplo, TelefonoClientes es un arreglo de 10 elementos, cada
-        uno de los cuales contiene un número de teléfono de hasta 10 dígitos.
+        Una tabla es un conjunto de elementos del mismo tipo, que comparten en
+        común un nombre común pero que son distinguibles por la posición que
+        ocupa cada uno de ellos en la tabla. Cada elemento de la tabla puede
+        contener un dato numérico o una cadena de caracteres o una combinación
+        de ambos. La representación de una tabla se hace mediante variables
+        suscritas o de subíndices y puede tener una o varias dimensiones. La
+        descripción de una tabla se hace en la sección FILE y en la sección
+        WORKINGSTORAGE utilizando la cláusula OCCURS.
+      </p>
+      <h4>Sentencia SET</h4>
+      <p>
+        Permite transferir el valor de un literal, nombre de datos o de un
+        índice a uno o más identificadores.
       </p>
       <ul>
         <li>
-          REDEFINES: Se utiliza para reorganizar datos y asignar diferentes
-          interpretaciones a la misma área de almacenamiento.
+          Formato 1: Cuando se ejecuta esta sentencia el valor del operando que
+          sigue a TO es transferido a los operandos que siguen a SET. SET I J TO
+          1.
+        </li>
+        <li>
+          Formato 2: Este formato permite ir incrementando (UP BY) o
+          decrementando (DOWN BY) el índice o índices en el valor especificado
+          por nombre dato o entero. SET I J UP BY 1.
         </li>
       </ul>
-      <div className="codigo">
-        01 DetalleProducto. <br />
-        <Esp />
-        02 CodigoProducto <Red>PIC</Red> X(10). <br />
-        <Esp />
-        02 PrecioProducto <Red>PIC</Red> 9(5)V99. <br />
-        01 InformacionAdicional <Red>REDEFINES</Red> DetalleProducto. <br />
-        <Esp />
-        02 CodigoBarra <Red>PIC</Red> X(12).
-      </div>
-      <p>
-        En este ejemplo, InformacionAdicional reorganiza los datos de
-        DetalleProducto y utiliza CodigoBarra para representar una
-        interpretación diferente de los mismos datos.
-      </p>
+
       <h4>Generar una tabla con OCCURS</h4>
       <ol>
         <li>
           <strong>Definir la estructura del elemento de la tabla:</strong>
           <p>
-            Decide qué tipo de datos contendrá cada elemento de la tabla y
-            define la estructura correspondiente utilizando la cláusula 01
-            LEVEL. Por ejemplo, si deseas crear una tabla de nombres, cada
+            No puede especificarse en una descripción de nivel 01, 77, 88 o 66.
+            Entero indica el número de veces que se repite un campo con la misma
+            descripción. Se definen solamente en los niveles 02 a 49 ambos
+            inclusive Decide qué tipo de datos contendrá cada elemento de la
+            tabla y define la estructura correspondiente utilizando la cláusula
+            01 LEVEL. Por ejemplo, si deseas crear una tabla de nombres, cada
             elemento podría ser una cadena de caracteres. Aquí tienes un ejemplo
             de cómo podrías definir la estructura del elemento:
           </p>
@@ -329,6 +438,26 @@ const Mod3_4 = () => {
           <br />
         </div>
       </ol>
+      <h5>Manipulación de tablas en PROCEDURE DIVISION</h5>
+      <p>
+        Cuando se especifica nombre dato-2 debe ser descrito por medio de la
+        cláusula USAGE IS INDEX o como un campo elemental entero. El valor de
+        este campo evoluciona paralelamente al índice de la tabla y se emplea
+        cuando:
+        <ul>
+          <li>
+            A: Aparte de realizar la búsqueda de un determinado elemento de la
+            tabla se desea conocer su posición.
+          </li>
+          <li>
+            B: Se desea incrementar simultáneamente el índice de otra tabla
+            diferente a la tabla en la que se está realizando la búsqueda. Las
+            condiciones de las cláusulas WHEN se evalúan en el orden en que
+            están descritas.
+          </li>
+        </ul>
+      </p>
+
       <h4>El Uso de JUST</h4>
       <p>
         La palabra reservada JUST en COBOL se utiliza en combinación con ciertas
@@ -371,6 +500,18 @@ const Mod3_4 = () => {
           caracteres no numéricos se reemplacen con ceros.
         </li>
       </ul>
+
+      <h5>JUSTIFIED</h5>
+      <p>
+        Esta cláusula permite justificar un valor alfabético o alfanumérico a la
+        derecha.
+      </p>
+      <h5>JUSTIFIED RIGHT</h5>
+      <p>
+        Esta cláusula puede especificarse solamente con campos elementales y no
+        puede especificarse para un campo descrito como numérico o de edición.
+      </p>
+
       <h4>COMP y COMP-3</h4>
       <p>
         En COBOL, COMP y COMP-3 son dos tipos de datos utilizados para
