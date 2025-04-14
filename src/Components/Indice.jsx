@@ -6,22 +6,19 @@ const Indice = () => {
           <a href="#modulo-1">
             <strong>Módulo 1:</strong>
           </a>
-          Introducción a COBOL.
+          Introducción al COBOL
           <ul>
             <li>
-              <a href="#1.1">1.1 Historia y contexto de COBOL</a>
+              <a href="#1.1">1.1 ¿Qué es COBOL?</a>
             </li>
-
             <li>
-              <a href="#1.2">1.2 Características principales de COBOL</a>
+              <a href="#1.2">1.2 Historia y evolución</a>
             </li>
-
             <li>
-              <a href="#1.3">1.3 Ventajas y desventajas de COBOL</a>
+              <a href="#1.3">1.3 Características principales</a>
             </li>
-
             <li>
-              <a href="#1.4">1.4 Entorno de desarrollo para COBOL</a>
+              <a href="#1.4">1.4 Usos actuales y futuro del COBOL</a>
             </li>
           </ul>
         </section>
@@ -29,162 +26,168 @@ const Indice = () => {
           <a href="#modulo-2">
             <strong>Módulo 2:</strong>
           </a>
-          Estructura de un Programa COBOL
+          Estructura General de un Programa COBOL
           <ul>
             <li>
-              <a href="#2.1">2.1 Divisiones y secciones en COBOL</a>
-            </li>
-
-            <li>
-              <a href="#2.2">2.2 IDENTIFICATION DIVISION</a>
+              <a href="#2.1">2.1 Formato de escritura</a>
             </li>
             <li>
-              <a href="#2.3">2.3 ENVIRONMENT DIVISION</a>
+              <a href="#2.2">2.2 Convenciones de nomenclatura</a>
             </li>
             <li>
-              <a href="#2.4">2.4 DATA DIVISION</a>
-            </li>
-            <li>
-              <a href="#2.5">2.5 PROCEDURE DIVISION</a>
+              <a href="#2.3">2.3 Estructura jerárquica</a>
             </li>
           </ul>
         </section>
         <section>
           <a href="#modulo-3">
-            <strong>Módulo 3: </strong>
+            <strong>Módulo 3:</strong>
           </a>
-          Variables y Tipos de Datos en COBOL
+          DIVISIONES de un programa COBOL
           <ul>
             <li>
-              <a href="#3.1">3.1 Declaración de variables</a>
+              <a href="#3.1"> 3.1 IDENTIFICATION DIVISION</a>
             </li>
             <li>
-              <a href="#3.2">3.2 Niveles de jerarquía en COBOL</a>
+              <a href="#3.2"> 3.2 ENVIRONMENT DIVISION</a>
             </li>
             <li>
-              <a href="#3.3">3.3 Tipos de datos numéricos</a>
+              <a href="#3.3"> 3.3 DATA DIVISION</a>
             </li>
             <li>
-              <a href="#3.4">3.4 Tipos de datos alfanuméricos</a>
-            </li>
-            <li>
-              <a href="#3.5">3.5 Manipulación de datos en COBOL</a>
+              <a href="#3.4"> 3.4 PROCEDURE DIVISION</a>
             </li>
           </ul>
         </section>
         <section>
           <a href="#modulo-4">
-            <strong>Módulo 4: </strong>
+            <strong>Módulo 4:</strong>
           </a>
-          Estructuras de Control y Decisiones
+          Tipos de Datos en COBOL
           <ul>
-            <li>
-              <a href="#4.1">4.1 Sentencias de control de flujo</a>
-            </li>
-            <li>
-              <a href="#4.2">4.2 Sentencias de toma de decisiones</a>
-            </li>
-            <li>
-              <a href="#4.3">4.3 Bucles y repeticiones en COBOL</a>
-            </li>
+            <li><a href="#4.1">4.1 Campos numéricos: PIC 9</a></li>
+            <li><a href="#4.2">4.2 Decimales: V</a></li>
+            <li><a href="#4.3">4.3 Uso de SIGNO: S9</a></li>
+            <li><a href="#4.4">4.4 Campos alfabéticos: PIC A</a></li>
+            <li><a href="#4.5">4.5 Campos alfanuméricos: PIC X</a></li>
+            <li><a href="#4.6">4.6 COMP, COMP-1, COMP-2, COMP-3</a></li>
           </ul>
         </section>
         <section>
           <a href="#modulo-5">
-            <strong>Módulo 5: </strong>
+            <strong>Módulo 5:</strong>
           </a>
-          Manejo de Archivos
+          Tablas en COBOL
           <ul>
             <li>
-              <a href="#5.1">5.1 Organización de archivos en COBOL</a>
+              <a href="#5.1">5.1 Definición con OCCURS</a>
             </li>
             <li>
-              <a href="#5.2">5.2 Declaración de archivos (FILE SECTION)</a>
+              <a href="#5.2">5.2 Uso de DEPENDING ON</a>
             </li>
             <li>
-              <a href="#5.3">
-                5.3 Lectura y escritura de archivos secuenciales
-              </a>
+              <a href="#5.3">5.3 INDEXED BY y USAGE INDEX</a>
             </li>
             <li>
-              <a href="#5.4">5.4 Acceso a archivos indexados</a>
+              <a href="#5.4">5.4 Inicialización y recorrido</a>
             </li>
             <li>
-              <a href="#5.5">5.5 Acceso a archivos directos (VSAM)</a>
+              <a href="#5.5">5.5 Búsqueda con SEARCH y SEARCH ALL</a>
             </li>
           </ul>
         </section>
         <section>
           <a href="#modulo-6">
-            <strong>Módulo 6: </strong>
+            <strong>Módulo 6:</strong>
           </a>
-          Procedimientos y Subrutinas en COBOL
+          Subprogramas en COBOL
           <ul>
             <li>
-              <a href="#6.1">6.1 Definición de procedimientos y subrutinas</a>
+              <a href="#6.1">6.1 ¿Qué es un subprograma?</a>
             </li>
             <li>
-              <a href="#6.2">6.2 Paso de parámetros</a>
+              <a href="#6.2">6.2 CALL y USING</a>
             </li>
             <li>
-              <a href="#6.3">6.3 Llamada a procedimientos</a>
+              <a href="#6.3">6.3 LINKAGE SECTION</a>
             </li>
             <li>
-              <a href="#6.4">6.4 Reutilización de código</a>
+              <a href="#6.4">6.4 ENTRY POINT</a>
+            </li>
+            <li>
+              <a href="#6.5">6.5 Diferencias entre subprogramas y subrutinas</a>
             </li>
           </ul>
         </section>
         <section>
           <a href="#modulo-7">
-            <strong>Módulo 7: </strong>
+            <strong>Módulo 7:</strong>
           </a>
-          Trabajo con Datos en COBOL
+          Intrinsic Functions (Funciones Intrínsecas)
           <ul>
             <li>
-              <a href="#7.1">7.1 Manipulación de cadenas de texto</a>
+              <a href="#7.1">7.1 ¿Qué son?</a>
             </li>
             <li>
-              <a href="#7.2">7.2 Formateo de fechas y horas</a>
+              <a href="#7.2">7.2 Funciones Matemáticas</a>
             </li>
             <li>
-              <a href="#7.3">7.3 Cálculos matemáticos y financieros</a>
+              <a href="#7.3">7.3 Funciones de Caracteres</a>
             </li>
             <li>
-              <a href="#7.4">7.4 Validación y transformación de datos</a>
+              <a href="#7.4">7.4 Funciones de Fecha y Hora</a>
+            </li>
+            <li>
+              <a href="#7.5">7.5 Funciones de Conversión</a>
+            </li>
+            <li>
+              <a href="#7.6">7.6 Cuadro resumen de funciones</a>
             </li>
           </ul>
         </section>
         <section>
           <a href="#modulo-8">
-            <strong>Módulo 8: </strong>
+            <strong>Módulo 8:</strong>
           </a>
-          Depuración y Pruebas en COBOL
+          Archivos en COBOL
           <ul>
             <li>
-              <a href="#8.1">8.1 Estrategias de depuración</a>
+              <a href="#8.1">8.1 Tipos de organización de archivos</a>
             </li>
             <li>
-              <a href="#8.2">8.2 Pruebas unitarias y de integración</a>
+              <a href="#8.2">8.2 Tipos de acceso</a>
             </li>
             <li>
-              <a href="#8.3">8.3 Resolución de errores comunes</a>
+              <a href="#8.3">8.3 QSAM, VSAM, ESDS, KSDS, RRDS</a>
+            </li>
+            <li>
+              <a href="#8.4">8.4 PDS (Partitioned Data Set)</a>
+            </li>
+            <li>
+              <a href="#8.5">8.5 Archivos PLANOS</a>
             </li>
           </ul>
         </section>
         <section>
           <a href="#modulo-9">
-            <strong>Módulo 9: </strong>
+            <strong>Módulo 9:</strong>
           </a>
-          Mejores Prácticas y Estilo de Codificación
+          Cláusulas y Opciones Avanzadas
           <ul>
             <li>
-              <a href="#9.1">9.1 Principios de programación estructurada</a>
+              <a href="#9.1">9.1 CORRESPONDING</a>
             </li>
             <li>
-              <a href="#9.2">9.2 Convenciones de nomenclatura</a>
+              <a href="#9.2">9.2 ENTRY</a>
             </li>
             <li>
-              <a href="#9.3">9.3 Documentación de código</a>
+              <a href="#9.3">9.3 ROUNDED</a>
+            </li>
+            <li>
+              <a href="#9.4">9.4 HIGH-VALUE / LOW-VALUE</a>
+            </li>
+            <li>
+              <a href="#9.5">9.5 SPACES / ZEROS / QUOTES</a>
             </li>
           </ul>
         </section>
@@ -192,16 +195,19 @@ const Indice = () => {
           <a href="#modulo-10">
             <strong>Módulo 10:</strong>
           </a>
-          Integración y Modernización de COBOL
+          JCL y COBOL
           <ul>
             <li>
-              <a href="#10.1">10.1 Integración de COBOL con otros lenguajes</a>
+              <a href="#10.1">10.1 Uso de PARM y parámetros</a>
             </li>
             <li>
-              <a href="#10.2">10.2 Modernización de aplicaciones COBOL</a>
+              <a href="#10.2">10.2 Ejecución de programas desde JCL</a>
             </li>
             <li>
-              <a href="#10.3">10.3 Migración a plataformas modernas</a>
+              <a href="#10.3">10.3 Pasaje de parámetros</a>
+            </li>
+            <li>
+              <a href="#10.4">10.4 Asignación de archivos</a>
             </li>
           </ul>
         </section>
@@ -209,114 +215,21 @@ const Indice = () => {
           <a href="#modulo-11">
             <strong>Módulo 11:</strong>
           </a>
-          Aplicaciones Prácticas de COBOL
+          Buenas Prácticas y Estilo de Programación
           <ul>
             <li>
-              <a href="#11.1">11.1 Desarrollo de aplicaciones empresariales</a>
+              <a href="11.1">11.1 Comentarios</a>
             </li>
             <li>
-              <a href="#11.2">
-                11.2 Proyectos de procesamiento de datos masivos
-              </a>
+              <a href="11.2">11.2 Convenciones de nombres</a>
             </li>
             <li>
-              <a href="#11.3">11.3 Casos de estudio y ejemplos reales</a>
+              <a href="11.3">11.3 Indentación y visualización</a>
+            </li>
+            <li>
+              <a href="11.4">11.4 Uso de colores en IDEs COBOL</a>
             </li>
           </ul>
-        </section>
-        <section>
-          <a href="#modulo-12">
-            <strong>Módulo 12:</strong>
-          </a>
-          Mantenimiento y Evolución de Programas COBOL
-          <ul>
-            <li>
-              <a href="#12.1">12.1 Estrategias de mantenimiento</a>
-            </li>
-            <li>
-              <a href="#12.2">
-                12.2 Actualizaciones y evolución de aplicaciones COBOL
-              </a>
-            </li>
-            <li>
-              <a href="#12.3">12.3 Retiro de aplicaciones COBOL</a>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <a href="#modulo-13">
-            <strong>Módulo 13:</strong>
-          </a>
-          Aspectos de Rendimiento y Optimización
-          <ul>
-            <li>
-              <a href="#13.1">13.1 Optimización de código COBOL</a>
-            </li>
-            <li>
-              <a href="#13.2">13.2 Gestión de recursos y rendimiento</a>
-            </li>
-            <li>
-              <a href="#13.3">13.3 Monitorización y análisis de rendimiento</a>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <a href="#modulo-14">
-            <strong>Módulo 14:</strong>
-          </a>
-          Seguridad en Aplicaciones COBOL
-          <ul>
-            <li>
-              <a href="#14.1">
-                14.1 Principios de seguridad en aplicaciones COBOL
-              </a>
-            </li>
-            <li>
-              <a href="#14.2">14.2 Mitigación de amenazas y vulnerabilidades</a>
-            </li>
-            <li>
-              <a href="#14.3">14.3 Cumplimiento normativo</a>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <a href="#modulo-15">
-            <strong>Módulo 15:</strong>
-          </a>
-          Tendencias y Futuro de COBOL
-          <ul>
-            <li>
-              <a href="#15.1">15.1 Estado actual de COBOL en la industria</a>
-            </li>
-            <li>
-              <a href="#15.2">15.2 Futuro de COBOL y tendencias emergentes</a>
-            </li>
-            <li>
-              <a href="#15.3">15.3 Oportunidades profesionales en COBOL</a>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <a href="#apendice">
-            <strong>Apendice</strong>
-          </a>
-          <ul>
-            <li>
-              <a href="#ape1_1">Almacenamiento de Datos en Mainframe</a>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <a href="#glosario">
-            <strong>Glosario</strong>
-          </a>
-          Listado de palabras reservadas.
-        </section>
-        <section>
-          <a href="#ejercicios">
-            <strong>Ejercicios</strong>
-          </a>
-          Sugeridos por Chat-GPT
         </section>
       </article>
       <hr />

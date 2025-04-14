@@ -10,8 +10,7 @@ const Modulo4 = () => {
   return (
     <article id="modulo-4">
       <div className="h2-topBar">
-        <h2> Módulo 4: Estructuras de Control y Decisiones</h2>
-
+        <h2> Módulo 4: Tipos de datos en COBOL</h2>
         <a href="#indice">al Indice</a>
       </div>
       <Mod4_1 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp}/>

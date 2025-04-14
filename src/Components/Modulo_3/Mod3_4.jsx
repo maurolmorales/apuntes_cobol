@@ -1,730 +1,1143 @@
 const Mod3_4 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="3.4">
-      <h3>3.4. Tipos de Datos Alfanuméricos en COBOL</h3>
+      <h3>3.4 PROCEDURE DIVISION</h3>
       <p>
-        Los tipos de datos alfanuméricos en COBOL se utilizan para representar
-        caracteres, texto y cadenas de caracteres. Estos tipos de datos son
-        fundamentales para almacenar información de texto, nombres,
-        descripciones y otros datos no numéricos.
+        Es donde se escriben las instrucciones lógicas y el flujo de control del
+        programa. Aquí se implementan las operaciones que manipulan los datos
+        definidos en la DATA DIVISION. Es el núcleo funcional del programa
+        COBOL. Aquí se define qué hace el programa, paso por paso, utilizando
+        sentencias estructuradas y llamadas a procedimientos o subprogramas.
       </p>
-      <h4>Alphanumeric (PIC X):</h4>
+      <p>En esta división, se escribe el código principal del programa. Contiene
+        las instrucciones que se ejecutarán para realizar la lógica de negocio.
+        Es una de las divisiones principales en un programa COBOL y desempeña un
+        papel central en la ejecución del programa. En esta división, se escribe
+        el código que define la lógica y la funcionalidad del programa. Es el
+        corazón de un programa COBOL, donde se define y se implementa la lógica
+        de negocio. La capacidad de tomar decisiones, realizar cálculos y
+        gestionar datos es fundamental en esta división. A través de un código
+        claro y bien estructurado en la PROCEDURE DIVISION, se logra la
+        funcionalidad deseada de la aplicación COBOL, lo que es especialmente
+        importante en el contexto de las aplicaciones empresariales.</p>
+        <p>La PROCEDURE DIVISION es donde se define la lógica de negocio del
+        programa COBOL. Aquí se escriben las instrucciones y las operaciones que
+        realizan cálculos, procesamiento de datos, toma de decisiones y otras
+        operaciones necesarias para cumplir con los requisitos de la aplicación.
+        Las sentencias COBOL en esta división controlan el flujo del programa y
+        determinan cómo se procesan los datos.</p>
+      <br />
+      <h5>Declaración de parámetros (opcional)</h5>
       <p>
-        El tipo de dato ALPHANUMERIC se utiliza para representar cadenas de
-        caracteres alfanuméricos. Puede contener letras, números y caracteres
-        especiales. La declaración de una variable ALPHANUMERIC se realiza con
-        la cláusula PIC seguida de una especificación de tamaño, que indica la 
-        cantidad máxima de caracteres que puede contener la variable.
+        Si el programa es un subprograma, puede recibir parámetros mediante la
+        cláusula USING:
+      </p>
+      <div className="codigo">
+        <Red>PROCEDURE DIVISION USING</Red> DATOS-CLIENTE.
+      </div>
+      <br />
+      <h4>Párrafos</h4>
+      <p>
+        Los párrafos son bloques de instrucciones que se ejecutan en conjunto.
+        Se identifican con un nombre seguido de un punto (.).
+      </p>
+      <div className="codigo">
+        INICIO. <br />
+        <Esp /> <Red>PERFORM</Red> VALIDAR-DATOS. <br />
+        <Esp /> <Red>PERFORM</Red> PROCESAR. <br />
+        <Esp /> <Red>GOBACK</Red>. <br />
+      </div>
+      <br />
+      <h5>Sentencias o instrucciones</h5>
+      <p>Dentro de los párrafos se colocan las instrucciones COBOL como:</p>
+      <mark>MOVE</mark>, <mark>ADD</mark>, <mark>SUBTRACT</mark>,{" "}
+      <mark>COMPUTE</mark>, <mark>IF</mark>, <mark>PERFORM</mark>,{" "}
+      <mark>EVALUATE</mark>, <mark>CALL</mark>, <mark>OPEN</mark>,{" "}
+      <mark>READ</mark>, <mark>WRITE</mark>, <mark>CLOSE</mark>, etc.
+      <br />
+      <br />
+
+      <h5>INITIALIZE</h5>
+      Inicializa, con valores predeterminados, a campos deﬁnidos, equiparándose
+      a uno o varios MOVE.
+      <div className="twoColums">
+        <div className="codigo">
+          <Red>INITIALIZE</Red> identiﬁcador-1 <Red>REPLACING ALPHABETIC</Red>{" "}
+          <br />
+          <Red>DATA BY</Red> identiﬁcador-2 <Red>ALPHANUMERIC</Red> literal-1{" "}
+          <Red>NUMERIC</Red> <br />
+          01 WS-EMPLEADO. <br />
+          <Esp />
+          02 WS-CODIGO <Red>PIC</Red> 9(5). <br />
+          <Esp />
+          02 WS-NOMBRE <Red>PIC</Red> X(40). <br />
+          <Esp />
+          02 WS-DPTO <Red>PIC</Red> 9(3). <br />
+          <Esp />
+          02 WS-TELEFONO <Red>PIC</Red> 9(5). <br />
+          <Esp />
+          02 WS-PROYECTO <Red>PIC</Red> XX. <br />
+          <Com>............. </Com>
+          <br />
+          <Red>PROCEDURE DIVISION</Red>. <br />
+          <Red>INITIALIZE</Red> WS-EMPLEADO <br />
+        </div>
+        <div>
+          <p>
+            Mueve ceros a WS-CODIGO/ WS-DPTO/ WS-TELEFONO y blancos a
+            WS-NOMBRE/WS-PROYECTO. <br />
+            INITIALIZE WS-EMPLEADO REPLACING ALPHANUMERIC DATA BY '*'. Se mueve
+            '*' a datos alfanuméricos
+          </p>
+        </div>
+      </div>
+
+
+      <h4>Uso de MOVE</h4>
+      <p>
+        Descripción: Copia el contenido de una variable o un valor literal a
+        otra variable. No se puede realizar MOVE sobre POINTER-DATA o
+        INDEX-DATA.
       </p>
       <div className="twoColums">
         <div className="codigo">
-          01 Ejemplo <Red>PIC</Red> XXXX. <br />
-          01 NombreCliente <Red>PIC</Red> X(30). <br />
-          01 DireccionCliente <Red>PIC</Red> X(50). <br />
-          01 DescripcionProducto <Red>PIC</Red> X(100).
+          <Red>MOVE</Red> 'JUAN'<Red> TO </Red>NOMBRE-CLIENTE. <br />
+          <Red>MOVE</Red> 35<Red> TO </Red>EDAD. <br />
         </div>
-        <p>
-          En el primer ejemplo, NombreCliente puede contener hasta 30 caracteres
-          alfanuméricos. En el segundo ejemplo, DireccionCliente puede contener
-          hasta 50 caracteres, y en el tercer ejemplo, DescripcionProducto puede
-          contener hasta 100 caracteres.
-        </p>
+        <div className="codigo">
+          <Red>MOVE</Red> fuente <Red>TO</Red> destino-1 destino-2 destino-3.
+        </div>
       </div>
-
-      <h4>Alphabetic (PIC A):</h4>
-      <p>
-        Los tipos de datos alfabéticos permiten almacenar y manipular cadenas de
-        caracteres. Los campos definidos con PIC A solo pueden contener
-        caracteres del alfabeto (A-Z, a-z) y espacios en blanco. Históricamente,
-        PIC A se utilizaba para definir campos que solo contenían letras y
-        espacios, mientras que PIC X permitía una mayor flexibilidad. En la
-        actualidad, PIC X es el formato más utilizado. Solo admite letras y
-        espacios. No permite caracteres especiales ni números. Puede ser menos
-        flexible que PIC X. Está en desuso en muchas implementaciones modernas
-        de COBOL.
-      </p>
+      <br />
+      Ejemplos con MOVE:
       <div className="codigo">
-        <Red>DATA DIVISION</Red>. <br />
         <Red>WORKING-STORAGE SECTION</Red>. <br />
-        01 NOMBRE <Red>PIC</Red> A(10). <br />
+        01 GRUPO-ITEM. <br />
+        <Esp />
+        02 ITEM1 <Red>PIC</Red> <span style={{ color: "yellow" }}>X</span>.{" "}
+        <br />
+        <Esp />
+        02 ITEM2 <Red>PIC</Red> <span style={{ color: "lightblue" }}>XX</span>.{" "}
+        <br />
+        <Esp />
+        02 ITEM3 <Red>PIC</Red> <span style={{ color: "pink" }}>X(3)</span>.{" "}
+        <br />
+        <Esp />
+        02 ITEM4 <Red>PIC</Red> <span style={{ color: "aqua" }}>X(4)</span>.{" "}
+        <br />
         <Red>PROCEDURE DIVISION</Red>. <br />
-        <Red>BEGIN</Red>. <br />
         <Esp />
-        <Red>MOVE</Red> <Grey>"PROGRAMAR "</Grey> <Red>TO</Red> NOMBRE. <br />
+        <Red>MOVE SPACES TO</Red> GRUPO-ITEM. <Esp />
+        <span style={{ color: "yellow" }}>b</span>
+        <span style={{ color: "lightblue" }}>bb</span>
+        <span style={{ color: "pink" }}>bbb</span>
+        <span style={{ color: "aqua" }}>bbbb</span> <br />
         <Esp />
-        <Red>DISPLAY</Red> <Grey>"Contenido: "</Grey> NOMBRE. <br />
+        <Red>MOVE</Red> 'XY' <Red>TO</Red> ITEM1 ITEM3 <Esp />
+        <span style={{ color: "yellow" }}>x</span>
+        <span style={{ color: "lightblue" }}>bb</span>
+        <span style={{ color: "pink" }}>XYb</span>
+        <span style={{ color: "aqua" }}>bbbb</span> <br />
         <Esp />
-        <Red>STOP RUN</Red>.
+        <Red>MOVE ALL</Red> '*'' <Red>TO</Red> ITEM4 <Esp />
+        <span style={{ color: "yellow" }}>x</span>
+        <span style={{ color: "lightblue" }}>bb</span>
+        <span style={{ color: "pink" }}>XYb</span>
+        <span style={{ color: "aqua" }}>****</span> <br />
+        <Esp />
+        <Red>MOVE ALL</Red> 'AB' <Red>TO</Red> ITEM3 <Esp />
+        <span style={{ color: "yellow" }}>x</span>
+        <span style={{ color: "lightblue" }}>bb</span>
+        <span style={{ color: "pink" }}>ABA</span>
+        <span style={{ color: "aqua" }}>****</span> <br />
       </div>
-
-      <h4>Fecha (PIC 9(6) COMP-3):</h4>
-      <p>
-        Se utiliza para almacenar fechas en formato YYMMDD. Cada parte
-        representa el año, el mes y el día.En este caso, la variable
-        FECHA-DE-NACIMIENTO puede utilizarse para almacenar una fecha en formato
-        YYMMDD (año, mes, día). Cada parte de la fecha (año, mes, día) se
-        representa mediante 2 dígitos numéricos, por lo que la longitud total de
-        la variable es de 6 dígitos. Además, al utilizar COMP-3, la variable se
-        almacena de manera comprimida para ahorrar espacio de almacenamiento.
-      </p>
-      <div className="codigo">
-        01 FECHA-DE-NACIMIENTO <Red>PIC</Red> 9(6) COMP-3.
-      </div>
-      <h4>Carácter especial (PIC X(n) SPECIAL CHARACTER):</h4>
-      <p>
-        Se utiliza para almacenar caracteres especiales como símbolos o
-        caracteres extendidos. Ejemplo: PIC X(5) SPECIAL CHARACTER define una
-        variable de caracteres especiales de longitud 5.
-      </p>
-
-      <h4>Inicializar Variables</h4>
-
-      <h5>Constantes Figurativas</h5>
-      <p>
-        Son constantes predefinidas de COBOL que pueden usarse en cualquier
-        parte de la WORKING STORAGE SECTION o de la PROCEDURE DIVISION para
-        darle valor a un campo. Son palabras reservadas que tienen un valor
-        constante.
-      </p>
-
-      <ul>
-        <li>
-          <strong>SPACE o SPACES</strong>: Se refiere al carácter espacio en
-          blanco. Asigna espacios a un campo no numérico. Puede ser utilizado
-          para inicializar variables alfanuméricas con espacios en blanco. Por
-          ejemplo, MOVE SPACES TO NOMBRE asigna espacios en blanco a la variable
-          NOMBRE.
-        </li>
-
-        <li>
-          <strong>ZERO, ZEROS o ZEROES</strong>: Se refieren al número cero.
-          Pueden ser utilizados para inicializar variables numéricas con ceros.
-          Por ejemplo, MOVE ZEROS TO NUMERO asigna ceros a la variable NUMERO.
-        </li>
-
-        <li>
-          <strong>QUOTE o QUOTES</strong>: Se refiere al carácter de comillas
-          simples ('), también conocido como apóstrofe. Se utiliza para
-          delimitar literales alfanuméricos en COBOL. Por ejemplo, MOVE 'TEXTO'
-          TO NOMBRE asigna el literal 'TEXTO' a la variable NOMBRE.
-        </li>
-
-        <li>
-          <strong>HIGH-VALUE o HIGH-VALUES</strong>: se refiere al valor más
-          alto posible en el conjunto de caracteres utilizado por el sistema. En
-          EBCDIC, es el carácter hexadecimal X'FF', y en ASCII, es el carácter
-          hexadecimal X'7F'. Puede ser utilizado para inicializar variables
-          alfanuméricas con el valor más alto posible. Por ejemplo, MOVE
-          HIGH-VALUES TO CADENA asigna el valor más alto posible a la variable
-          CADENA.
-        </li>
-
-        <li>
-          <strong>LOW-VALUE o LOW-VALUES</strong>: Se refiere al valor más bajo
-          posible en el conjunto de caracteres utilizado por el sistema. En
-          EBCDIC, es el carácter hexadecimal X'00', y en ASCII, es el carácter
-          hexadecimal X'00'. Puede ser utilizado para inicializar variables
-          alfanuméricas con el valor más bajo posible. Por ejemplo, MOVE
-          LOW-VALUES TO CADENA asigna el valor más bajo posible a la variable
-          CADENA.
-        </li>
-
-        <li>
-          <strong>ALL</strong> "literal": Representa una repetición del literal
-          especificado. Se usa para llenar un campo con un valor repetido.
-        </li>
-
-        <li>
-          <strong>SYMBOLIC CHARACTERS</strong>: Definidos en la cláusula
-          SPECIAL-NAMES, permiten asignar nombres a caracteres especiales.
-        </li>
-          <div className="codigo">
-            <Red>SPECIAL-NAMES</Red>. <br />
-            <Esp />
-            <Red>SYMBOLIC CHARACTERS EURO IS X</Red>
-            <Grey>'20AC'</Grey>.
-          </div>
-      </ul>
       <br />
 
-      <p>Ejemplo de uso de constantes figurativas en COBOL:</p>
+      <h4>Cláusula CORRESPONDING (CORR)</h4>
+      <p>
+        La cláusula CORRESPONDING (también abreviada como CORR) permite realizar
+        operaciones entre estructuras de datos grupo a grupo, copiando o sumando
+        automáticamente solo los campos que tienen el mismo nombre dentro de
+        ambos grupos. Solo afecta los campos con el mismo nombre exacto. Los
+        campos deben estar dentro de estructuras de grupo. Ignora campos que no
+        tengan una coincidencia exacta por nombre.
+      </p>
+      <p>
+        Usá CORRESPONDING cuando quieras simplificar código con estructuras
+        similares. Evitá su uso si los nombres de campo no están estandarizados
+        o si necesitás control total sobre los campos a mover/sumar.
+      </p>
+      <p>Instrucciones que la usan: </p>
+      <ul>
+        <li>MOVE CORRESPONDING</li>
+        <li>ADD CORRESPONDING</li>
+        <li>SUBTRACT CORRESPONDING</li>
+      </ul>
+      <div className="twoColums">
+        <div className="codigo">
+          01 CLIENTE-ENTRADA. <br />
+          <Esp />
+          05 NOMBRE <Red>PIC</Red> X(20). <br />
+          <Esp />
+          05 EDAD <Red>PIC</Red> 99. <br />
+          <Esp />
+          05 TELEFONO <Red>PIC</Red> X(10). <br />
+          <br />
+          01 CLIENTE-SALIDA. <br />
+          <Esp />
+          05 NOMBRE <Red>PIC</Red> X(20). <br />
+          <Esp />
+          05 EDAD <Red>PIC</Red> 99. <br />
+          <Esp />
+          05 TELEFONO <Red>PIC</Red> X(10). <br />
+          <Esp />
+          05 DIRECCION <Red>PIC</Red> X(50). <br />
+          <br />
+          <Red>PROCEDURE DIVISION</Red>. <br />
+          <Esp />
+          <Red>MOVE CORRESPONDING</Red> CLIENTE-ENTRADA <Red>TO</Red>{" "}
+          CLIENTE-SALIDA. <br />
+        </div>
+        <div>
+          <p>
+            En este caso, se copian automáticamente los valores de NOMBRE, EDAD
+            y TELEFONO. El campo DIRECCION permanece sin cambios.
+          </p>
+        </div>
+      </div>
+      MOVE CORRESPONDING:
+      <div className="twoColums">
+        <div className="codigo">
+          MOVE CORRESPONDING <br />
+          01 ESTRUC-1. <br />
+          <Esp />
+          02 CAMPO-A <Red>PIC</Red> 9(9) <Red>VALUE</Red> 123456789. <br />
+          <Esp />
+          02 CAMPO-B <Red>PIC</Red> X(5) <Red>VALUE</Red> <Grey>'abcdf'</Grey>.{" "}
+          <br />
+          <Esp />
+          02 CAMPO-C <Red>PIC</Red> 9(4)V99 <Red>VALUE</Red> 1234.56. <br />
+          <Esp />
+          02 CAMPO-D <Red>PIC</Red> 9(4)V99 <Red>VALUE</Red> 123456789. <br />
+          <Esp />
+          02 FILLER <Red>PIC</Red> X(20). <br />
+          01 ESTRUC-2. <br />
+          <Esp />
+          02 CAMPO-C <Red>PIC</Red> Z(4).99. <br />
+          <Esp />
+          02 FILLER <Red>PIC</Red> XXX. <br />
+          <Esp />
+          02 CAMPO-B <Red>PIC</Red> X(5). <br />
+          <Esp />
+          02 FILLER <Red>PIC</Red> XXX. <br />
+          <Esp />
+          02 CAMPO-A <Red>PIC</Red> Z(9). <br />
+          <Esp />
+          02 FILLER <Red>PIC</Red> XXX. <br />
+          <Com>....................... </Com> <br />
+          <Red>MOVE CORRESPONDING</Red> ESTRUC-1 <Red>TO</Red> ESTRUC-2. <br />
+        </div>
+        <div>
+          <p>
+            La sentencia mueve 3 campos pero da un WARNING en la compilación.
+          </p>
+        </div>
+      </div>
+      <p>MOVE NUMÉRICOS EDICIÓN</p>
+      <p>
+        No está permitido realizar cálculos matemáticos con numéricos de
+        edición.
+      </p>
       <div className="codigo">
-        <Red>DATA DIVISION</Red>. <br />
-        <Red>WORKING-STORAGE SECTION</Red>. <br />
-        01 NOMBRE <Red>PIC</Red> X(20). <br />
-        01 MONTO <Red>PIC</Red> 9(5)V99. <br />
-        01 DELIMITADOR <Red>PIC</Red> X. <br />
-        01 FIN-REGISTRO <Red>PIC</Red> X(1). <br />
-        <Red>PROCEDURE DIVISION</Red>. <br />
-        <Red>BEGIN</Red>. <br />
-        <Esp />
-        <Red>MOVE SPACES TO</Red> NOMBRE. <br />
-        <Esp />
-        <Red>MOVE ZEROS TO</Red> MONTO. <br />
-        <Esp />
-        <Red>MOVE QUOTE TO</Red> DELIMITADOR. <br />
-        <Esp />
-        <Red>MOVE HIGH-VALUES TO</Red> FIN-REGISTRO. <br />
-        <Esp />
-        <Red>DISPLAY</Red> <Grey>"Nombre: "</Grey> NOMBRE. <br />
-        <Esp />
-        <Red>DISPLAY</Red> <Grey>"Monto: "</Grey> MONTO. <br />
-        <Esp />
-        <Red>DISPLAY</Red> <Grey>"Delimitador: "</Grey> DELIMITADOR. <br />
-        <Esp />
-        <Red>DISPLAY</Red> <Grey>"Fin Registro: "</Grey> FIN-REGISTRO. <br />
-        <Esp />
-        <Red>STOP RUN</Red>.
+        01 SUELDO <Red>PIC</Red> 9999,99. <br />
+        77 SUELDO-EDIT <Red>PIC</Red> 9999V99 <Red>COMP-3</Red>. <br />
+        77 TOTAL-EDIT <Red>PIC</Red> ZZ.ZZ9,99. <br />
+        <Com>................... </Com>
+        <br />
+        <Red>MOVE</Red> 1234.56<Red> TO </Red>SUELDO-EDIT. <br />
+        <Red>MOVE</Red> 9876.54<Red> TO </Red>SUELDO. <br />
+        <Red>DISPLAY</Red> SUELDO-EDIT. <br />
+        <Red>MOVE</Red> SUELDO<Red> TO </Red>SUELDO-EDIT. <br />
+        <Red>DISPLAY</Red> SUELDO-EDIT. <br />
+        <Red>MOVE</Red> SUELDO<Red> TO </Red>TOTAL-EDIT. <br />
+        <Red>DISPLAY</Red> TOTAL-EDIT. <br />
+        <Com>.............. SALIDA .............. </Com>
+        <br />
+        123456 <br />
+        9876,54 <br />
+        9.876,54 <br />
       </div>
 
-      <h4>Uso de OCCURS y REDEFINES</h4>
+
+
+      <h4>Uso de DISPLAY</h4>
       <p>
-        En COBOL, se pueden utilizar cláusulas como OCCURS y REDEFINES para
-        manejar arreglos y reorganizar datos de manera eficiente.
+        Es una instrucción utilizada para mostrar información en la salida del
+        programa. Es una de las formas más comunes de generar resultados
+        visibles para el usuario o para propósitos de depuración. La instrucción
+        DISPLAY envía información a la pantalla del usuario o al dispositivo de
+        salida designado. Es una herramienta útil para la interacción con el
+        usuario o para proporcionar información sobre el estado del programa
+        durante la ejecución. Aunque DISPLAY es útil para propósitos de
+        depuración, debes tener en cuenta que mostrar demasiada información
+        durante la ejecución del programa puede afectar el rendimiento. Es
+        importante utilizar DISPLAY de manera moderada y estratégica para
+        minimizar el impacto en el rendimiento del programa. Esta sentencia
+        transﬁere el contenido de cada DATA-ITEM a una salida SYSOUT / CEEMSG
       </p>
-      <ul>
-        <li>
-          <strong>OCCURS</strong>: Esta cláusula es para definir tablas de 'n'
-          dimensiones, y pueden ser referenciadas por índices o suscriptores.
-          Esta cláusula no se puede usar en los niveles 01/66/77/88. Se utiliza
-          para declarar arreglos de variables. Permite especificar el número de
-          elementos y la estructura de cada elemento dentro del arreglo. Indica
-          el número de veces 'n' que se repite un elemento (campo simple o
-          compuesto) con la misma descripción. El subíndice correspondiente al
-          primer elemento es 1. El subíndice puede ser un número entero o un
-          nombre de datos. Si es un nombre de datos se recomienda declararlo con
-          formato binario (COMP). La cláusula OCCURS no puede especificarse en
-          una descripción con número de nivel 01 o 77. Una tabla en COBOL puede
-          tener hasta 3 subíndices. En este caso se dice que la tabla es de 3
-          dimensiones. La cláusula OCCURS y VALUE son incompatibles, lo cual no
-          permite inicializar una tabla en su propia declaración.
-        </li>
-        </ul>
-        <br />
-        <p>Ejemplo con suscriptores: </p>
+      <div className="codigo">
+        <Red>DISPLAY</Red> 'INGRESE SU NOMBRE:'. <br />
+        <Red>DISPLAY</Red> NOMBRE-CLIENTE. <br />
+      </div>
+      <br />
+      <h5>WITH NO ADVANCING</h5>
+      <p>
+        Evita el salto de línea luego del mensaje (similar a print() en Python
+        sin \n). <br />
+        El cursor queda en la misma línea para que el usuario escriba a
+        continuación del mensaje. La cláusula WITH NOT ADVANCING es útil cuando se desea escribir múltiples registros consecutivos en la misma línea en un archivo de salida, como en informes de líneas detalladas o formatos de registro específicos. Al utilizar WITH NOT ADVANCING, se pueden agrupar registros relacionados en una sola línea para mejorar la legibilidad y la presentación de la información en el archivo de salida.
+      </p>
+      <div className="codigo">
+        <Red>DISPLAY</Red> <Grey>'Ingrese su nombre: '</Grey>{" "}
+        <Red>WITH NO ADVANCING</Red>. <br />
+        <Red>ACCEPT</Red> NOMBRE-USUARIO.
+      </div>
+      <br />
+      <h5>UPON</h5>
+      <p>
+        Destino Opcional. Especifica el destino, como CONSOLE, PRINTER,
+        SYSPUNCH.
+      </p>
+      <div className="codigo">
+        <Red>DISPLAY</Red> 'Registro enviado.' <Red>UPON CONSOLE</Red>.
+      </div>
+      <br />
+      <h4>Uso de ACCEPT</h4>
+      <p>
+        Descripción: Permite ingresar datos desde el teclado (modo interactivo)
+        o desde el sistema (por ejemplo, la fecha u hora del sistema). Permite
+        el ingreso de datos desde SYSIN, el dato deberá estar deﬁnido en
+        WORKING-STORAGE. Permite obtener fecha y hora del sistema operativo. Es
+        una instrucción utilizada para leer datos desde la entrada estándar
+        (generalmente el teclado) y almacenarlos en una variable. Esta
+        instrucción permite la interacción del usuario con el programa, ya que
+        le permite proporcionar datos durante la ejecución del programa. Es
+        importante validar los datos introducidos por el usuario para asegurarse
+        de que sean correctos antes de utilizarlos en el programa. Se pueden
+        utilizar condiciones y estructuras de control para manejar diferentes
+        situaciones de entrada de datos por parte del usuario.
+      </p>
+      <div className="twoColums">
         <div className="codigo">
-          01 TABLA-ELEM <Red>PIC</Red> X(03)<Red> OCCURS</Red> 31{" "}
-          <Red>TIMES</Red>. <br />
-          01 FERIADO <Red>PIC</Red> XX. <br />
+          01 NOMBRE-USUARIO <Red>PIC</Red> X(20). <br />
+          <Red>ACCEPT</Red> NOMBRE-USUARIO.
+        </div>
+        <p>
+          Entrada del usuario. El programa esperará que el usuario escriba un
+          nombre, y lo almacenará en NOMBRE-USUARIO.
+        </p>
+      </div>
+      <div className="twoColums">
+        <div className="codigo">
+          01 FECHA-HOY <Red>PIC</Red> 9(8). <Com> AAAAMMDD</Com> <br />
+          <Red>ACCEPT</Red> FECHA-HOY <Red>FROM DATE</Red>.
+        </div>
+        <p>
+          Fecha del sistema. El campo FECHA-HOY recibe la fecha actual, por
+          ejemplo: <mark>20250410</mark>.
+        </p>
+      </div>
+      <div className="twoColums">
+        <div className="codigo">
+          01 HORA-ACTUAL <Red>PIC</Red> 9(6). <Com> HHMMSS</Com> <br />
+          <Red>ACCEPT</Red> HORA-ACTUAL <Red>FROM TIME</Red>.
+        </div>
+        <p>
+          Hora actual. Se guarda la hora actual del sistema, como{" "}
+          <mark>154233</mark>.
+        </p>
+      </div>
+      <div className="twoColums">
+        <div className="codigo">
+          01 DIA-ACTUAL <Red>PIC</Red> 9(5). <br />
+          <Red>ACCEPT</Red> DIA-ACTUAL <Red>FROM DAY</Red>.
+        </div>
+        <p>
+          Día del sistema. Se almacena la fecha en formato juliano (AAMMDD).
+        </p>
+      </div>
+      <div className="twoColums">
+        <div className="codigo">
+          01 DIA-SEMANA <Red>PIC</Red> 9. <br />
+          <Red>ACCEPT</Red> DIA-SEMANA <Red>FROM DAY-OF-WEEK</Red>.
+        </div>
+        <p>
+          Día de la semana. Guarda un número del 1 al 7, donde 1 = Lunes, 7 =
+          Domingo.
+        </p>
+      </div>
+      <div className="twoColums">
+        <div className="codigo">
+          <Red>DISPLAY</Red> <Grey>"Por favor, introduzca su nombre: "</Grey>.{" "}
+          <br />
+          <Red>ACCEPT</Red> nombre-alumno. <br />
+          <Red>DISPLAY</Red> <Grey>"¡Hola, "</Grey> nombre-alumno{" "}
+          <Grey>"!"</Grey> <br />
+        </div>
+        <div className="codigo">
+          77 FECHA-EJECUCION <Red>PIC</Red> X(10). <br />
+          <Com>........</Com> <br />
+          //SYSIN DD * <br />
+          19/10/2019 <br />
+          <Com>........</Com> <br />
+          <Red>ACCEPT</Red> FECHA-EJECUCION <Red>FROM</Red> SYSIN. <br />
+          <Red>DISPLAY</Red> FECHA-EJECUCION. <br />
+          <Com>........</Com> SALIDA <br />
+          19/10/2019 <br />
+        </div>
+      </div>
+      <p>
+        ⚠️ <u>Consideraciones importantes</u>:
+      </p>
+      <li>
+        Cuando se usa sin <mark>FROM</mark>, el origen es el teclado.
+      </li>
+      <li>
+        <mark>ACCEPT</mark> es una sentencia de bajo nivel de validación. No
+        permite formatos complejos ni comprobación de tipos (esa lógica debe
+        codificarse aparte).
+      </li>
+      <li>
+        Las entradas siempre se capturan como texto (alfanuméricos). Si se
+        quieren valores numéricos, hay que definir el campo como numérico y
+        asegurarse de que la entrada sea válida.
+      </li>
+      <br />
+      <h4>Uso de PERFORM</h4>
+      <p>
+        La sentencia <mark>PERFORM</mark> es utilizada para transferir
+        explícitamente el control a uno o más procedimientos y devolver el
+        control implícitamente, cuando la ejecución del procedimiento
+        especiﬁcado, ﬁnalice. La sentencia PERFORM se puede utilizar para
+        controlar la ejecución de una o más sentencias, las cuales están dentro
+        del ámbito de la sentencia <mark>PERFORM</mark>. Se utiliza para repetir
+        un bloque de código mientras se cumple una condición. Se utiliza para
+        ejecutar uno o más párrafos o secciones dentro del programa, o bien para
+        repetir bloques de código según una condición. Es una de las
+        instrucciones más importantes para controlar el flujo del programa y
+        evitar la duplicación de código. <br />
+        <mark>END-PERFORM</mark>. Cuando se emplea este formato, la sentencia
+        PERFORM ejecuta el número de veces especiﬁcado por entero o por nombre
+        de datos, el conjunto de sentencias que hay entre <mark>PERFORM</mark> y{" "}
+        <mark>END-PERFORM</mark>. Un punto, como ﬁnal de alguna de las
+        sentencias de esta estructura, daría lugar a un error, ya que se
+        entendería como ﬁnal de la sentencia PERFORM.
+      </p>
+      <h5>ANIDAMIENTO DE SENTENCIAS PERFORM.</h5>
+      <p>
+        Dentro del ámbito de una sentencia PERFORM, puede especiﬁcarse otra
+        sentencia PERFORM, aunque hay que tener presentes las siguientes reglas:
+      </p>
+      <ol>
+        <li>
+          El procedimiento PERFORM ejecutado desde el ámbito de otro PERFORM
+          debe ser totalmente exterior o totalmente interior a este.
+        </li>
+        <li>
+          Los ámbitos de dos PERFORM se pueden solapar cuando las sentencias de
+          llamada para su ejecución están fuera de estos ámbitos.
+        </li>
+        <li>Las sentencias PERFORM pueden ser anidadas libremente.</li>
+        <li>
+          Un procedimiento PERFORM puede llamarse a sí mismo, esto es, la
+          recursividad está permitida.
+        </li>
+      </ol>
+      <h5>Simple (nombre de párrafo):</h5>
+      <p>Llama y ejecuta un párrafo una vez.</p>
+      <div className="codigo">
+        <Red>PERFORM</Red> CALCULAR-SUELDO.
+      </div>
+      <br />
+      <h5>Con intervalo (range)</h5>
+      <p>
+        Ejecuta una serie de párrafos de forma secuencial, desde uno inicial
+        hasta uno final.
+      </p>
+      <div className="codigo">
+        <Red>PERFORM</Red> INICIAR <Red>THRU</Red> FINALIZAR.
+      </div>
+      <div className="codigo">
+        <Red>PERFORM</Red> INICIAR <Red>THROUGH</Red> FINALIZAR.
+      </div>
+      <div className="twoColums">
+        <div className="codigo">
+          <Red>PERFORM</Red> procedimiento-1 [THRU procedimiento-2]{" "}
+        </div>
+        <p>
+          Si no se especiﬁca la sentencia THRU, la sentencia PERFORM ejecuta una
+          vez, el conjunto de sentencias que forman el procedimiento-1. Si la
+          opción THRU se especiﬁca, entonces se ejecutan, una vez todos los
+          procedimientos existentes en el programa entre procedimiento-1 y
+          procedimiento-2, ambos inclusive.
+        </p>
+      </div>
+      <div className="twoColums">
+        <div className="codigo">
+          <Red>PERFORM</Red> procedimiento-1 [THRU procedimiento-2]{" "}
+          <Red>UNTIL</Red> .....{" "}
+        </div>
+
+        <p>
+          Si no se especiﬁca la opción THRU, la sentencia PERFORM ejecuta el
+          número de veces especiﬁcado por entero o por un nombre de datos, el
+          conjunto de sentencias que forman procedimiento-1. Si la opción THRU
+          se especiﬁca, entonces se ejecutan el número de veces especiﬁcado,
+          todos los procedimientos existentes en el programa entre
+          procedimiento-1 y procedimiento-2, ambos inclusive.
+        </p>
+      </div>
+      <p>
+        ⚠️ Importante: Todos los párrafos entre INICIAR y FINALIZAR (inclusive)
+        se ejecutarán en orden.
+      </p>
+      <br />
+      <h5>Con condición (ciclo UNTIL)</h5>
+      <p>
+        Repite un bloque de instrucciones o un párrafo hasta que se cumpla una
+        condición.
+      </p>
+      <div className="codigo">
+        <Red>PERFORM</Red> LEER-REGISTRO <Red>UNTIL</Red> FIN-DE-ARCHIVO ={" "}
+        <Grey>'S'</Grey>.
+      </div>
+      <div className="twoColums">
+        <div className="codigo">
+          01 Contador <Red>PIC</Red> 9 <Red>VALUE</Red> 1. <br /> <br />
+          <Red>PERFORM UNTIL </Red> Contador {">"} 5 <br />
+          <Esp />
+          <Red>DISPLAY</Red> <Grey>'Iteración '</Grey> Contador <br />
+          <Esp />
+          <Red>ADD</Red> 1 <Red>TO</Red> Contador <br />
+          END-PERFORM.
+        </div>
+        <p>
+          En este ejemplo, se muestra un mensaje en cada iteración hasta que el
+          contador sea mayor que 5.
+        </p>
+      </div>
+      <br />
+      <h5>Con número fijo de repeticiones (TIMES)</h5>
+      <p>Ejecuta un bloque o párrafo una cantidad específica de veces.</p>
+      <div className="codigo">
+        <Red>PERFORM</Red> IMPRIMIR-FACTURA 5 <Red>TIMES</Red>.
+      </div>
+      <h5>Bloque dentro de otro párrafo (N-LINE):</h5>
+      <p>
+        Este tipo de PERFORM se realiza sin invocar ningún párrafo, se realiza
+        todo dentro de la sentencia <mark>PERFORM</mark> hasta el{" "}
+        <mark>END-PERFORM</mark>. Permite escribir directamente el bloque de
+        instrucciones dentro del <mark>PERFORM</mark>, sin necesidad de crear un
+        párrafo externo.
+      </p>
+      <div className="codigo">
+        <Red>PROCEDURE DIVISION</Red>. <br />
+        <Esp /> <Red>DISPLAY</Red> 'Inicio del programa'. <br />
+        <Esp /> <br />
+        <Esp /> <Red>PERFORM</Red> <br />
+        <Esp />
+        <Esp /> <Red>DISPLAY</Red> 'Este es un PERFORM in-line'. <br />
+        <Esp />
+        <Esp /> <Red>ADD</Red> 1 <Red>TO</Red> CONTADOR <br />
+        <Esp /> <Red>END-PERFORM</Red>. <br />
+        <Esp /> <br />
+        <Esp /> <Red>DISPLAY</Red> "Fin del programa". <br />
+        <Esp /> <Red>STOP RUN</Red>. <br />
+      </div>
+      <h5>VARYING (bucle con contador)</h5>
+      <p>
+        Permite repetir un bloque de instrucciones o párrafo, modificando el
+        valor de una variable (contador), hasta cumplir una condición. Es muy
+        útil para recorrer tablas o realizar bucles controlados.
+      </p>
+      <div className="twoColums">
+        <div className="codigo">
+          <Red>PERFORM</Red> MOSTRAR-DATO <br />
+          <Esp /> <Red>VARYING</Red> INDICE <br />
+          <Esp /> <Red>FROM</Red> 1 <Red>BY</Red> 1 <br />
+          <Esp /> <Red>UNTIL</Red> INDICE {">"} 10. <br />
+        </div>
+        <div>
+          Este ejemplo ejecuta el párrafo MOSTRAR-DATO 10 veces, incrementando
+          el valor de INDICE desde 1 hasta 10.
+        </div>
+      </div>
+      <div className="codigo">
+        <Com>PERFORM VARYING con código in-line</Com> <br />
+        <Esp /> <Red>PERFORM VARYING</Red> I <Red>FROM</Red> 1 <Red>BY</Red> 1{" "}
+        <Red>UNTIL</Red> I {">"} 5 <br />
+        <Esp /> <Red>DISPLAY</Red> <Grey>'NÚMERO: '</Grey> I <br />
+        <Red>END-PERFORM</Red>. <br />
+      </div>
+      <p>
+        <u>Notas importantes</u>:
+      </p>
+      <li>
+        Se puede anidar <mark>PERFORM VARYING</mark> para recorrer matrices
+        (ejemplo: <mark>I</mark> y <mark>J</mark>).
+      </li>
+      <li>
+        También permite controlar más de una variable con <mark>AFTER</mark>.
+      </li>
+      <div className="twoColums">
+        <div className="codigo">
+          <Com>Ejemplo con dos contadores:</Com> <br />
+          <Red>PERFORM VARYING</Red> I <Red>FROM</Red> 1 <Red>BY</Red> 1{" "}
+          <Red>UNTIL</Red> I {">"} 3 <br />
+          <Esp /> <Red>AFTER</Red> J <Red>FROM</Red> 1 <Red>BY</Red> 1{" "}
+          <Red>UNTIL</Red> J {">"} 2 <br />
+          <Esp /> <Red>DISPLAY</Red> <Grey>'I='</Grey> I <Grey>' J='</Grey> J{" "}
+          <br />
+          <Red>END-PERFORM</Red>. <br />
+        </div>
+        <div>
+          <p>
+            Esto ejecuta el cuerpo 6 veces: combina cada valor de <mark>I</mark>{" "}
+            (1, 2, 3) con <mark>J</mark> (1, 2).
+          </p>
+        </div>
+      </div>
+      <br />
+      <h5>
+        VARYING ... AFTER ... (Con opción de <mark>WITH TEST BEFORE</mark> o{" "}
+        <mark>WITH TEST AFTER</mark>)
+      </h5>
+      <p>
+        Esta forma de PERFORM permite ejecutar un bloque de código o un párrafo
+        de forma iterativa, variando múltiples variables de control y
+        controlando cuándo se evalúa la condición.
+      </p>
+      <p>Explicación de los elementos:</p>
+      <li>
+        <mark>VARYING</mark>: define la primera variable que va a cambiar en
+        cada iteración.
+      </li>
+      <li>
+        <mark>AFTER</mark>: define una o más variables adicionales que también
+        cambiarán, pero después de cada iteración completa.
+      </li>
+      <li>
+        <mark>FROM</mark>: valor inicial del índice.
+      </li>
+      <li>
+        <mark>BY</mark>: valor por el cual se incrementa (o decrementa).
+      </li>
+      <li>
+        <mark>WITH TEST BEFORE</mark>: evalúa la condición antes de ejecutar el
+        párrafo.
+      </li>
+      <li>
+        <mark>WITH TEST AFTER</mark>: ejecuta primero el párrafo, luego evalúa
+        la condici
+      </li>
+      <br />
+      <div className="twoColums">
+        <div className="codigo">
+          <Com>
+            Ejemplo con WITH TEST BEFORE <br /> (múltiples contadores):
+          </Com>{" "}
+          <br />
+          <Red>PERFORM</Red> PROCESAR-DATO <br />
+          <Esp /> <Red>VARYING</Red> I <Red>FROM</Red> 1 <Red>BY</Red> 1 <br />
+          <Esp /> <Red>AFTER</Red> J <Red>FROM</Red> 10 <Red>BY</Red> -1 <br />
+          <Esp /> <Red>UNTIL</Red> I {">"} 5 <Red>OR</Red> J {"<"} 1 <br />
+          <Esp /> <Red>WITH TEST BEFORE</Red>. <br />
+        </div>
+        <div>
+          <p>📌 Interpretación:</p>
+          <li>
+            Empieza con <mark>I = 1</mark> y <mark>J = 10</mark>.
+          </li>
+          <li>
+            Se ejecuta <mark>PROCESAR-DATO</mark> si <mark>I {"<="} 5</mark> y{" "}
+            <mark>J {">="} 1</mark>.
+          </li>
+          <li>
+            En cada ciclo: <mark>I</mark> se incrementa en 1, <mark>J</mark> se
+            reduce en 1.
+          </li>
+        </div>
+      </div>
+      <div className="twoColums">
+        <div className="codigo">
+          <Com>Ejemplo con WITH TEST AFTER:</Com> <br />
+          <Red>PERFORM</Red> MOSTRAR <br />
+          <Esp /> <Red>VARYING</Red> K <Red>FROM</Red> 1 <Red>BY</Red> 1 <br />
+          <Esp /> <Red>UNTIL</Red> K {">"} 3 <br />
+          <Esp /> <Red>WITH TEST AFTER</Red>. <br />
+        </div>
+        <div>
+          <p>📌 Interpretación:</p>
+          <li>
+            Siempre ejecuta <mark>MOSTRAR</mark> al menos una vez.
+          </li>
+          <li>
+            Luego evalúa si <mark>K {">"} 3</mark>.
+          </li>
+        </div>
+      </div>
+      <p>
+        <u>Cuándo usar TEST BEFORE o AFTER</u>:
+      </p>
+      <li>
+        <mark>WITH TEST BEFORE</mark> Querés que se evalúe la condición antes de
+        la primera ejecución.
+      </li>
+      <li>
+        <mark>WITH TEST AFTER</mark> Necesitás que el bloque se ejecute al menos
+        una vez.
+      </li>
+      <br />
+      <p>
+        🧠 <u>Nota importante</u>:
+      </p>
+      <li>
+        Podés usar <mark>AFTER</mark> para múltiples variables, anidadas como si
+        fueran bucles anidados.
+      </li>
+      <li>
+        Si omitís<mark> WITH TEST BEFORE/AFTER</mark>, el valor por defecto es{" "}
+        <mark>WITH TEST BEFORE</mark>.
+      </li>
+      <br />
+      <br />
+      <br />
+      <h5>Sentencia EXIT.</h5>
+      <p>
+        Esta sentencia se utiliza como complemento de la sentencia PERFORM, para
+        proporcionar un punto ﬁnal para uno o más procedimientos, a ﬁn de
+        permitir la salida desde cualquier punto. La sentencia <mark>EXIT</mark>{" "}
+        forma por sí sola un párrafo identiﬁcado por un nombre.
+      </p>
+      <br />
+      <br />
+      <br />
+      <p>
+        ✅
+        <u>
+          Buenas prácticas con <mark>PERFORM</mark>
+        </u>
+        :
+      </p>
+      <li>
+        Nombrar claramente los párrafos llamados para facilitar la lectura.
+      </li>
+      <li>
+        Evitar rangos amplios con <mark>THRU</mark> que puedan ejecutar párrafos
+        innecesarios.
+      </li>
+      <li>
+        Usar <mark>PERFORM ... UNTIL</mark> con condiciones claramente
+        definidas.
+      </li>
+      <li>
+        Usar <mark>PERFORM in-line</mark> para tareas pequeñas que no se
+        reutilizan.
+      </li>
+      <br />
+      <p>
+        🧠 <u>Nota técnica</u>:
+      </p>
+      <li>
+        <mark>PERFORM</mark> no transfiere el control permanentemente, como lo
+        hace <mark>GO TO</mark>. Cuando el párrafo o sección termina, el control
+        vuelve a la instrucción siguiente al <mark>PERFORM</mark>.
+      </li>
+      <li>
+        El uso de <mark>PERFORM</mark> favorece la modularización y el
+        mantenimiento del código COBOL.
+      </li> <br />
+      
+      <h4>IF-ELSE</h4>
+      <p>
+        La sentencia IF en COBOL se utiliza para tomar decisiones basadas en
+        condiciones. Puede ir acompañada de ELSE para manejar situaciones
+        alternativas. El ámbito de la sentencia IF ﬁnaliza de cualquiera de las
+        formas siguientes:
+      </p>
+      <li>Por un punto.</li>
+      <li>Por la cláusula END-IF.</li>
+      <p>
+        Cuando la acción-1 o la acción-2 están formadas por varias sentencias,
+        solamente la última ﬁnaliza con un punto, ya que este indica el ﬁnal de
+        una sentencia IF. Si se especiﬁca la frase END-IF no se puede utilizar
+        la frase NEXT SENTENCE. <br />
+        También, hay que tener presente que el operador NOT puede preceder a una
+        condición simple o una condición combinada.
+      </p>
+      <div className="twoColums">
+        <div className="codigo">
+          <Red>IF</Red> SaldoCuenta {"<"} 0 <br />
+          <Esp /> <Red>DISPLAY</Red> <Grey>'Cuenta en números rojos'</Grey>{" "}
+          <br />
+          <Red>ELSE</Red> <br />
+          <Esp />
+          <Red>DISPLAY</Red> <Grey>'Cuenta en buen estado'</Grey> <br />
+          <Red>END-IF</Red>.
+        </div>
+        <p>
+          En este ejemplo, se muestra un mensaje en función del saldo de la
+          cuenta.
+        </p>
+      </div>
+      <h5>Condiciones combinadas.</h5>
+      <p>
+        Una condición combinada está formada por un conjunto de condiciones
+        simples unidas por los operadores OR y AND. <br />
+        También, hay que tener presente que el operador NOT puede preceder a una
+        condición simple o a una condición combinada.
+      </p>
+      <div className="codigo">
+        <Red>IF</Red> A = ( 1 <Red>OR</Red> 5 <Red>OR</Red> 7) <Red>AND</Red> B
+        = 4
+      </div>
+      <h5>ANIDAMIENTO DE SENTENCIAS IF.</h5>
+      <p>
+        La estructura presentada a continuación, aparece con bastante frecuencia
+        y es por lo que la damos un tratamiento por separado. Esta estructura es
+        consecuencia del anidamiento de sentencias IF. Las sentencias IF...THEN
+        pueden estar anidadas. Esto quiere decir que como acción-1 o acción-2,
+        de acuerdo con el formato, puede escribirse otra sentencia IF.
+      </p>
+
+      <div className="twoColums">
+        <div className="codigo">
+          <Red>IF</Red> Edad {"<"} 18 <br />
+            <Esp/><Red>DISPLAY</Red> <Grey>'Menor de edad'</Grey> <br />
+          <Red>ELSE</Red> <br />
+          <Esp/><Red>IF</Red> Edad {"<"} 65 <br />
+          <Esp/><Esp/><Red>DISPLAY</Red> <Grey>'Adulto'</Grey> <br />
+          <Esp/><Red>ELSE</Red> <br />
+            <Esp/><Esp/><Red>DISPLAY</Red> <Grey>'Persona mayor'</Grey> <br />
+            <Esp/>END-IF. <br />
+          END-IF.
+        </div>
+        <p>
+          En este ejemplo, se anidan sentencias IF-ELSE para determinar la
+          categoría de edad.
+        </p>
+      </div>
+      Ejemplos:
+      <div className="twoColums">
+        <div className="codigo">
+          <Red>IF</Red> condición-1 <Red>THEN</Red> sentencia-1 <br />
+          <Esp />
+          <Com>NEXT SENTENCE</Com> <br />
+          <Red>ELSE</Red> sentencia-2 <br />
+          <Esp />
+          <Com>NEXT SENTENCE</Com> <br />
+          <Red>END-IF</Red>. <br />
+          <Com>...................</Com> <br />
+          <Red>IF </Red>DATO-1 <Red>IS NOT NUMERIC THEN</Red> ...... <br />
+          <Red>END-IF</Red>. <br />
+          <Com>...................</Com> <br />
+          <Red>IF</Red> NUMERO-CLIENTE <Red>IS LESS THAN</Red>{" "}
+          PREV-NUMERO-CLIENTE <br />
+          <Esp />
+          <Red>MOVE</Red> 'CLIENTE FUERA DE SECUENCIA' <Red>TO</Red>{" "}
+          MESSAGE-TEXTO <br />
+          <Esp />
+          <Red>PERFORM</Red> WRITE-MESSAGE <br />
+          <Red>END-IF</Red>. <br />
+        </div>
+        <div className="codigo">
+          01 DEDIC-EMPLEADO <Red>PIC</Red> X. <br />
+          <Esp />
+          88 PARTTIME <Red>VALUE</Red> 'P'. <br />
+          <Esp />
+          88 FULL-TIME <Red>VALUE</Red> 'F'. <br />
+          <br />
+          <Esp />
+          <Red>IF</Red> PARTTIME <br />
           <Esp />
           <Esp />
-          88 SI-FER <Red>VALUE</Red> <Grey>'SI'</Grey> <br />
+          <Red>PERFORM</Red> CALCULO-SALARIO-PARTTIME. <br />
+          <br />
+          <Esp />
+          <Red>IF</Red> DEDIC-EMPLEADO = 'F' <br />
           <Esp />
           <Esp />
-          88 NO-FER <Red>VALUE</Red> <Grey>'NO'</Grey> <br />
-          77 CANTIDAD <Red>PIC</Red> 9(03) <Red>BINARY VALUE</Red> 1. <br />
-          <Com>............................................ </Com> <br />
-          <Red>SET</Red> NO-FER <Red>TO TRUE</Red>. <br />
-          <Red>PERFORM UNTIL</Red> CANTIDAD <Red>GREATER THAN</Red> 31 <br />
+          <Red>PERFORM</Red> CALCULO-SALARIO. <br />
+        </div>
+      </div>
+      <div className="twoColums">
+        <div className="codigo">
+          <Com>Estructura IF. CON OPERADORES LÓGICOS ******************** </Com>{" "}
+          <br />
+          <Red>IF</Red> FECHA-AA = 2020 <Red>AND</Red> FECHA-MM = 02{" "}
+          <Red>AND</Red> FECHA-DD = 29 <br />
+          <Esp />
+          <Red>PERFORM</Red> CALCULO-CIERRE-BISIESTO <br />
+          <Red>ELSE</Red> <br />
+          <Esp />
+          <Red>PERFORM</Red> CALCULO-CIERRE-NORMAL <br />
+          <Red>END-IF</Red>. <br />
+          <Red>IF</Red> PARM-MM = 01 <br />
+          <Esp />
+          <Red>OR</Red> PARM-MM = 03 <br />
+          <Esp />
+          <Red>OR</Red> PARM-MM = 05 <br />
+          <Esp />
+          <Red>OR</Red> PARM-MM = 07 <br />
+          <Esp />
+          <Red>OR</Red> PARM-MM = 08 <br />
+          <Esp />
+          <Red>OR</Red> PARM-MM = 10 <br />
+          <Esp />
+          <Red>OR</Red> PARM-MM = 12 AND PARM-DD = 31 <br />
+          <Red>PERFORM</Red> CALCULO-FIN-MES <br />
+          <Red>ELSE</Red> <br />
+          <Esp />
+          <Red>PERFORM</Red> ANALISIS-MES. <br />
+        </div>
+
+        <div className="codigo">
+          <Com>Estructura IF. ANIDADOS......</Com> <br />
+          <Com>EVITAR SU USO................</Com> <br />
+          <Red>IF</Red> ESTADO-EMPLEADO = 'EXEMPL' <br />
+          <Esp />
+          <Red>PERFORM</Red> CALCULO-SALARIO-EXEMPL <br />
+          <Red>ELSE</Red> <br />
+          <Esp />
+          <Red>IF</Red> ESTADO-EMPLEADO = 'DPEMPL' <br />
           <Esp />
           <Esp />
-          <Red>IF</Red> TABLA-ELEM (CANTIDAD) = <Grey>'FER'</Grey> <br />
-          <Esp />
-          <Esp />
-          <Esp />
-          <Red>SET</Red> SI-FER <Red>TO TRUE</Red> <br />
-          <Esp />
-          <Esp />
-          <Esp />
-          <Red>ADD</Red> 31 <Red>TO</Red> CANTIDAD <br />
-          <Esp />
+          <Red>PERFORM</Red> CALCULO-SALARIO DPEMPL <br />
           <Esp />
           <Red>ELSE</Red> <br />
           <Esp />
           <Esp />
-          <Esp />
-          <Red>ADD</Red> 1 <Red>TO</Red> CANTIDAD <br />
-          <Esp />
+          <Red>PERFORM</Red> CALCULO-SALARIO-COMUN <br />
           <Esp />
           <Red>END-IF</Red> <br />
-          <Red>END-PERFORM</Red>. <br />
+          <Red>END-IF</Red>. <br />
         </div>
-      
+      </div>
+      <div className="codigo">
+        <Red>MOVE</Red> 'abcdefgh' <Red>TO</Red> DISPLAY-AREA. <br />
+        <Red>IF</Red> DISPLAY-AREA <Red>IS</Red> ALPHABETIC-UPPER <br />
+        <Red>THEN MOVE</Red> 'MAYUSCULA' <Red>TO</Red> MESSAGE-TEXT <br />
+        <Red>ELSE</Red> <br />
+        <Esp />
+        <Red>IF</Red> DISPLAY-AREA <Red>IS</Red> ALPHABETIC-LOWER <br />
+        <Esp />
+        <Esp />
+        <Red>THEN MOVE</Red> 'MINUSCULA' <Red>TO</Red> MESSAGE-TEXT <br />
+        <Esp />
+        <Red>END-IF</Red> <br />
+        <Red>END-IF</Red>. <br />
+      </div>
+      <br />
+      <h4>EVALUATE</h4>
+      <p>
+        Se usa en reemplazo del IF condicional para una programación
+        estructurada. Se recomienda el uso del EVALUATE en vez del IF. <br />
+        La sentencia EVALUATE en COBOL se utiliza para realizar múltiples
+        comparaciones en paralelo y tomar decisiones basadas en los resultados
+        de esas comparaciones.
+      </p>
       <div className="twoColums">
         <div className="codigo">
-          01 TelefonoClientes <Red>OCCURS</Red> 10 <Red>TIMES</Red>. <br />
+          <Red>EVALUATE</Red> OpcionMenu <br />
           <Esp />
-          02 NumeroTelefono <Red>PIC</Red> 9(10).
+          <Red>WHEN</Red> <Grey>'1'</Grey> <Red>DISPLAY</Red>{" "}
+          <Grey>'Seleccionó la opción 1'</Grey> <br />
+          <Esp />
+          <Red>WHEN</Red> <Grey>'2'</Grey> <Red>DISPLAY</Red>{" "}
+          <Grey>'Seleccionó la opción 2'</Grey> <br />
+          <Esp />
+          <Red>WHEN</Red> <Grey>'3'</Grey> <Red>DISPLAY</Red>{" "}
+          <Grey>'Seleccionó la opción 3'</Grey> <br />
+          <Esp />
+          <Red>WHEN OTHER DISPLAY</Red> <Grey>'Opción no válida'</Grey> <br />
+          <Red>END-EVALUATE</Red>.
+        </div>
+        <div className="codigo">
+          <Red>EVALUATE</Red> TRANS-ID <br />
+          <Esp />
+          <Red>WHEN</Red> 'A001' <Red>PERFORM</Red> ALTA
+          <br />
+          <Esp />
+          <Red>WHEN</Red> 'D001' <Red>PERFORM</Red> BAJA <br />
+          <Esp />
+          <Red>WHEN</Red> 'U001' <Red>PERFORM</Red> MODIFICA
+          <br />
+          <Esp />
+          <Red>WHEN</Red> 'C001' <Red>PERFORM</Red> CONSULTA <br />
+          <Esp />
+          <Red>WHEN</Red> OTHER <Red>PERFORM</Red> TRANS-ID-INVALIDA
+          <br />
+          <Red>END-EVALUATE</Red>. <br />
+        </div>
+      </div>
+      <div className="codigo">
+        <Red>EVALUATE TRUE</Red> <br />
+        <Esp />
+        <Red>WHEN</Red> HORARIO <Red>IS LESS THAN</Red> 8
+        <Esp />
+        <Red>COMPUTE</Red> HORARIO = HORARIO * 0.65 <br />
+        <Esp />
+        <Red>PERFORM</Red> MENSA1 <br />
+        <br />
+        <Esp />
+        <Red>WHEN</Red> HORARIO <Red>IS GREATER THAN</Red> 8 <br />
+        <Esp />
+        <Esp />
+        <Red>COMPUTE</Red> HORARIO = HORARIO * 1.25 <br />
+        <Esp />
+        <Esp />
+        <Red>PERFORM</Red> MENSA2 <br />
+        <br />
+        <Esp />
+        <Red>WHEN OTHER </Red>
+        <br />
+        <Esp />
+        <Esp />
+        <Red>PERFORM</Red> MENSA3 <br />
+        <Red>END-EVALUATE</Red>. <br />
+        <br />
+        <Red>EVALUATE</Red> A <Red>IS LESS THAN</Red> B <Red>AND</Red> C{" "}
+        <Red>IS GREATER THAN</Red> D <br />
+        <Esp />
+        <Red>WHEN TRUE </Red> <br />
+        <Esp />
+        <Esp />
+        <Red>PERFORM</Red> SEDIO <br />
+        <Esp />
+        <Red>WHEN FALSE </Red> <br />
+        <Esp />
+        <Esp />
+        <Red>PERFORM</Red> NO-SEDIO <br />
+        <Esp />
+        <Red>WHEN OTHER </Red>
+        <br />
+        <Esp />
+        <Esp />
+        <Red>PERFORM </Red> ERROR <br />
+        <Red>END-EVALUATE</Red>. <br />
+      </div>
+      <p>
+        En este ejemplo, se evalúa la opción de menú y se muestra un mensaje en
+        función de la opción seleccionada.
+      </p>
+
+      <h4>EVALUATE TRUE</h4>
+      <p>
+        La sentencia EVALUATE se puede utilizar con la opción TRUE para repetir
+        un bloque de código en función de múltiples condiciones.
+      </p>
+      <div className="twoColums">
+        <div className="codigo">
+          01 Opcion <Red>PIC</Red> 9 <Red>VALUE</Red> 1. <br />
+          <br />
+          <Red>EVALUATE TRUE</Red> <br />
+          <Esp />
+          <Red>WHEN</Red> Opcion = 1 <br />
+          <Esp />
+          <Esp />
+          <Red>DISPLAY </Red><Grey>'Seleccionó la opción 1'</Grey> <br />
+          <Esp />
+          <Red>WHEN</Red> Opcion = 2 <br />
+          <Esp />
+          <Esp />
+          <Red>DISPLAY </Red><Grey>'Seleccionó la opción 2'</Grey> <br />
+          <Esp />
+          <Red>WHEN OTHER </Red> <br />
+          <Esp />
+          <Esp />
+          <Red>DISPLAY </Red><Grey>'Opción no válida'</Grey> <br />
+          <Red>END-EVALUATE</Red>.
         </div>
         <p>
-          En este ejemplo, TelefonoClientes es un arreglo de 10 elementos, cada
-          uno de los cuales contiene un número de teléfono de hasta 10 dígitos.
+          En este ejemplo, se ejecuta el bloque de código basado en la opción
+          seleccionada.
         </p>
       </div>
-      <ul>
-        <li>
-          <strong>REDEFINES</strong>: Se utiliza para reorganizar datos y
-          asignar diferentes interpretaciones a la misma área de almacenamiento.
-          Esta cláusula permite dar a un campo o a un área de memoria más de un
-          nombre y más de un formato. Su formato es el siguiente: Level-number
-          data-name-1 REDEFINES data-name-2 FILLER La cláusula REDEFINES ha de
-          ser la primera que siga al nombre de datos. Los campos nombre de
-          dato-1 y campos nombre de dato-2 deben estar declarados al mismo
-          nivel, pero no a nivel 66 u 88. La redefinición de un campo compuesto
-          se hace inmediatamente después del último de los campos elementales
-          que forman parte de aquél. Esta cláusula va a permitir inicializar una
-          tabla en el momento de declararla.
-        </li>
-      </ul>
-      <div className="twoColums" style={{ gridTemplateColumns: "2fr 1fr" }}>
-        <div>
-          <div className="codigo">
-            01 DetalleProducto. <br />
-            <Esp />
-            02 CodigoProducto <Red>PIC</Red> X(10). <br />
-            <Esp />
-            02 PrecioProducto <Red>PIC</Red> 9(5)V99. <br />
-            01 InformacionAdicional <Red>REDEFINES</Red> DetalleProducto. <br />
-            <Esp />
-            02 CodigoBarra <Red>PIC</Red> X(12).
-          </div>
-          <p>
-            En este ejemplo, InformacionAdicional reorganiza los datos de
-            DetalleProducto y utiliza CodigoBarra para representar una
-            interpretación diferente de los mismos datos.
-          </p>
-        </div>
-        <div>
-          <div>
-            <p>Ejemplos de REDEFINES</p>
-          </div>
-          <div className="codigo">
-            05 AAA <Red>PIC</Red> X(06). <br />
-            05 BBB REDEFINES AAA. <br />
-            <Esp />
-            <Esp />
-            10 B-1 <Red>PIC</Red> X(02). <br />
-            <Esp />
-            <Esp />
-            10 B-2 <Red>PIC</Red> 9(04). <br />
-            05 CCC REDEFINES AAA. <br />
-            <Esp />
-            <Esp />
-            10 C-1 <Red>PIC</Red> X(04). <br />
-            <Esp />
-            <Esp />
-            10 C-2 <Red>PIC</Red> 9(02). <br />
-          </div>
-        </div>
-      </div>
 
-      <h4>MANIPULACIÓN DE TABLAS</h4>
+      <h4>GO TO</h4>
       <p>
-        Una tabla es un conjunto de elementos del mismo tipo, que comparten en
-        común un nombre común pero que son distinguibles por la posición que
-        ocupa cada uno de ellos en la tabla. Cada elemento de la tabla puede
-        contener un dato numérico o una cadena de caracteres o una combinación
-        de ambos. La representación de una tabla se hace mediante variables
-        suscritas o de subíndices y puede tener una o varias dimensiones. La
-        descripción de una tabla se hace en la sección FILE y en la sección
-        WORKINGSTORAGE utilizando la cláusula OCCURS.
-      </p>
-      <h4>Sentencia SET</h4>
-      <p>
-        Permite transferir el valor de un literal, nombre de datos o de un
-        índice a uno o más identificadores.
-      </p>
-      <ul>
-        <li>
-          Formato 1: Cuando se ejecuta esta sentencia el valor del operando que
-          sigue a TO es transferido a los operandos que siguen a SET. SET I J TO
-          1.
-        </li>
-        <li>
-          Formato 2: Este formato permite ir incrementando (UP BY) o
-          decrementando (DOWN BY) el índice o índices en el valor especificado
-          por nombre dato o entero. SET I J UP BY 1.
-        </li>
-      </ul>
-
-      <h4>Generar una tabla con OCCURS</h4>
-      <ol>
-        <li>
-          <strong>Definir la estructura del elemento de la tabla:</strong>
-          <p>
-            No puede especificarse en una descripción de nivel 01, 77, 88 o 66.
-            Entero indica el número de veces que se repite un campo con la misma
-            descripción. Se definen solamente en los niveles 02 a 49 ambos
-            inclusive Decide qué tipo de datos contendrá cada elemento de la
-            tabla y define la estructura correspondiente utilizando la cláusula
-            01 LEVEL. Por ejemplo, si deseas crear una tabla de nombres, cada
-            elemento podría ser una cadena de caracteres. Aquí tienes un ejemplo
-            de cómo podrías definir la estructura del elemento:
-          </p>
-        </li>
-        <div className="codigo">
-          01 NOMBRE-REGISTRO. <br />
-          <Esp /> 05 NOMBRE <Red>PIC</Red> X(30). <br />
-          <Esp /> 05 APELLIDO <Red>PIC</Red> X(30). <br />
-        </div>
-
-        <li>
-          <strong>Declarar la tabla utilizando la cláusula OCCURS:</strong>
-          Después de definir la estructura del elemento de la tabla, puedes
-          declarar la tabla utilizando la cláusula OCCURS. Especifica cuántos
-          elementos contendrá la tabla y cuál será el nivel de repetición de
-          cada elemento. Por ejemplo, para declarar una tabla de nombres con
-          capacidad para 100 elementos, puedes hacer lo siguiente:
-        </li>
-        <div className="codigo">
-          01 TABLA-NOMBRES. <br />
-          <Esp />
-          05 NOMBRE-REGISTRO <Red>OCCURS</Red> 100 <Red>TIMES</Red>. <br />
-          <Esp />
-          <Esp />
-          10 NOMBRE <Red>PIC</Red> X(30). <br />
-          <Esp />
-          <Esp />
-          10 APELLIDO <Red>PIC</Red> X(30). <br />
-        </div>
-        <li>
-          <strong>Acceder y manipular la tabla:</strong>
-          Una vez que hayas definido la tabla, puedes acceder y manipular sus
-          elementos de la misma manera que lo harías con cualquier otra variable
-          en COBOL. Puedes acceder a elementos específicos de la tabla
-          utilizando índices y realizar operaciones con ellos según sea
-          necesario en tu programa.
-        </li>
-        <div className="codigo">
-          <Red>IDENTIFICATION DIVISION</Red>. <br />
-          <Red>PROGRAM-ID</Red>. <Red>EJEMPLO-TABLA</Red>. <br /> <br />
-          <Red>DATA DIVISION</Red>. <br />
-          <Red>WORKING-STORAGE SECTION</Red>. <br />
-          01 NOMBRE-REGISTRO. <br />
-          <Esp />
-          05 NOMBRE <Red>PIC</Red> X(30). <br />
-          <Esp />
-          05 APELLIDO <Red>PIC</Red> X(30). <br /> <br />
-          01 TABLA-NOMBRES. <br />
-          <Esp />
-          05 NOMBRE-REGISTRO <Red>OCCURS</Red> 100 <Red>TIMES</Red>. <br />
-          <Esp />
-          <Esp />
-          10 NOMBRE <Red>PIC</Red> X(30). <br />
-          <Esp />
-          <Esp />
-          10 APELLIDO <Red>PIC</Red> X(30). <br /> <br />
-          <Red>PROCEDURE DIVISION</Red>. <br />
-          <Esp />
-          <Red>PERFORM</Red> VACIAR-TABLA <br />
-          <Esp />
-          <Red>PERFORM</Red> LLENAR-TABLA <br />
-          <Esp />
-          <Red>PERFORM</Red> MOSTRAR-TABLA <br />
-          <Esp />
-          <Red>STOP RUN</Red>. <br /> <br />
-          VACIAR-TABLA. <br />
-          <Esp />
-          <Red>INITIALIZE</Red> TABLA-NOMBRES. <br /> <br />
-          LLENAR-TABLA. <br />
-          <Esp />
-          <Red>MOVE</Red> <Grey>'Juan'</Grey> <Red>TO</Red> NOMBRE-REGISTRO(1).
-          // Asigna 'Juan' al primer elemento <br />
-          <Esp />
-          <Red>MOVE</Red> <Grey>'Perez'</Grey> <Red>TO</Red> APELLIDO(1). //
-          Asigna 'Perez' al primer elemento <br />
-          <Esp />
-          <Red>MOVE</Red> <Grey>'Maria'</Grey> <Red>TO</Red> NOMBRE-REGISTRO(2).
-          // Asigna 'Maria' al segundo elemento <br />
-          <Esp />
-          <Red>MOVE</Red> <Grey>'Gomez'</Grey> <Red>TO</Red> APELLIDO(2). //
-          Asigna 'Gomez' al segundo elemento <br />
-          ... // Continuar llenando la tabla <br /> <br />
-          MOSTRAR-TABLA. <br />
-          <Esp />
-          <Red>DISPLAY</Red> <Grey>'Tabla de nombres:'</Grey> <br />
-          <Esp />
-          <Red>PERFORM</Red> <Red>VARYING</Red> I <Red>FROM</Red> 1{" "}
-          <Red>BY</Red> 1 <Red>UNTIL</Red> I {"> "}100 <br />
-          <Esp />
-          <Esp />
-          <Red>DISPLAY</Red> <Grey>'Nombre: '</Grey> NOMBRE-REGISTRO(I) <br />
-          <Esp />
-          <Esp />
-          <Red>DISPLAY</Red> <Grey>'Apellido: '</Grey> APELLIDO(I) <br />
-          <Esp />
-          <Red>END-PERFORM</Red>. <br />
-          <br />
-        </div>
-      </ol>
-      <h5>Manipulación de tablas en PROCEDURE DIVISION</h5>
-      <p>
-        Cuando se especifica nombre dato-2 debe ser descrito por medio de la
-        cláusula USAGE IS INDEX o como un campo elemental entero. El valor de
-        este campo evoluciona paralelamente al índice de la tabla y se emplea
-        cuando:
-      </p>
-        <ul>
-          <li>
-            A: Aparte de realizar la búsqueda de un determinado elemento de la
-            tabla se desea conocer su posición.
-          </li>
-          <li>
-            B: Se desea incrementar simultáneamente el índice de otra tabla
-            diferente a la tabla en la que se está realizando la búsqueda. Las
-            condiciones de las cláusulas WHEN se evalúan en el orden en que
-            están descritas.
-          </li>
-        </ul>
-
-      <h4>El Uso de JUST</h4>
-      <p>
-        La palabra reservada JUST en COBOL se utiliza en combinación con ciertas
-        cláusulas para especificar cómo se debe justificar el contenido de una
-        variable alfanumérica dentro de un campo de longitud fija.
-      </p>
-      <ul>
-        <li>
-          <strong>JUST LEFT</strong>: se utiliza para justificar el contenido de
-          una variable alfanumérica hacia la izquierda dentro de un campo de
-          longitud fija. Los espacios en blanco se añaden a la derecha del
-          contenido si es necesario. Por ejemplo: JUST LEFT en una asignación
-          MOVE asegura que el contenido se coloque en el lado izquierdo del
-          campo.
-        </li>
-        <li>
-          <strong>JUST RIGHT</strong>: se utiliza para justificar el contenido
-          de una variable alfanumérica hacia la derecha dentro de un campo de
-          longitud fija. Los espacios en blanco se añaden a la izquierda del
-          contenido si es necesario. Por ejemplo: JUST RIGHT en una asignación
-          MOVE asegura que el contenido se coloque en el lado derecho del campo.
-        </li>
-        <li>
-          <strong>JUST CENTER</strong>: se utiliza para justificar el contenido
-          de una variable alfanumérica en el centro dentro de un campo de
-          longitud fija. Los espacios en blanco se añaden a ambos lados del
-          contenido si es necesario. Por ejemplo: JUST CENTER en una asignación
-          MOVE asegura que el contenido se coloque en el centro del campo.
-        </li>
-        <li>
-          <strong>JUST SPACE</strong>: se utiliza para reemplazar los caracteres
-          no alfanuméricos con espacios en blanco dentro de un campo de longitud
-          fija. Por ejemplo: JUST SPACE en una asignación MOVE asegura que los
-          caracteres no alfanuméricos se reemplacen con espacios en blanco.
-        </li>
-        <li>
-          <strong>JUST ZERO o JUST ZEROS</strong>: se utiliza para reemplazar
-          los caracteres no numéricos con ceros dentro de un campo de longitud
-          fija. Por ejemplo: JUST ZERO en una asignación MOVE asegura que los
-          caracteres no numéricos se reemplacen con ceros.
-        </li>
-      </ul>
-
-      <h5>JUSTIFIED</h5>
-      <p>
-        Esta cláusula permite justificar un valor alfabético o alfanumérico a la
-        derecha.
-      </p>
-      <h5>JUSTIFIED RIGHT</h5>
-      <p>
-        Esta cláusula puede especificarse solamente con campos elementales y no
-        puede especificarse para un campo descrito como numérico o de edición.
-      </p>
-
-      <h4>COMP y COMP-3</h4>
-      <p>
-        En COBOL, COMP y COMP-3 son dos tipos de datos utilizados para
-        representar números en formato binario. Ambos son utilizados para
-        almacenar datos numéricos de manera eficiente en la memoria y ocupan
-        menos espacio que sus equivalentes alfanuméricos.
-      </p>
-      <ul>
-        <li>
-          <strong>COMP:</strong>
-          También conocido como BINARY, se utiliza para almacenar números
-          enteros en formato binario de 2 bytes (para números de hasta 4
-          dígitos) o 4 bytes (para números de hasta 9 dígitos). Este formato es
-          más eficiente en términos de espacio de almacenamiento y es útil
-          cuando se necesita un rendimiento óptimo en el acceso a los datos
-          numéricos. Los datos almacenados en formato COMP no son legibles para
-          los humanos directamente, ya que están en formato binario. Por
-          ejemplo, COMP PIC 9(4) se utilizaría para almacenar un número entero
-          de hasta 4 dígitos en formato binario.
-        </li>
-        <div className="codigo">
-          01 NUM-COMP <Red>PIC</Red> 9(5)V9(2) COMP <Red>VALUE</Red> 12345,67.
-        </div>
-        <li>
-          <strong>COMP-3:</strong>
-          También conocido como PACKED-DECIMAL o PACKED, se utiliza para
-          almacenar números decimales en formato binario comprimido. Este
-          formato es especialmente útil para almacenar números decimales, ya que
-          optimiza el uso de espacio de almacenamiento al comprimir los dígitos
-          decimales. En el formato COMP-3, cada dígito decimal se almacena en 4
-          bits, lo que significa que cada par de dígitos decimales se almacena
-          en un byte. El último dígito decimal se almacena con un signo de
-          paridad en el último nibble del último byte, lo que indica si el
-          número es positivo o negativo. Por ejemplo, COMP-3 PIC S9(5)V99 se
-          utilizaría para almacenar un número decimal de 5 dígitos enteros y 2
-          dígitos decimales en formato binario comprimido.
-        </li>
-        <div className="codigo">
-          01 NUM-COMP3 <Red>PIC</Red> S9(5)V9(2) COMP-3 <Red>VALUE</Red>{" "}
-          12345,67.
-        </div>
-      </ul>
-      <h4>Variables de Edición</h4>
-      <p>
-        En COBOL, las variables de edición son variables numéricas o
-        alfanuméricas que se utilizan para fines de presentación y visualización
-        en informes o pantallas de usuario. Estas variables se utilizan para
-        formatear los datos de una manera legible y comprensible para los
-        usuarios finales.
-      </p>
-
-      <ul>
-        <li>
-          <strong>Formato de Visualización: </strong>
-          Las variables de edición se utilizan para dar formato a los datos
-          antes de ser mostrados en informes o pantallas de usuario. Esto puede
-          incluir la adición de signos de moneda, separadores de miles, puntos
-          decimales, y otros caracteres de formato.
-        </li>
-
-        <li>
-          <strong>Tipos de Variables de Edición: </strong>
-          Las variables de edición pueden ser numéricas o alfanuméricas,
-          dependiendo del tipo de datos que se esté formateando. Para datos
-          numéricos, se pueden utilizar variables de edición numéricas como Z,
-          ZZZZZ, 999.99, etc. Para datos alfanuméricos, se pueden utilizar
-          variables de edición alfanuméricas como X, XX, XXX-XX, etc.
-        </li>
-
-        <li>
-          <strong>Uso de Cláusulas de Edición: </strong>
-          En COBOL, se utilizan cláusulas de edición para definir cómo se deben
-          formatear los datos en las variables de edición. Algunas cláusulas de
-          edición comunes incluyen PIC, USAGE, JUST, SIGN, EDIT, REDEFINES,
-          entre otras.
-        </li>
-
-        <li>
-          <strong>Manipulación de Datos: </strong>
-          Las variables de edición permiten la manipulación de los datos antes
-          de ser presentados. Esto puede incluir la adición o eliminación de
-          caracteres, la especificación de la posición del punto decimal, la
-          configuración del signo, entre otros.
-        </li>
-
-        <li>
-          <strong>Presentación de Información: </strong>
-          Las variables de edición se utilizan principalmente para presentar
-          información de una manera formateada y legible para los usuarios
-          finales. Esto es especialmente útil en informes financieros, extractos
-          bancarios, facturas, y otras aplicaciones donde la presentación de
-          datos es crítica.
-        </li>
-      </ul>
-      <div className="codigo">
-        01 NUM-EDIT <Red>PIC</Red> Z.ZZZ.ZZ9,99- <Red>VALUE</Red> -12345.67.{" "}
-        <br />
-        01 NUM-EDIT2 <Red>PIC</Red> -.---.--9,99 <Red>VALUE</Red> -12345.67
-      </div>
-      <h4>El uso de la Cláusula USAGE</h4>
-      <p>
-        Se utiliza en la definición de variables para indicar el formato de
-        almacenamiento interno de los datos. Permite al programador especificar
-        si una variable se almacenará como datos numéricos, alfanuméricos, o en
-        otros formatos especiales como los decimales empaquetados. Los tipos
-        comunes de USAGE incluyen:
-      </p>
-      <ul>
-        <li>
-          USAGE IS DISPLAY: Se utiliza para variables alfanuméricas. Los datos
-          se almacenan como caracteres ASCII y se pueden mostrar en informes o
-          pantallas.
-        </li>
-        <li>
-          USAGE IS BINARY: Se utiliza para variables numéricas enteras. Los
-          datos se almacenan en formato binario y se pueden utilizar para
-          cálculos aritméticos.
-        </li>
-        <li>
-          USAGE IS COMP: Similar a USAGE IS BINARY, pero se utiliza para números
-          enteros. Los datos se almacenan de manera más eficiente en formato
-          binario.
-        </li>
-        <li>
-          USAGE IS COMP-3 o USAGE IS PACKED-DECIMAL: Se utiliza para variables
-          numéricas decimales empaquetadas. Los datos se almacenan en formato
-          comprimido, ahorrando espacio de almacenamiento. Otros tipos menos
-          comunes incluyen USAGE IS POINTER, USAGE IS INDEX, etc.
-        </li>
-      </ul>
-      <div className="codigo">
-        01 NUMERO-DIAS USAGE IS BINARY. <br />
-        01 SALDO-CUENTA USAGE IS COMP. <br />
-        01 NUMERO-CLIENTE USAGE IS DISPLAY. <br />
-        01 MONTO-PAGAR USAGE IS COMP-3. <br />
-      </div>
-      <p>
-        La elección del tipo correcto de USAGE puede tener un impacto en el
-        rendimiento y el uso de memoria de un programa COBOL. Es importante
-        seleccionar el tipo adecuado de USAGE según el tipo de datos que se está
-        manejando y los requisitos de rendimiento del programa.
-      </p>
-
-      <h4>Uso de CONSTANT</h4>
-      <p>
-        (COBOL 2002). Es una palabra reservada que se utiliza para definir
-        constantes, es decir, valores que no cambian durante la ejecución del
-        programa y que se utilizan para representar valores fijos y
-        predefinidos. Las constantes proporcionan una forma de asignar un nombre
-        significativo a un valor específico, lo que hace que el código sea más
-        legible y mantenible.
+        La sentencia GO TO se utiliza para redirigir la ejecución a una etiqueta
+        específica en el código. Aunque su uso no se recomienda en programas
+        modernos, todavía se encuentra en aplicaciones COBOL legadas.
       </p>
       <div className="codigo">
-        DATA DIVISION. <br />
-        WORKING-STORAGE SECTION. <br />
-        01 PI CONSTANT 3.14159. <br />
+        <Red>IF</Red> Error <br />
+        <Esp />
+        <Red>GO TO</Red> ManejarError <br />
+        <Red>END-IF</Red>.
       </div>
       <p>
-        Las constantes se definen una sola vez y su valor no cambia durante la
-        ejecución del programa. Una vez que se define una constante, se puede
-        utilizar en cualquier lugar del programa donde se necesite su valor. Las
-        constantes pueden ser de cualquier tipo de datos admitido en COBOL,
-        incluyendo numéricos, alfanuméricos, alfanuméricos de tamaño variable,
-        etc. Mejoran la legibilidad del código al proporcionar nombres
-        descriptivos para valores fijos y predefinidos. Facilitan el
-        mantenimiento del código al permitir cambios en los valores simplemente
-        modificando la definición de la constante en lugar de buscar y cambiar
-        cada instancia del valor en el código.
+        En este ejemplo, si se encuentra un error, el programa salta a la
+        etiqueta ManejarError.
       </p>
-      <h4>Uso de ROUNDED</h4>
-      <p>
-        es una palabra reservada que se utiliza en operaciones aritméticas para
-        especificar que el resultado debe ser redondeado al valor entero más
-        cercano después de realizar la operación. Esta palabra clave se utiliza
-        comúnmente en combinación con operaciones aritméticas que podrían
-        resultar en un valor con decimales para asegurarse de que el resultado
-        final sea un valor entero. ROUNDED se coloca al final de una operación
-        aritmética para indicar que el resultado debe ser redondeado al valor
-        entero más cercano. Esto se aplica principalmente a las operaciones de
-        división, multiplicación y suma que podrían producir un resultado con
-        decimales. Si el valor decimal es exactamente 0.5, el resultado se
-        redondeará al entero más cercano siguiendo las reglas de redondeo
-        estándar (generalmente redondeo hacia el entero más cercano). Es
-        importante tener en cuenta que ROUNDED puede afectar la precisión de los
-        cálculos, especialmente en operaciones que involucran valores decimales
-        significativos. Debes evaluar cuidadosamente si es necesario utilizar
-        ROUNDED en tus operaciones aritméticas, considerando las implicaciones
-        de redondeo en tus resultados.
-      </p>
-      <div className="codigo">
-        COMPUTE RESULTADO = DIVIDENDO / DIVISOR ROUNDED.
-      </div>
-      <h4>Conclusión</h4>
-      <p>
-        Los tipos de datos alfanuméricos en COBOL son esenciales para
-        representar texto y caracteres en aplicaciones empresariales. La
-        elección del tipo de dato y la especificación de tamaño adecuados son
-        fundamentales para garantizar el almacenamiento eficiente de datos de
-        texto. Además, las cláusulas como OCCURS y REDEFINES permiten manejar
-        estructuras de datos más complejas y reorganizar datos según sea
-        necesario en un programa COBOL. Estos tipos de datos son ampliamente
-        utilizados en aplicaciones que involucran nombres, descripciones,
-        mensajes y otros datos de texto.
-      </p>
+
+      <h5>Terminación de un Programa</h5>
+      <ul>
+        <li>
+          <mark>EXIT PROGRAM</mark>: Especifica el fin de una rutina y
+          retorna el control al programa llamador.
+        </li>
+        <li>
+          <mark>STOP RUN</mark>: Al fin de ejecución retorna el control al
+          sistema operativo.
+        </li>
+        <li>
+          <mark>GOBACK</mark>: Cumple las dos funciones la de EXIT PROGRAM, si es una rutina
+          y la STOP RUN si es un programa MAIN. EL GOBACK es el recomendado.
+        </li>
+      </ul>
+      <h5>Terminación de Sentencias</h5>
+      <Cuadro data={{ gridTemplateColumns: "1fr 1fr 1fr" }} key={1}>
+        <div className="col">
+          <ul>
+            <li>
+              <strong>END-SEARCH</strong>
+            </li>
+            <li>
+              <strong>END-PERFORM</strong>
+            </li>
+            <li>
+              <strong>END-READ</strong>
+            </li>
+            <li>
+              <strong>END-IF</strong>
+            </li>
+          </ul>
+        </div>
+        <div className="col">
+          <ul>
+            <li>END-ADD</li>
+            <li>END-INVOKE</li>
+            <li>END-CALL</li>
+            <li>END-MULTIPLY</li>
+            <li>END-START</li>
+            <li>END-COMPUTE</li>
+            <li>END-STRING</li>
+          </ul>
+        </div>
+        <div className="col">
+          <ul>
+            <li>END-DELETE</li>
+            <li>END-SUBSTRING</li>
+            <li>END-DIVIDE</li>
+            <li>END-RETURN</li>
+            <li>END-UNSTRING</li>
+            <li>END-EVALUATE</li>
+            <li>END-REWRITE</li>
+            <li>END-WRITE</li>
+          </ul>
+        </div>
+      </Cuadro>
     </section>
   );
 };

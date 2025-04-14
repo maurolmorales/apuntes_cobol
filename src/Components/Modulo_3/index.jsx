@@ -7,7 +7,6 @@ import { Mod3_1 } from "./Mod3_1";
 import { Mod3_2 } from "./Mod3_2";
 import { Mod3_3 } from "./Mod3_3";
 import { Mod3_4 } from "./Mod3_4";
-import { Mod3_5 } from "./Mod3_5";
 
 /*
 3.1 Declaración de variables
@@ -29,7 +28,6 @@ const Modulo3 = () => {
       <Mod3_2 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp}/>
       <Mod3_3 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp}/>
       <Mod3_4 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp}/>
-      <Mod3_5 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp}/>
     </article>
   );
 };
