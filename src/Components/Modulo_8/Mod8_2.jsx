@@ -1,122 +1,200 @@
 const Mod8_2 = ({ Cuadro, Red, Grey, Esp, Com }) => {
   return (
     <section id="8.2">
-      <h3>8.2. Pruebas Unitarias y de Integración en COBOL</h3>
+      <h3>8.2 Tipos de Acceso</h3>
       <p>
-        Las pruebas unitarias y de integración son componentes fundamentales en
-        el proceso de desarrollo de software. En COBOL, estas pruebas aseguran
-        que los programas sean funcionales y se integren correctamente con otros
-        componentes del sistema.{" "}
+        El modo de acceso define cómo un programa leerá o escribirá registros:
       </p>
-      <h4>Pruebas Unitarias</h4>
+
+      <h4>SEQUENTIAL</h4>
       <p>
-        Las pruebas unitarias se centran en evaluar individualmente las unidades
-        de código más pequeñas, como subrutinas, procedimientos o módulos. El
-        objetivo es verificar que cada unidad funcione según lo previsto antes
-        de integrarla en el sistema más grande.
+        Los registros se leen o escriben uno por uno, en el orden en que están
+        almacenados. Solo se puede ir hacia adelante.
       </p>
+
+      <div className="codigo">
+        <Red>ACCESS MODE IS SEQUENTIAL</Red>
+      </div>
+      <h4>RANDOM</h4>
       <p>
-        Para llevar a cabo pruebas unitarias en COBOL, puedes seguir estos
-        pasos:
+        El acceso a registros se hace directamente, sin seguir un orden. Se
+        utiliza con archivos RELATIVE o INDEXED.
       </p>
+
+      <div className="codigo">
+        <Red>ACCESS MODE IS RANDOM</Red>
+      </div>
+      <h4>DYNAMIC</h4>
+      <p>
+        Permite alternar entre acceso secuencial y acceso directo durante la
+        ejecución del programa.
+      </p>
+
+      <div className="codigo">
+        <Red>ACCESS MODE IS DYNAMIC</Red>
+      </div>
+      <h4>Paso a paso para manejo de archivos en COBOL</h4>
       <ol>
+        <li>Declarar los archivos en FILE-CONTROL (ENVIRONMENT DIVISION)</li>
+        <div className="twoColums">
+          <div className="codigo">
+            <Red>ENVIRONMENT DIVISION</Red>. <br />
+            <Red>INPUT-OUTPUT SECTION</Red>. <br />
+            <Red>FILE-CONTROL</Red>. <br />
+            <Esp />
+            <Esp /> <Red>SELECT</Red> archivo-logico <br />
+            <Esp />
+            <Esp />
+            <Esp />
+            <Red>ASSIGN TO </Red>
+            <Grey>'NOMBRE.ARCHIVO'</Grey> <br />
+            <Esp />
+            <Esp />
+            <Esp />
+            <Red>ORGANIZATION IS</Red>{" "}
+            <Com>{"{SEQUENTIAL | RELATIVE | INDEXED}"}</Com> <br />
+            <Esp />
+            <Esp />
+            <Esp />
+            <Red>ACCESS MODE IS</Red>{" "}
+            <Com>{"{SEQUENTIAL | RANDOM | DYNAMIC}"}</Com> <br />
+            <Esp />
+            <Esp />
+            <Esp />
+            <Red>OPTIONAL</Red> <br />
+            <Esp />
+            <Esp />
+            <Esp />
+            <Com>[</Com>
+            <Red>RECORD KEY IS</Red> clave-principal<Com>]</Com> <br />
+            <Esp />
+            <Esp />
+            <Esp />
+            <Com>[</Com>
+            <Red>ALTERNATE RECORD KEY IS</Red> clave-secundaria WITH DUPLICATES
+            <Com>]</Com> <br />
+            <Esp />
+            <Esp />
+            <Esp />
+            <Com>[</Com>
+            <Red>RELATIVE KEY IS</Red> clave-relativa<Com>]</Com>. <br />
+          </div>
+          <div style={{ paddingLeft: "1rem" }}>
+            <ul>
+              <li>
+                <mark>ORGANIZATION</mark>: tipo de estructura del archivo.
+              </li>
+              <li>
+                <mark>ACCESS MODE</mark>: cómo se accederá a los registros.
+              </li>
+              <li>
+                <mark>RECORD KEY</mark>: clave primaria (para archivos
+                indexados).
+              </li>
+              <li>
+                <mark>RELATIVE KEY</mark>: para archivos relativos.
+              </li>
+              <li>
+                <mark>OPTIONAL</mark>: Si el archivo NO EXISTE en el sistema El programa no termina con error automáticamente crea el archivo. Para versiones nuevas de Cobol.
+              </li>
+            </ul>
+          </div>
+        </div>
         <li>
-          Identificar las unidades de código que se probarán individualmente.
+          Definir la estructura del archivo en FILE SECTION (DATA DIVISION)
         </li>
-        <li>
-          Crear casos de prueba que cubran diferentes escenarios y caminos de
-          ejecución.
-        </li>
-        <li>
-          Ejecutar los casos de prueba y verificar que los resultados sean los
-          esperados.
-        </li>
-        <li>
-          Solucionar errores y defectos encontrados durante las pruebas
-          unitarias.
-        </li>
+        <div className="codigo">
+          <Red>DATA DIVISION</Red>. <br />
+          <Red>FILE SECTION</Red>. <br />
+          <Red>FD</Red> archivo-logico. <br />
+          01 registro. <br />
+          05 campo-1 <Red>PIC</Red> <Com>...</Com> <br />
+          05 campo-2 <Red>PIC</Red> <Com>...</Com> <br />
+          <Com>...</Com> <br />
+        </div>
+        <p>📌 Para archivos RELATIVE también puede usarse:</p>
+        <div className="codigo">
+          <Red>RELATIVE KEY IS</Red> clave-relativa.
+        </div>
+        <p>📌 Para archivos INDEXADOS:</p>
+        Se define la clave dentro del registro.
+        <br /><br /> <br />
+        <li>Abrir el archivo (PROCEDURE DIVISION)</li>
+        
+          <div className="codigo">
+            <Red>OPEN</Red> <Com>{"{INPUT | OUTPUT | I-O | EXTEND}"}</Com>{" "}
+            archivo-logico
+          </div>
+          <div>
+            <ul>
+              <li>
+                <mark>INPUT</mark>: solo lectura. Si el archivo no existe producirá un error.
+              </li>
+              <li>
+                <mark>OUTPUT</mark>: solo escritura (crea o sobreescribe). Si el archivo existe lo reescribe. Si no existe el archivo, lo crea.
+              </li>
+              <li>
+                <mark>I-O</mark>: Lectura y escritura (para archivos indexados o
+                relativos). Si el archivo no existe producirá un error.
+              </li>
+              <li>
+                <mark>EXTEND</mark>: Agregar al final (solo secuenciales). Si existe el achivo lo abre. Si no existe el archivo, lo crea. En ambos casos añade los archivos al final. 
+              </li>
+            </ul>
+          </div>
+
+        <li>Leer o escribir registros</li>
+        <h5>🟩 Para archivos secuenciales</h5>
+        <div className="codigo">
+          <Red>READ</Red> archivo-logico <br />
+          <Esp /> <Red>AT END</Red> <br />
+          <Esp />
+          <Esp /> <Red>SET</Red> fin-de-archivo <Red>TO TRUE</Red> <br />
+          <Red>END-READ</Red>. <br />
+        </div>
+        <div className="codigo">
+          <Red>WRITE</Red> registro.
+        </div>
+        <h5> Para archivos indexados o relativos</h5>
+        <ul>
+          <li>📖 Lectura</li>
+        </ul>
+        <div className="codigo">
+          <Red>READ</Red> archivo-logico <br />
+          <Esp /> <Com>[</Com>
+          <Red>RECORD KEY IS</Red> campo-clave<Com>]</Com> <br />
+          <Esp /> <Com>{"{NEXT | INVALID KEY ...}"}</Com> <br />
+          <Red>END-READ</Red>. <br />
+        </div>
+        <ul>
+          <li>✍ Escritura</li>
+        </ul>
+        <div className="codigo">
+          <Red>WRITE</Red> registro <br />
+          <Com>[</Com>
+          <Red>INVALID KEY</Red> ...<Com>]</Com>.
+        </div>
+        <ul>
+          <li>🔁 Reescritura</li>
+        </ul>
+        <div className="codigo">
+          <Red>REWRITE</Red> registro <br />
+          <Com>[</Com>
+          <Red>INVALID KEY</Red> ...<Com>]</Com>.
+        </div>
+        <ul>
+          <li>❌ Eliminación</li>
+        </ul>
+        <div className="codigo">
+          <Red>DELETE</Red> archivo-logico <br />
+          <Com>[</Com>
+          <Red>INVALID KEY</Red> ...<Com>]</Com>.
+        </div> <br /><br />
+        <li>Cerrar el archivo</li>
+        <div className="codigo">
+          <Red>CLOSE</Red> archivo-logico.
+        </div>
       </ol>
-      <p>
-        Las pruebas unitarias son efectivas para identificar errores en un nivel
-        temprano del proceso de desarrollo y facilitan la depuración y
-        corrección de problemas.
-      </p>
-      <h4>Pruebas de Integración</h4>
-      <p>
-        Las pruebas de integración se enfocan en evaluar cómo interactúan y se
-        comunican diferentes unidades de código o programas entre sí dentro de
-        un sistema. Estas pruebas son críticas para garantizar que los
-        componentes del sistema funcionen de manera conjunta y que los datos se
-        transfieran correctamente entre ellos.
-      </p>
-      <p>
-        Para llevar a cabo pruebas de integración en COBOL, puedes seguir estos
-        pasos:
-      </p>
-      <ol>
-        <li>
-          Identificar las interfaces entre los componentes del sistema que se
-          integrarán.
-        </li>
-        <li>
-          Diseñar casos de prueba que evalúen la comunicación y la
-          interoperabilidad de los componentes.
-        </li>
-        <li>
-          Ejecutar las pruebas de integración y verificar que los datos se
-          transfieran y procesen correctamente entre los componentes.
-        </li>
-        <li>
-          Solucionar problemas de comunicación y errores encontrados durante las
-          pruebas de integración.
-        </li>
-      </ol>
-      <p>
-        Las pruebas de integración permiten detectar problemas relacionados con
-        la interacción entre componentes, como problemas de comunicación,
-        incompatibilidades de datos y problemas de sincronización.
-      </p>
-      <h4>Herramientas y Entornos de Prueba</h4>
-      <p>
-        Para llevar a cabo pruebas unitarias y de integración en COBOL, puedes
-        utilizar herramientas de prueba y entornos de desarrollo que admitan la
-        ejecución de pruebas automatizadas. Estas herramientas te permiten
-        definir, ejecutar y gestionar casos de prueba de manera eficiente.
-      </p>
-      <p>
-        También es importante contar con un entorno de prueba adecuado, que
-        puede ser similar al entorno de producción, pero controlado y aislado
-        para evitar posibles efectos adversos en los datos y el sistema en
-        producción.
-      </p>
-      <h4>Documentación de Pruebas</h4>
-      <p>
-        Es fundamental documentar las pruebas unitarias y de integración
-        realizadas. La documentación incluye detalles sobre los casos de prueba,
-        los resultados obtenidos y cualquier corrección o acción tomada como
-        resultado de las pruebas. Esto permite realizar un seguimiento de las
-        pruebas y garantiza la reproducibilidad en el futuro.
-      </p>
-      <h4>Automatización de Pruebas</h4>
-      <p>
-        La automatización de pruebas es especialmente valiosa en entornos de
-        desarrollo continuo (CI/CD) y en proyectos a gran escala. Utilizar
-        herramientas de automatización de pruebas permite ejecutar repetidamente
-        un conjunto de pruebas unitarias e de integración, lo que ahorra tiempo
-        y garantiza una cobertura de pruebas exhaustiva.
-      </p>
-      <h4>Conclusión</h4>
-      <p>
-        Las pruebas unitarias y de integración son esenciales para garantizar la
-        calidad y la confiabilidad de los programas COBOL en sistemas
-        empresariales y legados. La combinación de pruebas unitarias para
-        evaluar componentes individuales y pruebas de integración para evaluar
-        la comunicación entre componentes es fundamental para identificar y
-        corregir problemas de manera temprana en el ciclo de desarrollo. La
-        documentación adecuada y la automatización de pruebas pueden mejorar la
-        eficiencia y la calidad del proceso de pruebas en COBOL.
-      </p>
-      
     </section>
   );
 };

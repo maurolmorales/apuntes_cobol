@@ -6,18 +6,22 @@ import { Esp } from "../espacio.jsx";
 import { Mod8_1 } from "./Mod8_1";
 import { Mod8_2 } from "./Mod8_2";
 import { Mod8_3 } from "./Mod8_3";
+import { Mod8_4 } from "./Mod8_4";
+import { Mod8_5 } from "./Mod8_5";
 
 const Modulo8 = () => {
   return (
     <article id="modulo-8">
       <div className="h2-topBar">
-        <h2> Módulo 8: Depuración y Pruebas en COBOL</h2>
+        <h2> Módulo 8: Archivos en COBOL</h2>
 
         <a href="#indice">al Indice</a>
       </div>
       <Mod8_1 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp}/>
       <Mod8_2 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp}/>
       <Mod8_3 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp}/>
+      <Mod8_4 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp}/>
+      <Mod8_5 Cuadro={Cuadro} Red={Red} Grey={Grey} Com={Com} Esp={Esp}/>
     </article>
   );
 };

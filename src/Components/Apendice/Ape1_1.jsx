@@ -1,13 +1,10 @@
-import img1 from "./img/display_1.png";
-import img2 from "./img/display_2.png";
-import img3 from "./img/com3_1.png";
+
 import Cuadro from "../Cuadro";
-import layoutFijo from "./img/layoutFijo.png";
 
 const Ape1_1 = () => {
   return (
     <section id="ape1_1">
-      <h3>Almacenamiento de Datos en Mainframe</h3>
+      {/* <h3>Almacenamiento de Datos en Mainframe</h3>
       <p>
         Los datos en un mainframe IBM pueden almacenarse en diferentes formatos
         según su uso.
@@ -80,7 +77,7 @@ const Ape1_1 = () => {
         <strong>Campo</strong>: unidad mínima de datos dentro de un registro.
         Ejemplo: Cada uno de los 28 campos enumerados en el ejemplo del layout
         de registro.
-      </p>
+      </p> */}
       <h4>ARCHIVOS QSAM, SECUENCIALES o PLANOS</h4>
       <p>
         Los archivos planos se llaman a todos aquellos archivos de datos que

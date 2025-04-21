@@ -497,6 +497,9 @@ const Mod3_4 = ({ Cuadro, Red, Grey, Esp, Com }) => {
           procedimiento-1 y procedimiento-2, ambos inclusive.
         </p>
       </div>
+      <li>
+        <mark>THRU</mark> solo admite dos <mark>PERFORM</mark>.
+      </li>
       <p>
         ⚠️ Importante: Todos los párrafos entre INICIAR y FINALIZAR (inclusive)
         se ejecutarán en orden.

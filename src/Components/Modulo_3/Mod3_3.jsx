@@ -524,6 +524,32 @@ const Mod3_3 = ({ Cuadro, Red, Grey, Esp, Com }) => {
           valores de variables en las condiciones.
         </p>
       </div>
+      <h5>Caso particular</h5>    
+      <p>Un campo declarado con nivel 77 no puede tener subniveles estructurales como lo haría un campo de nivel 01 (es decir, no puede tener por debajo 02, 03, etc.).
+PERO... las condiciones de nivel 88 no son realmente subcampos en cuanto a estructura de datos. Las condiciones de nivel 88 no crean campos nuevos ni subniveles, sino que son etiquetas simbólicas asociadas al contenido de un campo ya definido.
+
+Por eso, sí se pueden usar condiciones 88 asociadas a un campo 77
+</p>
+
+<div className="twoColums">
+  <div className="codigo">
+  77  MI-CAMPO. <br />
+  <Esp/>  02  SUBCAMPO.      
+
+    </div>
+    <div>
+    ❌ Esto es inválido
+    </div> 
+  <div className="codigo">
+  77  WS-STATUS-SUC           <Red>PIC</Red> X. <br />
+  <Esp/>  88  WS-FIN-SUC          <Red>VALUE</Red> 'Y'. <br />
+  <Esp/>  88  WS-NO-FIN-SUC       <Red>VALUE</Red> 'N'.  
+
+    </div>
+    <div>
+    ✅ Esto es perfectamente válido
+    </div> 
+</div>
 
       <h5>SET TO TRUE</h5>
       <p>
@@ -893,6 +919,33 @@ const Mod3_3 = ({ Cuadro, Red, Grey, Esp, Com }) => {
         Dividir la declaración de datos en estructuras claras usando niveles
         (01, 05, 10…).
       </li>
+
+      <h4>Uso de REDEFINES</h4>
+      <p>
+      La cláusula <mark>REDEFINES</mark> permite reutilizar el mismo espacio de memoria para representar los mismos datos de diferentes maneras. Es útil cuando se necesita interpretar un área de datos con distintos formatos según ciertas condiciones.
+      </p>
+<li><mark>REDEFINES</mark> no puede ser usado junto a <mark>OCCURS</mark>.</li>
+<li>Solo una de las estructuras redefinidas debe ser utilizada a la vez para evitar inconsistencias.</li>
+<li>Muy útil para conversiones de datos, compatibilidad entre formatos antiguos y nuevos, o entrada/salida con distintos tipos de registros.</li>
+<div className="twoColums">
+  <div className="codigo">
+  01 AREA-DATOS.  <br />
+  <Esp/> 05 FECHA-ALF   <Red>PIC</Red> X(8).  <br />
+  <Esp/> 05 FECHA-NUM   <Red>REDEFINES</Red> FECHA-ALF.  <br />
+  <Esp/><Esp/><Esp/>    10 ANIO     <Red>PIC</Red> 9(4).  <br />
+  <Esp/><Esp/><Esp/>    10 MES      <Red>PIC</Red> 9(2).  <br />
+  <Esp/><Esp/><Esp/>    10 DIA      <Red>PIC</Red> 9(2).  <br />
+
+  </div>
+  <div>
+  <p>En este ejemplo:</p>
+
+<li>FECHA-ALF y FECHA-NUM ocupan el mismo espacio de memoria.</li>
+<li>Se puede usar FECHA-ALF para trabajar con la fecha como una cadena ("20250419"), o usar FECHA-NUM para tratarla como campos separados de año, mes y día.</li>
+
+
+  </div>
+</div>
     </section>
   );
 };
